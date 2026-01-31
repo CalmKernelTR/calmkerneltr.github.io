@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalmKernel - Linux System Tools</title>
+    <meta name="description" content="Open source tools for Linux system administration. Human + AI collaboration.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐧</text></svg>">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen text-gray-100">
+    <!-- Header -->
+    <header class="container mx-auto px-6 py-8">
+        <nav class="flex justify-between items-center">
+            <div class="text-2xl font-bold flex items-center gap-2">
+                <span>🐧</span>
+                <span>CalmKernel</span>
+            </div>
+            <div class="flex gap-6 text-sm">
+                <a href="#projects" class="hover:text-blue-400 transition">Projeler</a>
+                <a href="#about" class="hover:text-blue-400 transition">Hakkında</a>
+                <a href="https://github.com/CalmKernelTR" class="hover:text-blue-400 transition">GitHub</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <main class="container mx-auto px-6 py-16">
+        <div class="text-center max-w-3xl mx-auto">
+            <h1 class="text-5xl font-bold mb-6">
+                Linux için <span class="text-blue-400">Akıllı Araçlar</span>
+            </h1>
+            <p class="text-xl text-gray-400 mb-8">
+                Açık kaynak sistem yönetim araçları. İnsan + AI işbirliği ile geliştirildi.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="https://github.com/ahm3t0t/bigfive-updater"
+                   class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold transition">
+                    BigFive Updater
+                </a>
+                <a href="https://github.com/CalmKernelTR"
+                   class="border border-gray-600 hover:border-blue-400 px-6 py-3 rounded-lg font-semibold transition">
+                    Tüm Projeler
+                </a>
+            </div>
+        </div>
+
+        <!-- Projects -->
+        <section id="projects" class="mt-24">
+            <h2 class="text-3xl font-bold text-center mb-12">Projeler</h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- BigFive -->
+                <div class="bg-gray-800/50 rounded-xl p-6 card-hover transition duration-300">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-3xl">🛡️</span>
+                        <h3 class="text-xl font-bold">BigFive Updater</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        5 büyük Linux dağıtımı için tek komutla güncelleme.
+                        APT, DNF, Pacman, Zypper, APK desteği.
+                    </p>
+                    <div class="flex gap-2 mb-4">
+                        <span class="bg-green-900/50 text-green-400 px-2 py-1 rounded text-xs">v6.0.2</span>
+                        <span class="bg-blue-900/50 text-blue-400 px-2 py-1 rounded text-xs">Bash</span>
+                        <span class="bg-purple-900/50 text-purple-400 px-2 py-1 rounded text-xs">MIT</span>
+                    </div>
+                    <a href="https://github.com/ahm3t0t/bigfive-updater"
+                       class="text-blue-400 hover:underline text-sm">
+                        GitHub'da görüntüle →
+                    </a>
+                </div>
+
+                <!-- Claude Code Skills -->
+                <div class="bg-gray-800/50 rounded-xl p-6 card-hover transition duration-300">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-3xl">🤖</span>
+                        <h3 class="text-xl font-bold">Claude Code Skills</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Claude Code için 74+ skill koleksiyonu.
+                        Bash, Docker, Git, Security ve daha fazlası.
+                    </p>
+                    <div class="flex gap-2 mb-4">
+                        <span class="bg-green-900/50 text-green-400 px-2 py-1 rounded text-xs">v4.2.0</span>
+                        <span class="bg-yellow-900/50 text-yellow-400 px-2 py-1 rounded text-xs">74 Skills</span>
+                        <span class="bg-purple-900/50 text-purple-400 px-2 py-1 rounded text-xs">MIT</span>
+                    </div>
+                    <a href="https://github.com/ahm3t0t/claude-code-skills"
+                       class="text-blue-400 hover:underline text-sm">
+                        GitHub'da görüntüle →
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="mt-24 max-w-2xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">Hakkında</h2>
+            <div class="bg-gray-800/30 rounded-xl p-8">
+                <p class="text-gray-300 mb-6">
+                    CalmKernel, Linux sistem yöneticileri için açık kaynak araçlar geliştiren
+                    bir girişimdir. Tüm projeler <strong>insan + AI işbirliği</strong> ile
+                    geliştirilmekte ve şeffaf bir şekilde paylaşılmaktadır.
+                </p>
+                <p class="text-gray-400 text-sm italic">
+                    "Tembel ama takıntılı adminin en yakın dostu."
+                </p>
+            </div>
+        </section>
+
+        <!-- Human + AI -->
+        <section class="mt-16 max-w-2xl mx-auto">
+            <div class="flex items-center justify-center gap-8 text-center">
+                <div>
+                    <a href="https://github.com/ahm3t0t" class="block">
+                        <div class="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center text-2xl mb-2 mx-auto hover:bg-gray-600 transition">
+                            👨‍💻
+                        </div>
+                        <span class="text-sm text-gray-400">ahm3t0t</span>
+                    </a>
+                </div>
+                <div class="text-2xl text-gray-600">+</div>
+                <div>
+                    <a href="https://github.com/claude" class="block">
+                        <div class="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center text-2xl mb-2 mx-auto hover:bg-gray-600 transition">
+                            🤖
+                        </div>
+                        <span class="text-sm text-gray-400">Claude</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="container mx-auto px-6 py-12 mt-16 border-t border-gray-800">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-gray-500 text-sm">
+                © 2026 CalmKernel. MIT License.
+            </div>
+            <div class="flex gap-6 text-sm">
+                <a href="mailto:meet@calmkernel.tr" class="text-gray-400 hover:text-blue-400 transition">
+                    meet@calmkernel.tr
+                </a>
+                <a href="https://github.com/CalmKernelTR" class="text-gray-400 hover:text-blue-400 transition">
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
