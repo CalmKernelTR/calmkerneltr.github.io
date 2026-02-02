@@ -27,6 +27,7 @@
             </div>
             <div class="flex gap-6 text-sm">
                 <a href="#projects" class="hover:text-blue-400 transition">Projeler</a>
+                <a href="#blog" class="hover:text-blue-400 transition">Blog</a>
                 <a href="#about" class="hover:text-blue-400 transition">Hakkında</a>
                 <a href="https://github.com/CalmKernelTR" class="hover:text-blue-400 transition">GitHub</a>
             </div>
@@ -63,17 +64,22 @@
                     <div class="flex items-center gap-3 mb-4">
                         <span class="text-3xl">🛡️</span>
                         <h3 class="text-xl font-bold">BigFive Updater</h3>
+                        <span class="bg-green-600 text-white px-2 py-0.5 rounded text-xs font-semibold">NEW</span>
                     </div>
                     <p class="text-gray-400 mb-4">
                         5 büyük Linux dağıtımı için tek komutla güncelleme.
-                        APT, DNF, Pacman, Zypper, APK desteği.
+                        APT, DNF, Pacman, Zypper, APK + Flatpak, Snap, Firmware.
                     </p>
-                    <div class="flex gap-2 mb-4">
-                        <span class="bg-green-900/50 text-green-400 px-2 py-1 rounded text-xs">v6.0.2</span>
-                        <span class="bg-blue-900/50 text-blue-400 px-2 py-1 rounded text-xs">Bash</span>
-                        <span class="bg-purple-900/50 text-purple-400 px-2 py-1 rounded text-xs">MIT</span>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-green-900/50 text-green-400 px-2 py-1 rounded text-xs">v6.1.0 Echo</span>
+                        <span class="bg-blue-900/50 text-blue-400 px-2 py-1 rounded text-xs">5 Distro</span>
+                        <span class="bg-yellow-900/50 text-yellow-400 px-2 py-1 rounded text-xs">170 Test</span>
+                        <span class="bg-purple-900/50 text-purple-400 px-2 py-1 rounded text-xs">CI/CD</span>
                     </div>
-                    <a href="https://github.com/ahm3t0t/bigfive-updater"
+                    <div class="text-xs text-gray-500 mb-3">
+                        --doctor | --history | --json | i18n (TR/EN)
+                    </div>
+                    <a href="https://github.com/CalmKernelTR/bigfive-updater"
                        class="text-blue-400 hover:underline text-sm">
                         GitHub'da görüntüle →
                     </a>
@@ -102,6 +108,30 @@
             </div>
         </section>
 
+        <!-- Blog -->
+        <section id="blog" class="mt-24 max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Blog</h2>
+            <div class="bg-gray-800/50 rounded-xl p-6 card-hover transition duration-300">
+                <div class="flex items-center gap-2 text-sm text-gray-500 mb-2">
+                    <span>📅 2 Şubat 2026</span>
+                    <span>•</span>
+                    <span>BigFive Updater</span>
+                </div>
+                <h3 class="text-xl font-bold mb-3">
+                    <a href="blog/bigfive-v6.1.0.html" class="hover:text-blue-400 transition">
+                        BigFive v6.1.0 "Echo" Yayınlandı - Diagnostics & CI
+                    </a>
+                </h3>
+                <p class="text-gray-400 mb-4">
+                    Yeni --doctor sistem sağlık kontrolü, --history güncelleme geçmişi,
+                    5 distro CI matrix ve 170 otomatik test ile v6.1.0 yayınlandı.
+                </p>
+                <a href="blog/bigfive-v6.1.0.html" class="text-blue-400 hover:underline text-sm">
+                    Devamını oku →
+                </a>
+            </div>
+        </section>
+
         <!-- About -->
         <section id="about" class="mt-24 max-w-2xl mx-auto text-center">
             <h2 class="text-3xl font-bold mb-8">Hakkında</h2>
@@ -111,6 +141,14 @@
                     bir girişimdir. Tüm projeler <strong>insan + AI işbirliği</strong> ile
                     geliştirilmekte ve şeffaf bir şekilde paylaşılmaktadır.
                 </p>
+                <div class="flex flex-wrap justify-center gap-2 mb-6">
+                    <span class="bg-gray-700 px-3 py-1 rounded-full text-xs">Bash</span>
+                    <span class="bg-gray-700 px-3 py-1 rounded-full text-xs">Docker</span>
+                    <span class="bg-gray-700 px-3 py-1 rounded-full text-xs">GitHub Actions</span>
+                    <span class="bg-gray-700 px-3 py-1 rounded-full text-xs">BATS Testing</span>
+                    <span class="bg-gray-700 px-3 py-1 rounded-full text-xs">ShellCheck</span>
+                    <span class="bg-gray-700 px-3 py-1 rounded-full text-xs">Claude AI</span>
+                </div>
                 <p class="text-gray-400 text-sm italic">
                     "Tembel ama takıntılı adminin en yakın dostu."
                 </p>
