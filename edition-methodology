@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edition Metodolojisi: BigFive → Fluent → Zenith | CalmKernel</title>
+    <meta name="description" content="BigFive Updater Edition sistemi açıklaması. Major version'lara göre Edition ve Codename yapısı.">
+    <link rel="canonical" href="https://calmkernel.tr/blog/edition-methodology.html">
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent-green: #3fb950;
+            --accent-blue: #58a6ff;
+            --accent-purple: #a371f7;
+            --accent-orange: #f0883e;
+            --border-color: #30363d;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(13, 17, 23, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+        
+        nav a:hover { color: var(--text-primary); }
+        
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+        
+        .breadcrumb {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .meta {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1rem;
+            color: var(--accent-green);
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            margin: 2rem 0 1rem;
+            color: var(--text-primary);
+        }
+        
+        p {
+            margin-bottom: 1.25rem;
+            color: var(--text-secondary);
+        }
+        
+        strong {
+            color: var(--text-primary);
+        }
+        
+        .highlight-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .highlight-box.purple {
+            border-color: var(--accent-purple);
+            background: rgba(163, 113, 247, 0.05);
+        }
+        
+        .highlight-box.green {
+            border-color: var(--accent-green);
+            background: rgba(63, 185, 80, 0.05);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        th {
+            color: var(--text-secondary);
+            font-weight: 600;
+            background: var(--bg-secondary);
+        }
+        
+        td {
+            color: var(--text-primary);
+        }
+        
+        tr.current {
+            background: rgba(63, 185, 80, 0.1);
+        }
+        
+        tr.current td {
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+        
+        code {
+            background: var(--bg-tertiary);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--accent-orange);
+        }
+        
+        pre {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+        }
+        
+        ul, ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 3rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        
+        .back-link:hover {
+            border-color: var(--accent-green);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            margin-top: 4rem;
+        }
+        
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 1.75rem; }
+            nav ul { display: none; }
+            article { padding: 6rem 1rem 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">🐧 CalmKernel</a>
+            <ul>
+                <li><a href="/#projects">Projeler</a></li>
+                <li><a href="/#blog">Blog</a></li>
+                <li><a href="/#about">Hakkında</a></li>
+                <li><a href="https://github.com/CalmKernelTR">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <article>
+        <div class="breadcrumb">
+            <a href="/">Ana Sayfa</a> → <a href="/#blog">Blog</a> → Edition Metodolojisi
+        </div>
+
+        <h1>Edition Metodolojisi: BigFive → Fluent → Zenith</h1>
+        <div class="meta">
+            📅 3 Şubat 2026 • BigFive Updater • Ahmet TANRIKULU
+        </div>
+
+        <p>
+            BigFive Updater v6.1.0 ile birlikte yeni bir <strong>Edition sistemi</strong> kullanmaya başladık.
+            Bu yazıda sistemin mantığını ve nasıl çalıştığını açıklıyorum.
+        </p>
+
+        <h2>Neden Edition Sistemi?</h2>
+        
+        <p>
+            Proje büyüdükçe sadece versiyon numaraları (v5.0.0, v6.0.0) yeterince ifade edici olmuyordu.
+            Her major version kendi "dönemini" temsil ediyor — farklı odak noktaları, farklı özellikler.
+        </p>
+
+        <div class="highlight-box purple">
+            <strong>Amaç:</strong> Major version'ları anlamlı gruplar halinde organize etmek,
+            her dönemin karakterini yansıtan isimler vermek.
+        </div>
+
+        <h2>Edition Tablosu</h2>
+
+        <table>
+            <tr>
+                <th>Major</th>
+                <th>Edition</th>
+                <th>Codename'ler</th>
+                <th>Odak</th>
+            </tr>
+            <tr>
+                <td>v5.x</td>
+                <td>BigFive</td>
+                <td>Alpine, Beacon, Dream</td>
+                <td>5 distro desteği, temel yapı</td>
+            </tr>
+            <tr class="current">
+                <td>v6.x</td>
+                <td>Fluent ✓</td>
+                <td>Echo, Chrom</td>
+                <td>Akıcı UX, diagnostics, CI/CD</td>
+            </tr>
+            <tr>
+                <td>v7.x</td>
+                <td>Zenith</td>
+                <td>TBD</td>
+                <td>Zirve özellikler (planlanıyor)</td>
+            </tr>
+        </table>
+
+        <h2>Nasıl Çalışıyor?</h2>
+
+        <h3>Edition = Major Version Serisi</h3>
+        <p>
+            Her major version (v5, v6, v7) kendi Edition'ına sahip. Edition isimleri
+            o dönemin karakterini yansıtıyor:
+        </p>
+        <ul>
+            <li><strong>BigFive:</strong> 5 büyük paket yöneticisi desteği (APT, DNF, Pacman, Zypper, APK)</li>
+            <li><strong>Fluent:</strong> Akıcı güncellemeler, sorunsuz UX</li>
+            <li><strong>Zenith:</strong> Zirve noktası, en gelişmiş özellikler</li>
+        </ul>
+
+        <h3>Codename = Minor/Patch Release</h3>
+        <p>
+            Her Edition içindeki release'ler alfabetik codename alıyor:
+        </p>
+        <ul>
+            <li>v6.0.x = Dream (v5'ten geçiş)</li>
+            <li>v6.1.x = <strong>Echo</strong> (şu anki)</li>
+            <li>v6.2.x = Chrom (sonraki)</li>
+        </ul>
+
+        <h3>Format</h3>
+        <pre><code>"Edition Edition - Codename"
+
+Örnek: "Fluent Edition - Echo" (v6.1.0)</code></pre>
+
+        <h2>Pratikte Ne Değişti?</h2>
+
+        <div class="highlight-box green">
+            <strong>CHANGELOG, ROADMAP ve README</strong> dosyalarında artık Edition bilgisi yer alıyor.
+            Script içinde <code>EDITION="Fluent"</code> değişkeni tanımlı.
+        </div>
+
+        <p>
+            Ayrıca <code>codename-watcher</code> adında bir Claude Code skill'i oluşturduk.
+            Bu skill, dokümanlarda Edition/Codename tutarlılığını kontrol ediyor —
+            yanlışlıkla "BigFive Edition - Chrom" yazmak artık mümkün değil.
+        </p>
+
+        <h2>Gelecek Planları</h2>
+
+        <p>
+            v6.2.0 "Chrom" şu an geliştirme aşamasında. Planlanan özellikler:
+        </p>
+        <ul>
+            <li>Hierarchical output (ana → konteyner görünümü)</li>
+            <li>Config dosyası desteği (~/.config/bigfive/config)</li>
+            <li>Daha fazla diagnostics</li>
+        </ul>
+
+        <p>
+            v7.x "Zenith Edition" için henüz konkret plan yok, ama muhtemelen
+            plugin sistemi, GUI entegrasyonu gibi büyük özellikler içerecek.
+        </p>
+
+        <h2>Sonuç</h2>
+
+        <p>
+            Edition sistemi sadece pazarlama değil — projenin evrimini takip etmeyi kolaylaştırıyor.
+            Hangi version'da olduğunuzu, o dönemde nelerin odakta olduğunu hemen anlayabiliyorsunuz.
+        </p>
+
+        <p>
+            Sorularınız varsa <a href="https://github.com/CalmKernelTR/bigfive-updater/issues" style="color: var(--accent-blue);">GitHub Issues</a>
+            üzerinden iletebilirsiniz.
+        </p>
+
+        <a href="/" class="back-link">← Ana Sayfaya Dön</a>
+    </article>
+
+    <footer>
+        <p>© 2026 CalmKernel. MIT License.</p>
+        <p>
+            <a href="mailto:meet@calmkernel.tr">meet@calmkernel.tr</a>
+            <a href="https://github.com/CalmKernelTR">GitHub</a>
+        </p>
+    </footer>
+</body>
+</html>
