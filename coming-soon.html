@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yakında Yayında | CalmKernel</title>
+    <meta name="description" content="CalmKernel açık kaynak projeleri yakında yayında.">
+    <link rel="canonical" href="https://calmkernel.tr/coming-soon.html">
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent-green: #3fb950;
+            --accent-blue: #58a6ff;
+            --accent-yellow: #d29922;
+            --accent-orange: #f0883e;
+            --border-color: #30363d;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        nav {
+            background: rgba(13, 17, 23, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            text-decoration: none;
+        }
+        
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { color: var(--text-secondary); text-decoration: none; }
+        nav a:hover { color: var(--text-primary); }
+        
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .content { max-width: 800px; text-align: center; }
+        
+        .icon { font-size: 5rem; margin-bottom: 2rem; }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-yellow), var(--accent-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+        
+        .project-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .project-card:hover {
+            border-color: var(--accent-yellow);
+            transform: translateY(-2px);
+        }
+        
+        .project-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .project-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        
+        .tag {
+            background: var(--bg-tertiary);
+            padding: 0.25rem 0.625rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+        
+        .tag.soon {
+            background: var(--accent-yellow);
+            color: var(--bg-primary);
+            font-weight: 600;
+        }
+        
+        .cta-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-box h2 { color: var(--accent-green); margin-bottom: 1rem; }
+        .cta-box p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0.25rem;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary { background: var(--accent-green); color: var(--bg-primary); }
+        .btn-primary:hover { background: #2ea043; }
+        .btn-secondary { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border-color); }
+        .btn-secondary:hover { border-color: var(--text-secondary); }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+        
+        footer a { color: var(--text-secondary); text-decoration: none; margin: 0 1rem; }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 1.75rem; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">🐧 CalmKernel</a>
+            <ul>
+                <li><a href="/#projects">Projeler</a></li>
+                <li><a href="/#blog">Blog</a></li>
+                <li><a href="/#about">Hakkında</a></li>
+                <li><a href="https://github.com/CalmKernelTR">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="content">
+            <div class="icon">🚀</div>
+            <h1>Yakında Açık Kaynak</h1>
+            <p class="subtitle">Bu projeler geliştirme aşamasında — yakında açık kaynak olarak yayınlanacaklar.</p>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>🌐 NextDNS MCP</h3>
+                    <p>Claude Code için NextDNS entegrasyonu. DNS istatistikleri, log analizi ve profil yönetimi.</p>
+                    <div class="tags">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">MCP Server</span>
+                        <span class="tag soon">Q1 2026</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <h2>📬 Haberdar Ol</h2>
+                <p>Yeni projeler yayınlandığında ilk sen öğren.</p>
+                <a href="https://github.com/CalmKernelTR" class="btn btn-primary">GitHub'da Takip Et</a>
+                <a href="mailto:meet@calmkernel.tr" class="btn btn-secondary">İletişim</a>
+            </div>
+
+            <a href="/" class="btn btn-secondary">← Ana Sayfa</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 CalmKernel. MIT License.</p>
+        <a href="mailto:meet@calmkernel.tr">meet@calmkernel.tr</a>
+        <a href="https://github.com/CalmKernelTR">GitHub</a>
+    </footer>
+</body>
+</html>
