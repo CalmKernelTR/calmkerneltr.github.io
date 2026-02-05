@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat Archive - Analytics Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #0f0f1e);
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            min-height: 100vh;
+            padding: 30px;
+        }
+        .container { max-width: 1600px; margin: 0 auto; }
+
+        /* Header */
+        .header { text-align: center; margin-bottom: 40px; }
+        .header h1 {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .header .subtitle { color: #888; margin-top: 10px; font-size: 1.1rem; }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102,126,234,0.2);
+        }
+        .stat-card .value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .stat-card .label {
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        /* Section Headers */
+        .section-header {
+            font-size: 1.5rem;
+            color: #e0e0e0;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(102,126,234,0.3);
+        }
+
+        /* Charts Grid */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .chart-container {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 25px;
+        }
+        .chart-container h3 {
+            margin-bottom: 20px;
+            color: #e0e0e0;
+            font-size: 1.1rem;
+        }
+        .chart-container canvas {
+            max-height: 350px;
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .data-table th, .data-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .data-table th {
+            background: rgba(102,126,234,0.2);
+            color: #667eea;
+            font-weight: 600;
+        }
+        .data-table tr:hover {
+            background: rgba(255,255,255,0.03);
+        }
+        .data-table .number { text-align: right; }
+        .data-table .highlight { color: #667eea; font-weight: bold; }
+
+        /* Insight Box */
+        .insight-box {
+            background: rgba(102,126,234,0.1);
+            border-left: 4px solid #667eea;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .insight-box strong { color: #667eea; }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        .badge-green { background: rgba(46,204,113,0.2); color: #2ecc71; }
+        .badge-yellow { background: rgba(241,196,15,0.2); color: #f1c40f; }
+        .badge-red { background: rgba(231,76,60,0.2); color: #e74c3c; }
+        .badge-blue { background: rgba(102,126,234,0.2); color: #667eea; }
+
+        /* Full Width */
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: #666;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .charts-grid { grid-template-columns: 1fr; }
+            .header h1 { font-size: 1.8rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AI Chat Archive Dashboard</h1>
+            <div class="subtitle">2024-05-14 — 2026-02-04 | 21 Months | Generated: 2026-02-05</div>
+        </div>
+
+        <!-- Summary Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="value">2,687</div>
+                <div class="label">Total Conversations</div>
+            </div>
+            <div class="stat-card">
+                <div class="value">19,481</div>
+                <div class="label">Total Messages</div>
+            </div>
+            <div class="stat-card">
+                <div class="value">3.1M</div>
+                <div class="label">Total Words</div>
+            </div>
+            <div class="stat-card">
+                <div class="value">6.5M</div>
+                <div class="label">Estimated Tokens</div>
+            </div>
+            <div class="stat-card">
+                <div class="value">6</div>
+                <div class="label">AI Platforms</div>
+            </div>
+            <div class="stat-card">
+                <div class="value">52</div>
+                <div class="label">Books Equivalent</div>
+            </div>
+        </div>
+
+        <!-- Platform Distribution -->
+        <h2 class="section-header">Platform Distribution</h2>
+        <div class="charts-grid">
+            <div class="chart-container">
+                <h3>Conversations by Platform</h3>
+                <canvas id="platformConvChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Words by Platform</h3>
+                <canvas id="platformWordsChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Platform Statistics Table -->
+        <div class="chart-container full-width">
+            <h3>Platform Statistics</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Platform</th>
+                        <th class="number">Conversations</th>
+                        <th class="number">Messages</th>
+                        <th class="number">Words</th>
+                        <th class="number">Avg Msgs/Conv</th>
+                        <th class="number">Avg Words/Conv</th>
+                        <th>Depth</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="badge badge-green">ChatGPT</span></td>
+                        <td class="number">1,077</td>
+                        <td class="number">14,122</td>
+                        <td class="number">2,496,779</td>
+                        <td class="number">13.1</td>
+                        <td class="number">2,318</td>
+                        <td>★★★★☆</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-blue">Gemini</span></td>
+                        <td class="number">1,372</td>
+                        <td class="number">2,583</td>
+                        <td class="number">229,982</td>
+                        <td class="number">1.9</td>
+                        <td class="number">168</td>
+                        <td>★☆☆☆☆</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-yellow">Claude Web</span></td>
+                        <td class="number">52</td>
+                        <td class="number">1,521</td>
+                        <td class="number">224,112</td>
+                        <td class="number highlight">29.3</td>
+                        <td class="number highlight">4,310</td>
+                        <td>★★★★★</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-yellow">Claude CLI</span></td>
+                        <td class="number">21</td>
+                        <td class="number">288</td>
+                        <td class="number">17,181</td>
+                        <td class="number">13.7</td>
+                        <td class="number">818</td>
+                        <td>★★★★☆</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-blue">Grok</span></td>
+                        <td class="number">104</td>
+                        <td class="number">710</td>
+                        <td class="number">120,515</td>
+                        <td class="number">6.8</td>
+                        <td class="number">1,159</td>
+                        <td>★★★☆☆</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-red">Qwen</span></td>
+                        <td class="number">61</td>
+                        <td class="number">257</td>
+                        <td class="number">56,999</td>
+                        <td class="number">4.2</td>
+                        <td class="number">934</td>
+                        <td>★★☆☆☆</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Behavioral Analytics -->
+        <h2 class="section-header">Behavioral Analytics (Phase 1)</h2>
+        <div class="charts-grid">
+            <div class="chart-container">
+                <h3>Follow-up Ratio by Platform</h3>
+                <canvas id="followUpChart"></canvas>
+                <div class="insight-box">
+                    <strong>Deep Dive:</strong> 3+ user messages in a conversation indicates sustained engagement.
+                    Claude leads with 55-57%, Gemini at 0% (quick lookup tool).
+                </div>
+            </div>
+            <div class="chart-container">
+                <h3>Technical Density Score</h3>
+                <canvas id="techDensityChart"></canvas>
+                <div class="insight-box">
+                    <strong>Formula:</strong> (code_blocks×3 + commands×2 + tech_terms) / (words × 0.1), capped at 1.0
+                </div>
+            </div>
+        </div>
+
+        <!-- Behavioral Metrics Table -->
+        <div class="chart-container full-width">
+            <h3>Behavioral Metrics Detail</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Platform</th>
+                        <th class="number">Deep Dive</th>
+                        <th class="number">Follow-up %</th>
+                        <th class="number">Abandoned</th>
+                        <th class="number">Abandon %</th>
+                        <th class="number">Tech Density</th>
+                        <th class="number">Weekend %</th>
+                        <th>Pattern</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Claude Web</td>
+                        <td class="number">29</td>
+                        <td class="number highlight">55.8%</td>
+                        <td class="number">0</td>
+                        <td class="number"><span class="badge badge-green">0.0%</span></td>
+                        <td class="number highlight">0.30</td>
+                        <td class="number">48.1%</td>
+                        <td>Deep technical</td>
+                    </tr>
+                    <tr>
+                        <td>Claude CLI</td>
+                        <td class="number">12</td>
+                        <td class="number highlight">57.1%</td>
+                        <td class="number">21</td>
+                        <td class="number"><span class="badge badge-blue">100%*</span></td>
+                        <td class="number">0.26</td>
+                        <td class="number">33.3%</td>
+                        <td>Iterative dev</td>
+                    </tr>
+                    <tr>
+                        <td>ChatGPT</td>
+                        <td class="number">559</td>
+                        <td class="number">51.9%</td>
+                        <td class="number">6</td>
+                        <td class="number"><span class="badge badge-green">0.6%</span></td>
+                        <td class="number">0.13</td>
+                        <td class="number">22.9%</td>
+                        <td>Balanced</td>
+                    </tr>
+                    <tr>
+                        <td>Grok</td>
+                        <td class="number">43</td>
+                        <td class="number">41.3%</td>
+                        <td class="number">0</td>
+                        <td class="number"><span class="badge badge-green">0.0%</span></td>
+                        <td class="number">0.11</td>
+                        <td class="number">28.8%</td>
+                        <td>News/updates</td>
+                    </tr>
+                    <tr>
+                        <td>Qwen</td>
+                        <td class="number">16</td>
+                        <td class="number">26.2%</td>
+                        <td class="number">0</td>
+                        <td class="number"><span class="badge badge-green">0.0%</span></td>
+                        <td class="number">0.22</td>
+                        <td class="number">23.0%</td>
+                        <td>Reasoning</td>
+                    </tr>
+                    <tr>
+                        <td>Gemini</td>
+                        <td class="number">0</td>
+                        <td class="number">0.0%</td>
+                        <td class="number">160</td>
+                        <td class="number"><span class="badge badge-yellow">11.7%</span></td>
+                        <td class="number">0.17</td>
+                        <td class="number">16.8%</td>
+                        <td>Quick lookup</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="insight-box">
+                *Claude CLI 100% abandon is expected - CLI sessions always end with user command (tool calls).
+            </div>
+        </div>
+
+        <!-- Temporal Patterns -->
+        <h2 class="section-header">Temporal Patterns</h2>
+        <div class="charts-grid">
+            <div class="chart-container">
+                <h3>Hourly Activity Distribution</h3>
+                <canvas id="hourlyChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Monthly Usage Trend</h3>
+                <canvas id="monthlyChart"></canvas>
+            </div>
+        </div>
+
+        <div class="charts-grid">
+            <div class="chart-container">
+                <h3>Weekend vs Weekday by Platform</h3>
+                <canvas id="weekendChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Time Period Distribution</h3>
+                <canvas id="timePeriodChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Social Interaction Analysis -->
+        <h2 class="section-header">Social Interaction Analysis</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="value">~5,000</div>
+                <div class="label">Daily AI Words</div>
+            </div>
+            <div class="stat-card">
+                <div class="value">31.2%</div>
+                <div class="label">of Daily Spoken</div>
+            </div>
+            <div class="stat-card">
+                <div class="value">349h</div>
+                <div class="label">Reading Time</div>
+            </div>
+            <div class="stat-card">
+                <div class="value">2,202km</div>
+                <div class="label">Walk Distance*</div>
+            </div>
+        </div>
+        <div class="insight-box">
+            *If each word was 1 step (0.7m average). That's Istanbul-Ankara 4.9 times or 52 marathons!
+        </div>
+
+        <!-- Platform Comparison Radar -->
+        <h2 class="section-header">Platform Comparison</h2>
+        <div class="charts-grid">
+            <div class="chart-container">
+                <h3>Multi-Dimension Comparison</h3>
+                <canvas id="radarChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>User vs Assistant Word Ratio</h3>
+                <canvas id="ratioChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Top Conversations -->
+        <h2 class="section-header">Top 10 Longest Conversations</h2>
+        <div class="chart-container full-width">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Platform</th>
+                        <th>Title</th>
+                        <th class="number">Messages</th>
+                        <th class="number">Words</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td><span class="badge badge-yellow">Claude Web</span></td><td>BigFive-updater DEV</td><td class="number highlight">289</td><td class="number">42,600</td></tr>
+                    <tr><td>2</td><td><span class="badge badge-green">ChatGPT</span></td><td>Zorin sistem guncelleme scripti</td><td class="number">271</td><td class="number">96,415</td></tr>
+                    <tr><td>3</td><td><span class="badge badge-green">ChatGPT</span></td><td>GNOME ve KDE Kurulumu</td><td class="number">255</td><td class="number highlight">99,926</td></tr>
+                    <tr><td>4</td><td><span class="badge badge-green">ChatGPT</span></td><td>Nested Proxmox kurulumu</td><td class="number">247</td><td class="number">37,433</td></tr>
+                    <tr><td>5</td><td><span class="badge badge-green">ChatGPT</span></td><td>RAD140 ve RAD150 Farklari</td><td class="number">230</td><td class="number">30,235</td></tr>
+                    <tr><td>6</td><td><span class="badge badge-green">ChatGPT</span></td><td>Sistem Optimizasyonu ve Stabilite</td><td class="number">187</td><td class="number">62,806</td></tr>
+                    <tr><td>7</td><td><span class="badge badge-yellow">Claude Web</span></td><td>REPO AUDIT</td><td class="number">178</td><td class="number">39,034</td></tr>
+                    <tr><td>8</td><td><span class="badge badge-green">ChatGPT</span></td><td>Shrink Sorunu Cozumu</td><td class="number">169</td><td class="number">52,053</td></tr>
+                    <tr><td>9</td><td><span class="badge badge-green">ChatGPT</span></td><td>Ofis Bilgisayari Incelemesi</td><td class="number">168</td><td class="number">46,132</td></tr>
+                    <tr><td>10</td><td><span class="badge badge-green">ChatGPT</span></td><td>openSUSE Tumbleweed Deneyimi</td><td class="number">162</td><td class="number">59,306</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <p>Generated by <strong>ai-chat-archive</strong> | Phase 1 Behavioral Analytics</p>
+            <p>© 2026 CalmKernelTR | <a href="https://github.com/CalmKernelTR/ai-chat-archive" style="color:#667eea">GitHub</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Chart.js defaults
+        Chart.defaults.color = '#e0e0e0';
+        Chart.defaults.borderColor = 'rgba(255,255,255,0.1)';
+
+        // Color palette
+        const colors = {
+            'ChatGPT': '#10a37f',
+            'Gemini': '#8e44ad',
+            'Claude Web': '#d97706',
+            'Claude CLI': '#f59e0b',
+            'Grok': '#3498db',
+            'Qwen': '#e74c3c',
+            'primary': '#667eea',
+            'secondary': '#764ba2'
+        };
+
+        // Platform data
+        const platforms = ['ChatGPT', 'Gemini', 'Claude Web', 'Claude CLI', 'Grok', 'Qwen'];
+        const platformColors = platforms.map(p => colors[p]);
+
+        // 1. Platform Conversations - Doughnut
+        new Chart(document.getElementById('platformConvChart'), {
+            type: 'doughnut',
+            data: {
+                labels: platforms,
+                datasets: [{
+                    data: [1077, 1372, 52, 21, 104, 61],
+                    backgroundColor: platformColors,
+                    borderWidth: 2,
+                    borderColor: '#1a1a2e'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'right' }
+                }
+            }
+        });
+
+        // 2. Platform Words - Doughnut
+        new Chart(document.getElementById('platformWordsChart'), {
+            type: 'doughnut',
+            data: {
+                labels: platforms,
+                datasets: [{
+                    data: [2496779, 229982, 224112, 17181, 120515, 56999],
+                    backgroundColor: platformColors,
+                    borderWidth: 2,
+                    borderColor: '#1a1a2e'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'right' }
+                }
+            }
+        });
+
+        // 3. Follow-up Ratio - Horizontal Bar
+        new Chart(document.getElementById('followUpChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Claude CLI', 'Claude Web', 'ChatGPT', 'Grok', 'Qwen', 'Gemini'],
+                datasets: [{
+                    label: 'Follow-up %',
+                    data: [57.1, 55.8, 51.9, 41.3, 26.2, 0],
+                    backgroundColor: ['#f59e0b', '#d97706', '#10a37f', '#3498db', '#e74c3c', '#8e44ad'],
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { max: 100, ticks: { callback: v => v + '%' } }
+                }
+            }
+        });
+
+        // 4. Technical Density - Horizontal Bar
+        new Chart(document.getElementById('techDensityChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Claude Web', 'Claude CLI', 'Qwen', 'Gemini', 'ChatGPT', 'Grok'],
+                datasets: [{
+                    label: 'Tech Density',
+                    data: [0.30, 0.26, 0.22, 0.17, 0.13, 0.11],
+                    backgroundColor: ['#d97706', '#f59e0b', '#e74c3c', '#8e44ad', '#10a37f', '#3498db'],
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { max: 1, ticks: { callback: v => v.toFixed(1) } }
+                }
+            }
+        });
+
+        // 5. Hourly Activity - Bar
+        const hourlyData = [4,1,5,6,9,17,29,55,116,111,133,159,163,176,172,243,175,196,303,152,151,126,126,59];
+        new Chart(document.getElementById('hourlyChart'), {
+            type: 'bar',
+            data: {
+                labels: Array.from({length: 24}, (_, i) => `${i}:00`),
+                datasets: [{
+                    label: 'Conversations',
+                    data: hourlyData,
+                    backgroundColor: hourlyData.map(v => {
+                        const intensity = v / 303;
+                        return `rgba(102,126,234,${0.3 + intensity * 0.7})`;
+                    }),
+                    borderRadius: 3
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+
+        // 6. Monthly Trend - Line
+        const months = ['May-24', 'Jun-24', 'Jul-24', 'Aug-24', 'Sep-24', 'Oct-24', 'Nov-24', 'Dec-24', 'Jan-25', 'Feb-25', 'Mar-25', 'Apr-25', 'May-25', 'Jun-25', 'Jul-25', 'Aug-25', 'Sep-25', 'Oct-25', 'Nov-25', 'Dec-25', 'Jan-26', 'Feb-26'];
+        const monthlyTotal = [15, 67, 77, 86, 27, 127, 429, 775, 749, 36];
+        new Chart(document.getElementById('monthlyChart'), {
+            type: 'line',
+            data: {
+                labels: ['May-25', 'Jun-25', 'Jul-25', 'Aug-25', 'Sep-25', 'Oct-25', 'Nov-25', 'Dec-25', 'Jan-26', 'Feb-26'],
+                datasets: [{
+                    label: 'Conversations',
+                    data: [72, 67, 77, 86, 27, 127, 429, 775, 749, 36],
+                    fill: true,
+                    borderColor: '#667eea',
+                    backgroundColor: 'rgba(102,126,234,0.2)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: false } }
+            }
+        });
+
+        // 7. Weekend vs Weekday - Stacked Bar
+        new Chart(document.getElementById('weekendChart'), {
+            type: 'bar',
+            data: {
+                labels: platforms,
+                datasets: [
+                    {
+                        label: 'Weekend',
+                        data: [247, 230, 25, 7, 30, 14],
+                        backgroundColor: 'rgba(102,126,234,0.8)'
+                    },
+                    {
+                        label: 'Weekday',
+                        data: [830, 1142, 27, 14, 74, 47],
+                        backgroundColor: 'rgba(118,75,162,0.8)'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: { x: { stacked: true }, y: { stacked: true } }
+            }
+        });
+
+        // 8. Time Period - Doughnut
+        new Chart(document.getElementById('timePeriodChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Night (00-06)', 'Morning (06-12)', 'Afternoon (12-18)', 'Evening (18-24)'],
+                datasets: [{
+                    data: [75, 593, 1132, 887],
+                    backgroundColor: ['#2c3e50', '#3498db', '#f39c12', '#9b59b6'],
+                    borderWidth: 2,
+                    borderColor: '#1a1a2e'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { position: 'right' } }
+            }
+        });
+
+        // 9. Radar Chart - Multi-dimension
+        new Chart(document.getElementById('radarChart'), {
+            type: 'radar',
+            data: {
+                labels: ['Depth', 'Volume', 'Tech Density', 'Follow-up', 'Engagement'],
+                datasets: [
+                    {
+                        label: 'Claude Web',
+                        data: [100, 2, 100, 100, 100],
+                        borderColor: colors['Claude Web'],
+                        backgroundColor: 'rgba(217,119,6,0.2)'
+                    },
+                    {
+                        label: 'ChatGPT',
+                        data: [45, 100, 43, 93, 80],
+                        borderColor: colors['ChatGPT'],
+                        backgroundColor: 'rgba(16,163,127,0.2)'
+                    },
+                    {
+                        label: 'Gemini',
+                        data: [6, 95, 57, 0, 20],
+                        borderColor: colors['Gemini'],
+                        backgroundColor: 'rgba(142,68,173,0.2)'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: { display: false }
+                    }
+                }
+            }
+        });
+
+        // 10. User/Assistant Ratio - Horizontal Bar
+        new Chart(document.getElementById('ratioChart'), {
+            type: 'bar',
+            data: {
+                labels: platforms,
+                datasets: [{
+                    label: 'User/Assistant Ratio',
+                    data: [0.73, 0.67, 0.37, 0, 0.25, 0.28],
+                    backgroundColor: platformColors,
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { max: 1, ticks: { callback: v => v.toFixed(2) } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
