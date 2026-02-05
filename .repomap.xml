@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repomap>
+  <metadata>
+    <name>calmkerneltr.github.io</name>
+    <description>CalmKernel portfolio website - GitHub Pages static site</description>
+    <domain>calmkernel.tr</domain>
+    <visibility>Public</visibility>
+    <type>Static Website (GitHub Pages)</type>
+    <language>HTML, CSS, JavaScript</language>
+    <updated>2026-02-05</updated>
+  </metadata>
+
+  <structure>
+    <directory name="." priority="high">
+      <file name="index.html" description="Main landing page - CalmKernel homepage (21KB)" />
+      <file name="coming-soon.html" description="Coming soon placeholder page" />
+      <file name="premium.html" description="Premium services page" />
+      <file name="privacy-policy.html" description="Privacy policy page" />
+      <file name="404.html" description="Custom 404 error page" />
+      <file name="CNAME" description="Custom domain: calmkernel.tr" />
+    </directory>
+
+    <directory name="blog" priority="medium">
+      <file name="bigfive-v6.1.0.html" description="BigFive v6.1.0 release blog post" />
+      <file name="edition-methodology.html" description="Edition naming methodology blog post" />
+    </directory>
+
+    <directory name="test" priority="low">
+      <description>Theme testing directory with multiple templates</description>
+      <file name="index.html" description="Test homepage (105KB)" />
+      <file name="index1.html" description="Template variation 1" />
+      <file name="index2.html" description="Template variation 2" />
+      <file name="..." description="Template variations 3-17" />
+      <file name="about-us.html" description="About page template" />
+      <file name="contact.html" description="Contact page template" />
+      <file name="blog.html" description="Blog listing template" />
+      <file name="service.html" description="Services template" />
+      <file name="pricing.html" description="Pricing template" />
+      <file name="faq.html" description="FAQ template" />
+      <file name="team.html" description="Team template" />
+      <directory name="assets">
+        <description>Template assets (CSS, JS, images, fonts)</description>
+      </directory>
+    </directory>
+  </structure>
+
+  <important-files>
+    <file path="index.html" description="Main homepage" />
+    <file path="CNAME" description="Custom domain configuration" />
+    <file path="404.html" description="Error page" />
+    <file path="privacy-policy.html" description="Legal page" />
+    <file path="blog/bigfive-v6.1.0.html" description="Product release post" />
+    <file path="blog/edition-methodology.html" description="Process documentation" />
+  </important-files>
+
+  <pages>
+    <page path="/" file="index.html" description="Landing page with projects showcase" />
+    <page path="/coming-soon.html" description="Placeholder for upcoming features" />
+    <page path="/premium.html" description="Premium services offering" />
+    <page path="/privacy-policy.html" description="Privacy policy" />
+    <page path="/404.html" description="Not found error" />
+    <page path="/blog/bigfive-v6.1.0.html" description="BigFive release announcement" />
+    <page path="/blog/edition-methodology.html" description="Edition naming guide" />
+  </pages>
+
+  <hosting>
+    <platform>GitHub Pages</platform>
+    <repo>CalmKernelTR/calmkerneltr.github.io</repo>
+    <custom-domain>calmkernel.tr</custom-domain>
+    <https>true</https>
+  </hosting>
+
+  <content>
+    <project name="BigFive Updater" description="Linux multi-distro update tool" />
+    <project name="Claude Code Skills" description="AI assistant skill collection" />
+    <project name="DataWash" description="Data cleaning CLI" />
+    <theme>Dark mode (GitHub-inspired colors)</theme>
+    <language>Turkish (primary)</language>
+  </content>
+</repomap>
