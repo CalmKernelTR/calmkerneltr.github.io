@@ -1,113 +1,328 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - LinkedIn Integration</title>
+    <title>Privacy Policy - CalmKernel</title>
+    <link rel="canonical" href="https://calmkernel.tr/privacy-policy.html">
+
+    <!-- Preconnect for faster font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐧</text></svg>">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.6;
-            color: #333;
+        .privacy-content {
             max-width: 800px;
             margin: 0 auto;
             padding: 40px 20px;
-            background: #f5f5f5;
         }
-        .container {
-            background: #fff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        .privacy-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
         }
-        h1 {
-            color: #0077b5;
-            margin-bottom: 10px;
-        }
-        .last-updated {
+        .privacy-content .last-updated {
             color: #666;
             font-size: 14px;
             margin-bottom: 30px;
         }
-        h2 {
-            color: #0077b5;
+        .privacy-content h2 {
+            font-size: 1.5rem;
             margin-top: 30px;
             margin-bottom: 15px;
-            font-size: 1.3em;
         }
-        p, ul {
+        .privacy-content p, .privacy-content ul {
             margin-bottom: 15px;
+            line-height: 1.7;
         }
-        ul {
+        .privacy-content ul {
             padding-left: 25px;
         }
-        li {
+        .privacy-content li {
             margin-bottom: 8px;
         }
-        .contact {
-            background: #f0f7fb;
+        .privacy-content .contact {
+            background: rgba(69, 208, 189, 0.1);
             padding: 20px;
-            border-radius: 5px;
+            border-radius: 8px;
             margin-top: 30px;
         }
-        a {
-            color: #0077b5;
+        .privacy-content a {
+            color: #45d0bd;
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Privacy Policy</h1>
-        <p class="last-updated">Last Updated: February 4, 2026</p>
 
-        <p>This Privacy Policy describes how your personal information is collected, used, and shared when you use our LinkedIn integration application ("the App").</p>
-
-        <h2>Information We Collect</h2>
-        <p>When you authenticate with LinkedIn through our App, we may collect the following information:</p>
-        <ul>
-            <li><strong>Profile Information:</strong> Your name, profile picture, and LinkedIn profile URL</li>
-            <li><strong>Email Address:</strong> Your primary email address associated with your LinkedIn account</li>
-            <li><strong>LinkedIn User ID:</strong> A unique identifier for your LinkedIn account</li>
-        </ul>
-
-        <h2>How We Use Your Information</h2>
-        <p>We use the information we collect to:</p>
-        <ul>
-            <li>Authenticate you and provide access to the App's features</li>
-            <li>Post content to LinkedIn on your behalf (only when you explicitly request it)</li>
-            <li>Display your profile information within the App</li>
-        </ul>
-
-        <h2>Data Storage</h2>
-        <p>Your LinkedIn access tokens are stored locally on your device. We do not store your personal information on external servers. All data processing happens locally.</p>
-
-        <h2>Data Sharing</h2>
-        <p>We do not sell, trade, or otherwise transfer your personal information to third parties. Your data is only used to facilitate the connection between you and LinkedIn's services.</p>
-
-        <h2>Your Rights</h2>
-        <p>You have the right to:</p>
-        <ul>
-            <li>Access the personal data we hold about you</li>
-            <li>Request deletion of your data</li>
-            <li>Revoke access to your LinkedIn account at any time through LinkedIn's settings</li>
-        </ul>
-
-        <h2>LinkedIn's Privacy Policy</h2>
-        <p>Our App uses LinkedIn's API services. Please also review <a href="https://www.linkedin.com/legal/privacy-policy" target="_blank">LinkedIn's Privacy Policy</a> to understand how LinkedIn handles your data.</p>
-
-        <h2>Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
-
-        <div class="contact">
-            <h2>Contact Us</h2>
-            <p>If you have any questions about this Privacy Policy, please contact us at:</p>
-            <p><strong>Website:</strong> <a href="https://calmkernel.tr">calmkernel.tr</a></p>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <img src="assets/images/preloader-dark.png" alt="Loading...">
         </div>
     </div>
+    <!-- End Preloader -->
+
+    <button id="themeBtn"><i class="far fa-moon"></i></button>
+
+    <!-- Side Menu -->
+    <div class="side-menu" id="sideMenu">
+        <div class="overlay" id="overlay"></div>
+        <a href="javascript:void(0)" class="close-btn" id="closeBtn"><i class="fa fa-close"></i> close</a>
+        <div class="menu-content">
+            <a href="/" class="logo">
+                <span style="font-size: 2rem;">🐧</span>
+            </a>
+            <div class="sidebar-menu">
+                <h4 class="title">contacts</h4>
+                <a href="mailto:meet@calmkernel.tr" class="email">meet@calmkernel.tr</a>
+                <a href="https://calmkernel.tr" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded">
+                    <span>Visit Website</span>
+                </a>
+            </div>
+            <ul class="social-icon">
+                <li><a href="https://github.com/CalmKernelTR" target="_blank" title=""><i class="fab fa-github"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/calmkernel/" target="_blank" title=""><i class="fab fa-linkedin-in"></i></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- New Mobile Menu -->
+    <div data-menu="mobileMenu" class="side-menu2">
+        <div class="menu-btns">
+            <button id="mobileCloseBtn2" class="close-btn"></button>
+        </div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#projects">Projects</a></li>
+            <li><a href="/tools.html">Tools</a></li>
+            <li><a href="/#blog">Blog</a></li>
+            <li><a href="/#about">About</a></li>
+        </ul>
+        <div class="menu-contact">
+            <span>Contact</span>
+            <a href="mailto:meet@calmkernel.tr" title="" class="gmail">meet@calmkernel.tr</a>
+        </div>
+        <div class="menu-links">
+            <span>Follow us:</span>
+            <ul class="social-icon">
+                <li><a href="https://github.com/CalmKernelTR" title=""><i class="fab fa-github"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/calmkernel/" title=""><i class="fab fa-linkedin-in"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Overlay for Mobile Menu -->
+    <div class="overlay2"></div>
+
+    <!-- sticky header -->
+    <header class="sticky-active">
+        <div class="header-menu-area">
+            <div class="row gx-20 align-items-center justify-content-between">
+                <div class="col-auto">
+                    <div class="header-logo">
+                        <a href="javascript:void(0)" class="menu-toggle"></a>
+                        <a href="/" style="font-size: 1.5rem; font-weight: 700;">
+                            🐧 CalmKernel
+                        </a>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <nav class="main-menu menu-style1">
+                        <ul>
+                            <li>
+                                <a href="/#projects">
+                                    <span class="menu-item">Projects</span>
+                                    <span class="menu-item2">Projects</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/tools.html">
+                                    <span class="menu-item">Tools</span>
+                                    <span class="menu-item2">Tools</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/#blog">
+                                    <span class="menu-item">Blog</span>
+                                    <span class="menu-item2">Blog</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/#about">
+                                    <span class="menu-item">About</span>
+                                    <span class="menu-item2">About</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/CalmKernelTR" target="_blank">
+                                    <span class="menu-item">GitHub</span>
+                                    <span class="menu-item2">GitHub</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-auto d-none d-xl-block">
+                    <div class="btn-box">
+                        <a href="https://github.com/CalmKernelTR/bigfive-updater" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded">
+                            <span>BigFive Updater</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <button class="hamburger popup-menu" data-menu="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    <!-- End sticky header -->
+
+    <!-- page-banner9 -->
+    <section class="page-banner9">
+        <div class="shape"></div>
+        <div class="shape3"></div>
+        <div class="container">
+            <div class="page-content">
+                <h1 class="title">/ Privacy Policy /</h1>
+            </div>
+        </div>
+        <ul class="breadcrumbs">
+            <li><a href="/" title="">Home</a></li>
+            <li>/</li>
+            <li>Privacy Policy</li>
+        </ul>
+    </section>
+    <!-- End page-banner9 -->
+
+    <!-- Privacy Policy Content -->
+    <section class="ibt-section-gap">
+        <div class="container">
+            <div class="privacy-content">
+                <p class="last-updated">Last Updated: February 4, 2026</p>
+
+                <p>This Privacy Policy describes how your personal information is collected, used, and shared when you use our LinkedIn integration application ("the App").</p>
+
+                <h2>Information We Collect</h2>
+                <p>When you authenticate with LinkedIn through our App, we may collect the following information:</p>
+                <ul>
+                    <li><strong>Profile Information:</strong> Your name, profile picture, and LinkedIn profile URL</li>
+                    <li><strong>Email Address:</strong> Your primary email address associated with your LinkedIn account</li>
+                    <li><strong>LinkedIn User ID:</strong> A unique identifier for your LinkedIn account</li>
+                </ul>
+
+                <h2>How We Use Your Information</h2>
+                <p>We use the information we collect to:</p>
+                <ul>
+                    <li>Authenticate you and provide access to the App's features</li>
+                    <li>Post content to LinkedIn on your behalf (only when you explicitly request it)</li>
+                    <li>Display your profile information within the App</li>
+                </ul>
+
+                <h2>Data Storage</h2>
+                <p>Your LinkedIn access tokens are stored locally on your device. We do not store your personal information on external servers. All data processing happens locally.</p>
+
+                <h2>Data Sharing</h2>
+                <p>We do not sell, trade, or otherwise transfer your personal information to third parties. Your data is only used to facilitate the connection between you and LinkedIn's services.</p>
+
+                <h2>Your Rights</h2>
+                <p>You have the right to:</p>
+                <ul>
+                    <li>Access the personal data we hold about you</li>
+                    <li>Request deletion of your data</li>
+                    <li>Revoke access to your LinkedIn account at any time through LinkedIn's settings</li>
+                </ul>
+
+                <h2>LinkedIn's Privacy Policy</h2>
+                <p>Our App uses LinkedIn's API services. Please also review <a href="https://www.linkedin.com/legal/privacy-policy" target="_blank">LinkedIn's Privacy Policy</a> to understand how LinkedIn handles your data.</p>
+
+                <h2>Changes to This Policy</h2>
+                <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
+
+                <div class="contact">
+                    <h2>Contact Us</h2>
+                    <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+                    <p><strong>Website:</strong> <a href="https://calmkernel.tr">calmkernel.tr</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:meet@calmkernel.tr">meet@calmkernel.tr</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Privacy Policy Content -->
+
+    <!-- main-sec -->
+    <section class="main-sec">
+        <!-- footer-style1 -->
+        <footer class="footer-style1">
+            <div class="widget-area ibt-section-gapTop">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-8 col-lg-6">
+                            <div class="about-widget footer-widget">
+                                <div class="footer-logo" style="font-size: 2rem;">
+                                    🐧 CalmKernel
+                                </div>
+                                <ul class="social-icon">
+                                    <li><a href="https://github.com/CalmKernelTR" target="_blank" title=""><i class="fab fa-github"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/company/calmkernel/" target="_blank" title=""><i class="fab fa-linkedin-in"></i></a></li>
+                                </ul>
+                                <h2 class="title">since 2025</h2>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6">
+                            <div class="footer-menu">
+                                <div class="footer-links footer-widget">
+                                    <h4 class="widget-title">Links</h4>
+                                    <ul>
+                                        <li><a href="/#projects" title="">Projects</a></li>
+                                        <li><a href="/tools.html" title="">Tools</a></li>
+                                        <li><a href="/#blog" title="">Blog</a></li>
+                                        <li><a href="/#about" title="">About</a></li>
+                                        <li><a href="/privacy-policy.html" title="">Privacy Policy</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-botom">
+                <div class="container">
+                    <div class="footer-box">
+                        <p>© 2026 CalmKernel. MIT License.</p>
+                        <span>Contact: <a href="mailto:meet@calmkernel.tr">meet@calmkernel.tr</a></span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- footer-style1 -->
+    </section>
+    <!-- End main-sec -->
+
+    <!-- Scroll Button -->
+    <button id="scrollBtn" title="Go to top">
+        <i class="fas fa-angle-up"></i>
+    </button>
+
+    <!-- Js Plugin -->
+    <script src="assets/js/bootstrap.min.js" defer></script>
+    <script src="assets/js/vendor/lenis.min.js" defer></script>
+    <script src="assets/js/vendor/gsap.min.js" defer></script>
+    <script src="assets/js/vendor/ScrollTrigger.min.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
 </body>
+
 </html>

@@ -1,36 +1,34 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CalmKernel - Linux için Akıllı Araçlar</title>
-    <meta name="description" content="Açık kaynak Linux sistem yönetim araçları. BigFive Updater, Claude Code Skills ve daha fazlası.">
-    <meta name="author" content="Ahmet TANRIKULU">
+    <title>CalmKernel - Linux icin Akilli Araclar</title>
+    <meta name="description" content="Acik kaynak Linux sistem yonetim araclari. BigFive Updater, Claude Code Skills ve daha fazlasi.">
     <link rel="canonical" href="https://calmkernel.tr/">
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐧</text></svg>">
+
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://calmkernel.tr/">
-    <meta property="og:title" content="CalmKernel - Linux için Akıllı Araçlar">
-    <meta property="og:description" content="Açık kaynak Linux sistem yönetim araçları. BigFive Updater, Claude Code Skills ve daha fazlası.">
+    <meta property="og:title" content="CalmKernel - Linux icin Akilli Araclar">
+    <meta property="og:description" content="Acik kaynak Linux sistem yonetim araclari. BigFive Updater, Claude Code Skills ve daha fazlasi.">
     <meta property="og:locale" content="tr_TR">
     <meta property="og:site_name" content="CalmKernel">
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="CalmKernel - Linux için Akıllı Araçlar">
-    <meta name="twitter:description" content="Açık kaynak Linux sistem yönetim araçları. BigFive Updater, Claude Code Skills ve daha fazlası.">
-    <!-- Security -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; connect-src 'self'; font-src 'self';">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    <link rel="stylesheet" href="style.css">
+    <meta name="twitter:title" content="CalmKernel - Linux icin Akilli Araclar">
+    <meta name="twitter:description" content="Acik kaynak Linux sistem yonetim araclari">
+
+    <!-- JSON-LD -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "CalmKernel",
         "url": "https://calmkernel.tr",
-        "description": "Açık kaynak Linux sistem yönetim araçları",
+        "description": "Acik kaynak Linux sistem yonetim araclari",
         "founder": {
             "@type": "Person",
             "name": "Ahmet TANRIKULU",
@@ -42,262 +40,857 @@
         ]
     }
     </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "CalmKernel",
-        "url": "https://calmkernel.tr",
-        "inLanguage": "tr"
-    }
-    </script>
+
+    <!-- Preconnect for faster font loading (PUT THIS FIRST!) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐧</text></svg>">
+
+    <!-- Google Fonts (deferred) -->
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+    <!-- Load Font Awesome CSS asynchronously -->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" media="print" onload="this.media='all'">
+
+    <!-- fontello font css -->
+    <link rel="stylesheet" href="assets/css/plugins/fontello-enqueue.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="assets/css/plugins/fontello-icons.css" media="print" onload="this.media='all'">
+    <!-- others css -->
+    <!-- Keep these normal - needed for initial page load -->
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Make these async - only used for specific components -->
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
+    </noscript>
 </head>
+
 <body>
-    <a href="#main-content" class="skip-link">İçeriğe atla</a>
-    <nav aria-label="Ana menü">
-        <div class="container">
-            <a href="/" class="logo">🐧 CalmKernel</a>
-            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Menü aç/kapat">
-                <span></span><span></span><span></span>
-            </button>
-            <ul id="nav-menu">
-                <li><a href="#projects">Projeler</a></li>
-                <li><a href="/tools.html">Araçlar</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#about">Hakkında</a></li>
-                <li><a href="https://github.com/CalmKernelTR" target="_blank" rel="noopener">GitHub</a></li>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <img src="assets/images/preloader-dark.png" alt="Yukleniyor...">
+        </div>
+    </div>
+    <!-- End Preloader -->
+
+    <button id="themeBtn"><i class="far fa-moon"></i></button>
+    <div class="video-modal">
+        <div class="video-modal-content">
+            <span class="close-btn">&times;</span>
+            <iframe allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Side Menu -->
+    <div class="side-menu" id="sideMenu">
+        <div class="overlay" id="overlay"></div>
+        <a href="javascript:void(0)" class="close-btn" id="closeBtn"><i class="fa fa-close"></i> kapat</a>
+        <div class="menu-content">
+            <a href="/" class="logo">
+                <img src="assets/images/logo2.svg" alt="CalmKernel">
+            </a>
+            <div class="sidebar-menu">
+                <h4 class="title">iletisim</h4>
+                <p>Turkiye</p>
+                <a href="mailto:meet@calmkernel.tr" class="email">meet@calmkernel.tr</a>
+                <a href="https://github.com/CalmKernelTR" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded" target="_blank" rel="noopener">
+                    <span>GitHub</span>
+                </a>
+            </div>
+            <ul class="social-icon">
+                <li><a href="https://github.com/CalmKernelTR" title="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/ahmet-tanrikulu/" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/calmkernel/" title="CalmKernel LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a></li>
             </ul>
         </div>
-    </nav>
+    </div>
 
-    <main id="main-content">
-    <section class="hero">
-        <div>
-            <h1>Linux için Akıllı Araçlar</h1>
-            <p>Açık kaynak sistem yönetim araçları. İnsan + AI işbirliği ile geliştirildi.</p>
-            <div class="hero-buttons">
-                <a href="https://github.com/CalmKernelTR/bigfive-updater" class="btn btn-primary">BigFive Updater</a>
-                <a href="https://github.com/CalmKernelTR" class="btn btn-secondary">Tüm Projeler</a>
+    <!-- New Mobile Menu -->
+    <div data-menu="mobileMenu" class="side-menu2">
+        <div class="menu-btns">
+            <button id="mobileCloseBtn2" class="close-btn"></button>
+        </div>
+        <ul>
+            <li><a href="#projects">Projeler</a></li>
+            <li><a href="/tools.html">Araclar</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#about">Hakkinda</a></li>
+            <li><a href="https://github.com/CalmKernelTR" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+        <div class="menu-contact">
+            <span>Iletisim</span>
+            <a href="mailto:meet@calmkernel.tr" title="" class="gmail">meet@calmkernel.tr</a>
+        </div>
+        <div class="menu-links">
+            <span>Takip edin:</span>
+            <ul class="social-icon">
+                <li><a href="https://github.com/CalmKernelTR" title="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/ahmet-tanrikulu/" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/calmkernel/" title="CalmKernel" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+            <a href="mailto:meet@calmkernel.tr" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded">
+                <span>Iletisim</span>
+            </a>
+        </div>
+    </div>
+    <!-- Overlay for Mobile Menu -->
+    <div class="overlay2"></div>
+
+    <!-- sticky header -->
+    <header class="sticky-active v13 v3">
+        <div class="header-menu-area3">
+            <div class="row gx-20 align-items-center justify-content-between">
+                <div class="col-auto">
+                    <div class="header-logo">
+                        <a href="javascript:void(0)" class="menu-toggle v2"></a>
+                        <a href="/">
+                            <img src="assets/images/logo.svg" alt="CalmKernel">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <nav class="main-menu menu-style1">
+                        <ul>
+                            <li>
+                                <a href="/" class="active">
+                                    <span class="menu-item">CalmKernel</span>
+                                    <span class="menu-item2">CalmKernel</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#projects">
+                                    <span class="menu-item">Projeler</span>
+                                    <span class="menu-item2">Projeler</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/tools.html">
+                                    <span class="menu-item">Araclar</span>
+                                    <span class="menu-item2">Araclar</span>
+                                </a>
+                            </li>
+                            <li class="logo3">
+                                <a href="/">
+                                    <img src="assets/images/logo.svg" alt="CalmKernel">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#blog">
+                                    <span class="menu-item">Blog</span>
+                                    <span class="menu-item2">Blog</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#about">
+                                    <span class="menu-item">Hakkinda</span>
+                                    <span class="menu-item2">Hakkinda</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/CalmKernelTR" target="_blank" rel="noopener">
+                                    <span class="menu-item">GitHub</span>
+                                    <span class="menu-item2">GitHub</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-auto d-none d-xl-block">
+                    <div class="btn-box">
+                        <a href="https://github.com/CalmKernelTR/bigfive-updater" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded" target="_blank" rel="noopener">
+                            <span>BigFive Updater</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <button class="hamburger popup-menu" data-menu="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    <!-- End sticky header -->
+
+    <!--======== Header ========-->
+    <header class="vs-header13">
+        <div class="container2 position-relative">
+            <div class="header-menu-area3">
+                <div class="row gx-20 align-items-center justify-content-between">
+                    <div class="col-auto">
+                        <div class="header-logo">
+                            <a href="javascript:void(0)" class="menu-toggle v2"></a>
+                            <a href="/">
+                                <img src="assets/images/logo.svg" alt="CalmKernel">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <nav class="main-menu menu-style1">
+                            <ul>
+                                <li>
+                                    <a href="/" class="active">
+                                        <span class="menu-item">CalmKernel</span>
+                                        <span class="menu-item2">CalmKernel</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#projects">
+                                        <span class="menu-item">Projeler</span>
+                                        <span class="menu-item2">Projeler</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/tools.html">
+                                        <span class="menu-item">Araclar</span>
+                                        <span class="menu-item2">Araclar</span>
+                                    </a>
+                                </li>
+                                <li class="logo3">
+                                    <a href="/">
+                                        <img src="assets/images/logo.svg" alt="CalmKernel">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#blog">
+                                        <span class="menu-item">Blog</span>
+                                        <span class="menu-item2">Blog</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#about">
+                                        <span class="menu-item">Hakkinda</span>
+                                        <span class="menu-item2">Hakkinda</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/CalmKernelTR" target="_blank" rel="noopener">
+                                        <span class="menu-item">GitHub</span>
+                                        <span class="menu-item2">GitHub</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-auto d-none d-xl-block">
+                        <div class="btn-box">
+                            <a href="https://github.com/CalmKernelTR/bigfive-updater" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded" target="_blank" rel="noopener">
+                                <span>BigFive Updater</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <button class="hamburger popup-menu" data-menu="mobileMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!--======== / Header ========-->
+
+    <!-- main-sec5 -->
+    <section class="main-sec5">
+        <!-- hero-style13 -->
+        <div class="hero-style13">
+            <div class="container">
+                <div class="hero-content13">
+                    <h1 class="title">Linux icin Akilli Araclar
+                    </h1>
+                    <p>Acik kaynak sistem yonetim araclari. Insan + AI isbirligi ile gelistirildi.
+                    </p>
+                    <a href="#projects" title="" class="ibt-btn ibt-btn-secondary">
+                        <span>Kesfet</span>
+                        <i class="icon-arrow-top"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- End hero-style13 -->
+
+        <!-- service-sec19 -->
+        <div class="service-sec19">
+            <div class="container2">
+                <div class="ser-box19">
+                    <div class="ser-info19">
+                        <div class="service-block19">
+                            <img src="assets/images/service/ser19-1.png" alt="21 Repository">
+                            <h4 class="title">21 Repo</h4>
+                        </div>
+                    </div>
+                    <div class="ser-info19">
+                        <div class="service-block19 v1">
+                            <img src="assets/images/service/ser19-2.png" alt="82 Skill">
+                            <h4 class="title2">82 Skill</h4>
+                        </div>
+                        <div class="ser-content19">
+                            <div class="ser-counter19">
+                                <div class="counter-box19 m-0">
+                                    <span class="counter-number" data-target="5">0</span>
+                                    <span class="counter-text"></span>
+                                </div>
+                                <span class="sub-title">Distro Destegi</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ser-info19">
+                        <div class="service-block19 v1">
+                            <img src="assets/images/service/ser19-3.png" alt="170+ Test">
+                        </div>
+                        <div class="service-block19 m-0">
+                            <img src="assets/images/service/ser19-4.png" alt="Profesyonel araclar">
+                            <h4 class="title">170+ Test</h4>
+                        </div>
+                    </div>
+                    <div class="ser-info19">
+                        <div class="service-block19 v1">
+                            <img src="assets/images/service/ser19-5.png" alt="3 VPS">
+                        </div>
+                        <div class="service-block19 m-0">
+                            <img src="assets/images/service/ser19-6.png" alt="3 VPS Altyapi">
+                            <h4 class="title">3 VPS</h4>
+                        </div>
+                    </div>
+                    <div class="ser-info19 m-0">
+                        <div class="service-block19 v2">
+                            <img src="assets/images/service/ser19-7.png" alt="Multi-distro Linux">
+                            <h4 class="title">Multi-distro Linux</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End service-sec19 -->
+
+        <!-- about-us-sec8 -->
+        <div class="about-us-sec8 ibt-section-gap" id="about">
+            <div class="container">
+                <div class="row align-items-end">
+                    <div class="col-lg-4">
+                        <div class="about-counter6">
+                            <div class="about-counter-content6">
+                                <div class="counter-box15">
+                                    <span class="counter-number percent-counter2" data-target="30">0</span>
+                                    <span class="counter-text">+</span>
+                                </div>
+                                <span class="title">yil IT deneyimi</span>
+                            </div>
+                            <div class="about-counter-content6">
+                                <div class="counter-box15">
+                                    <span class="counter-number percent-counter3" data-target="99.9">0</span>
+                                    <span class="counter-text">%</span>
+                                </div>
+                                <span class="title">sistem uptime</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="about-content6">
+                            <div class="sec-title white mb-0">
+                                <span class="sub-title">hakkimizda</span>
+                                <h2 class="title animated-heading">Ahmet TANRIKULU - 'The Fixer'
+                                </h2>
+                                <p>Osmangazikopr. Koprusu, Bogazici Koprusu sismik guclendirme, ACC network modernizasyonu gibi buyuk altyapi projelerinde gorev aldi.
+                                </p>
+                                <p class="paragraph">CalmKernel, Linux sistem yoneticileri icin acik kaynak araclar gelistiren bir girisimdir. Tum projeler insan + AI isbirligi ile gelistirilmekte.
+                                </p>
+                                <a href="#projects" title="" class="ibt-btn ibt-btn-outline">
+                                    <span>Daha Fazla</span>
+                                    <i class="icon-arrow-top"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End about-us-sec8 -->
+
+        <!-- science-lab -->
+        <div class="science-lab2 ibt-section-gapBottom">
+            <div class="container-fluid">
+                <div class="science-content2">
+                    <h2 class="title">[ Sistemler kahraman <span>gerektirmemeli — duzgun kurulmali</span> ]</h2>
+                </div>
+            </div>
+        </div>
+        <!-- End science-lab -->
+    </section>
+    <!-- End main-sec5 -->
+
+    <!-- service-sec15 -->
+    <section class="service-sec15 v2 ibt-section-gap" id="projects">
+        <div class="title-area">
+            <div class="container">
+                <div class="row end">
+                    <div class="col-lg-7">
+                        <div class="sec-title mb-0">
+                            <span class="sub-title">projelerimiz</span>
+                            <h2 class="title animated-heading">Linux sistem yonetimi, AI otomasyon ve guvenlik araclari
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="sec-btn-box">
+                            <div class="slider-btn5">
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container2">
+            <div class="swiper ser-slider15">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="ser-card15">
+                            <div class="ser-img15">
+                                <a href="https://github.com/CalmKernelTR/bigfive-updater" title="" target="_blank" rel="noopener">
+                                    <img src="assets/images/service/ser15-1.png" alt="BigFive Updater">
+                                    <span>Bash</span>
+                                </a>
+                            </div>
+                            <div class="ser-content15">
+                                <h4 class="title"><a href="https://github.com/CalmKernelTR/bigfive-updater" title="" target="_blank" rel="noopener">BigFive Updater</a></h4>
+                                <p>5 buyuk Linux dagitimi icin tek komutla guncelleme</p>
+                            </div>
+                            <a href="https://github.com/CalmKernelTR/bigfive-updater" class="ser-btn" target="_blank" rel="noopener">
+                                <i class="icon fontello icon-button-arrow"></i>
+                                <i class="icon2 fontello icon-button-arrow"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="ser-card15">
+                            <div class="ser-img15">
+                                <a href="/tools.html" title="">
+                                    <img src="assets/images/service/ser15-2.png" alt="Claude-Turbo">
+                                    <span>Shell</span>
+                                </a>
+                            </div>
+                            <div class="ser-content15">
+                                <h4 class="title"><a href="/tools.html" title="">Claude-Turbo</a></h4>
+                                <p>82 skill, 8 hook, 6 agent tek komutla kurulum</p>
+                            </div>
+                            <a href="/tools.html" class="ser-btn">
+                                <i class="icon fontello icon-button-arrow"></i>
+                                <i class="icon2 fontello icon-button-arrow"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="ser-card15">
+                            <div class="ser-img15">
+                                <a href="/premium.html" title="">
+                                    <img src="assets/images/service/ser15-3.png" alt="DataWash">
+                                    <span>Python</span>
+                                </a>
+                            </div>
+                            <div class="ser-content15">
+                                <h4 class="title"><a href="/premium.html" title="">DataWash</a></h4>
+                                <p>Veri temizleme ve analiz framework'u. KVKK/GDPR uyumlu</p>
+                            </div>
+                            <a href="/premium.html" class="ser-btn">
+                                <i class="icon fontello icon-button-arrow"></i>
+                                <i class="icon2 fontello icon-button-arrow"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="ser-card15">
+                            <div class="ser-img15">
+                                <a href="/tools.html" title="">
+                                    <img src="assets/images/service/ser15-4.png" alt="VPS-Backup-Suite">
+                                    <span>Shell</span>
+                                </a>
+                            </div>
+                            <div class="ser-content15">
+                                <h4 class="title"><a href="/tools.html" title="">VPS-Backup-Suite</a></h4>
+                                <p>Birlesik VPS backup altyapisi. Age encrypted</p>
+                            </div>
+                            <a href="/tools.html" class="ser-btn">
+                                <i class="icon fontello icon-button-arrow"></i>
+                                <i class="icon2 fontello icon-button-arrow"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    <!-- End service-sec15 -->
 
-    <section id="projects">
-        <h2>Projeler</h2>
-        <div class="projects-grid">
-            <!-- BigFive Updater -->
-            <div class="project-card">
-                <div class="project-header">
-                    <span class="project-icon">🛡️</span>
-                    <span class="project-title">BigFive Updater</span>
-                </div>
-                <div class="project-badges">
-                    <span class="badge badge-edition">Fluent Edition</span>
-                    <span class="badge badge-new">Foxtrot</span>
-                    <span class="badge badge-version">v6.2.0</span>
-                </div>
-                <p class="project-description">
-                    5 büyük Linux dağıtımı için tek komutla güncelleme.
-                    APT, DNF, Pacman, Zypper, APK + Flatpak, Snap, Firmware.
-                </p>
-                <div class="project-stats">
-                    <span class="stat">5 Distro</span>
-                    <span class="stat">170+ Test</span>
-                    <span class="stat">CI/CD</span>
-                    <span class="stat">GPG Signed</span>
-                </div>
-                <div class="project-features">--doctor | --history | --json | i18n (TR/EN)</div>
-                <a href="https://github.com/CalmKernelTR/bigfive-updater" class="project-link">GitHub'da görüntüle →</a>
+    <!-- feature-style1 -->
+    <section class="feature-sec1 ibt-section-gap">
+        <div class="container">
+            <div class="sec-title">
+                <span class="sub-title">ozellikler</span>
+                <h2 class="title animated-heading">Projelerimizin temel ozellikleri ve avantajlari
+                </h2>
             </div>
-
-            <!-- Claude Code Skills -->
-            <div class="project-card">
-                <div class="project-header">
-                    <span class="project-icon">🤖</span>
-                    <span class="project-title">Claude Code Skills</span>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="feature-card">
+                        <img src="assets/images/feature/feature1.svg" alt="Acik Kaynak">
+                        <h4 class="title">Acik Kaynak</h4>
+                        <p>Tum projeler MIT lisansi ile paylasiliyor
+                        </p>
+                    </div>
                 </div>
-                <div class="project-badges">
-                    <span class="badge badge-edition">Premium</span>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="feature-card">
+                        <img src="assets/images/feature/feature2.svg" alt="AI Destekli">
+                        <h4 class="title">AI Destekli</h4>
+                        <p>Claude AI ile insan-makine isbirligi
+                        </p>
+                    </div>
                 </div>
-                <p class="project-description">
-                    Claude Code CLI için kapsamlı skill koleksiyonu.
-                    Bash, Docker, Git, Security, CI/CD ve daha fazlası.
-                </p>
-                <div class="project-stats">
-                    <span class="stat">33+ Skills</span>
-                    <span class="stat">MIT License</span>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="feature-card">
+                        <img src="assets/images/feature/feature3.svg" alt="Multi-Distro">
+                        <h4 class="title">Multi-Distro</h4>
+                        <p>Ubuntu, Fedora, Arch, openSUSE, Alpine
+                        </p>
+                    </div>
                 </div>
-                <div class="project-features">bigfive-dev | security-ops | bats-test | changelog-entry</div>
-                <a href="/premium.html" class="project-link">Premium Projeler →</a>
-            </div>
-
-            <!-- VPS-Backup-Suite -->
-            <div class="project-card">
-                <div class="project-header">
-                    <span class="project-icon">💾</span>
-                    <span class="project-title">VPS-Backup-Suite</span>
-                </div>
-                <div class="project-badges">
-                    <span class="badge badge-private">Private</span>
-                </div>
-                <p class="project-description">
-                    Birleşik VPS backup altyapısı. dd+zstd disk image, age encrypted dosya backup,
-                    Istanbul vault ile offsite orchestration.
-                </p>
-                <div class="project-stats">
-                    <span class="stat">3 VPS</span>
-                    <span class="stat">R2+B2 Offsite</span>
-                    <span class="stat">Age Encrypted</span>
-                </div>
-            </div>
-
-            <!-- DataWash -->
-            <div class="project-card">
-                <div class="project-header">
-                    <span class="project-icon">🧹</span>
-                    <span class="project-title">DataWash</span>
-                </div>
-                <div class="project-badges">
-                    <span class="badge badge-edition">SaaS</span>
-                    <span class="badge badge-private">Private</span>
-                </div>
-                <p class="project-description">
-                    Veri temizleme ve analiz framework'ü. CSV, Excel, JSON işleme,
-                    KVKK/GDPR anonimleştirme, multi-tenant mimarisi.
-                </p>
-                <div class="project-stats">
-                    <span class="stat">Pipeline</span>
-                    <span class="stat">Multi-tenant</span>
-                    <span class="stat">Docker</span>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="feature-card">
+                        <img src="assets/images/feature/feature4.svg" alt="Guvenlik Oncelikli">
+                        <h4 class="title">Guvenlik Oncelikli</h4>
+                        <p>GPG imza, age encryption, CIS benchmark
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 2rem;">
-            <a href="/tools.html" class="btn btn-secondary">Tüm Araçlar & Projeler →</a>
+    </section>
+    <!-- End feature-style1 -->
+
+    <!-- team-section -->
+    <section class="team-section ibt-section-gapBottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="team-info">
+                        <div class="sec-title">
+                            <span class="sub-title">ekip</span>
+                            <h2 class="title animated-heading">Insan + AI isbirligi ile yenilikci cozumler
+                            </h2>
+                            <div class="team-counter">
+                                <div class="counter-box8">
+                                    <span class="counter-text">+</span>
+                                    <span class="counter-number percent-counter" data-target="30">0</span>
+                                </div>
+                                <span class="title">yil IT deneyimi</span>
+                            </div>
+                            <a href="https://github.com/CalmKernelTR" title="" class="ibt-btn ibt-btn-outline" target="_blank" rel="noopener">
+                                <span>GitHub</span>
+                                <i class="icon-arrow-top"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="team-member">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <img src="assets/images/team/team1-2.png" alt="ahm3t0t">
+                                        <span class="sub-title">Founder</span>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="https://github.com/ahm3t0t" target="_blank" title="GitHub" rel="noopener"><i class="fab fa-github"></i></a></li>
+                                                <li><a href="https://www.linkedin.com/in/ahmet-tanrikulu/" target="_blank" title="LinkedIn" rel="noopener"><i class="fab fa-linkedin-in"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="https://github.com/ahm3t0t" title="" target="_blank" rel="noopener">ahm3t0t</a></h4>
+                                        <span class="designation">/ Kurucu & Gelistirici /</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="team-card v2">
+                                    <div class="team-img">
+                                        <img src="assets/images/team/team1-3.png" alt="Claude AI">
+                                        <span class="sub-title">AI</span>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="https://claude.ai" target="_blank" title="Claude AI" rel="noopener"><i class="fa fa-robot"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="https://claude.ai" title="" target="_blank" rel="noopener">Claude AI</a></h4>
+                                        <span class="designation">/ AI Asistan /</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+    <!-- End team-section -->
 
-    <section id="blog">
-        <h2>Blog</h2>
-        
-        <article class="blog-card">
-            <div class="blog-meta">📅 3 Şubat 2026 • BigFive Updater</div>
-            <a href="blog/edition-methodology.html" class="blog-title">Edition Metodolojisi: BigFive → Fluent → Zenith</a>
-            <p class="blog-excerpt">
-                BigFive Updater artık major version'lara göre "Edition" sistemi kullanıyor.
-                v5.x BigFive Edition, v6.x Fluent Edition, v7.x Zenith Edition olarak adlandırılıyor.
-            </p>
-            <a href="blog/edition-methodology.html" class="blog-read-more">Devamını oku →</a>
-        </article>
-
-        <article class="blog-card">
-            <div class="blog-meta">📅 2 Şubat 2026 • BigFive Updater</div>
-            <a href="blog/bigfive-v6.1.0.html" class="blog-title">BigFive v6.1.0 "Echo" Yayınlandı - Diagnostics & CI</a>
-            <p class="blog-excerpt">
-                Yeni --doctor sistem sağlık kontrolü, --history güncelleme geçmişi,
-                5 distro CI matrix ve 170 otomatik test ile v6.1.0 yayınlandı.
-            </p>
-            <a href="blog/bigfive-v6.1.0.html" class="blog-read-more">Devamını oku →</a>
-        </article>
-    </section>
-
-    <section id="about">
-        <h2>Hakkında</h2>
-        <div class="about-content">
-            <div class="about-highlight">
-                <h3>👨‍💻 Ahmet TANRIKULU — "The Fixer"</h3>
-                <p>
-                    30+ yıllık IT deneyimi. Osmangazi Köprüsü, Boğaziçi Köprüsü sismik güçlendirme,
-                    ACC network modernizasyonu gibi büyük altyapı projelerinde görev aldı.
-                </p>
-                <p style="color: var(--accent-green); font-weight: 600;">
-                    "Sistemler kahraman gerektirmemeli — düzgün kurulmalı."
-                </p>
-            </div>
-
-            <p>
-                CalmKernel, Linux sistem yöneticileri için açık kaynak araçlar geliştiren
-                bir girişimdir. Tüm projeler <strong>insan + AI işbirliği</strong> ile
-                geliştirilmekte ve şeffaf bir şekilde paylaşılmaktadır.
-            </p>
-
-            <div class="edition-info">
-                <h4>📦 Edition Sistemi</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem;">
-                    BigFive Updater major version'lara göre Edition'lara ayrılır. Her Edition kendi codename serisine sahiptir.
-                </p>
-                <table class="edition-table">
-                    <tr>
-                        <th>Major</th>
-                        <th>Edition</th>
-                        <th>Codename'ler</th>
-                    </tr>
-                    <tr>
-                        <td>v5.x</td>
-                        <td>BigFive</td>
-                        <td>Alpine, Beacon, Dream</td>
-                    </tr>
-                    <tr class="edition-current">
-                        <td>v6.x</td>
-                        <td>Fluent ✓</td>
-                        <td>Echo, Foxtrot ✓</td>
-                    </tr>
-                    <tr>
-                        <td>v7.x</td>
-                        <td>Zenith</td>
-                        <td>TBD</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="tech-stack">
-                <span class="tech-tag">Bash</span>
-                <span class="tech-tag">Docker</span>
-                <span class="tech-tag">GitHub Actions</span>
-                <span class="tech-tag">BATS Testing</span>
-                <span class="tech-tag">ShellCheck</span>
-                <span class="tech-tag">Claude AI</span>
-                <span class="tech-tag">GPG Signing</span>
-            </div>
-
-            <div class="quote">
-                "Tembel ama takıntılı adminin en yakın dostu."
-            </div>
-
-            <div class="team">
-                <a href="https://github.com/ahm3t0t" class="team-member">
-                    <span>👨‍💻</span>
-                    <span>ahm3t0t</span>
+    <!-- faq-sec3 -->
+    <section class="faq-sec3 ibt-section-gapBottom">
+        <div class="faq-tabs">
+            <div class="faq-content">
+                <div class="sec-title white">
+                    <span class="sub-title">Edition Sistemi</span>
+                    <h2 class="title animated-heading">BigFive Updater surum yonetimi</h2>
+                </div>
+                <div class="accordion" id="accordionExample2">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingseven">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseseven" aria-expanded="true" aria-controls="collapseseven">
+                                BigFive Edition (v5.x)
+                            </button>
+                        </h2>
+                        <div id="collapseseven" class="accordion-collapse collapse show" aria-labelledby="headingseven" data-bs-parent="#accordionExample2">
+                            <div class="accordion-body">
+                                5 buyuk paket yoneticisi destegi ile baslayan ilk edition. Ubuntu/Debian (APT), Fedora/RHEL (DNF), Arch (Pacman), openSUSE (Zypper), Alpine (APK) destegi. Codename'ler: Alpine, Beacon, Dream.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingfive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive">
+                                Fluent Edition (v6.x) - Guncel
+                            </button>
+                        </h2>
+                        <div id="collapsefive" class="accordion-collapse collapse" aria-labelledby="headingfive" data-bs-parent="#accordionExample2">
+                            <div class="accordion-body">
+                                Akici guncelleme deneyimi. --doctor sistem saglik kontrolu, --history guncelleme gecmisi, --json yapisal cikti, --rollback geri alma ozellikleri. Codename'ler: Echo, Foxtrot.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item mb-0">
+                        <h2 class="accordion-header" id="headingsix">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
+                                Zenith Edition (v7.x) - Planlanan
+                            </button>
+                        </h2>
+                        <div id="collapsesix" class="accordion-collapse collapse" aria-labelledby="headingsix" data-bs-parent="#accordionExample2">
+                            <div class="accordion-body">
+                                Zirve ozellikleri hedefleyen gelecek edition. Plugin sistemi, GUI entegrasyonu, otomatik guncelleme daemon'u ve container destegi planlanıyor.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://github.com/CalmKernelTR/bigfive-updater" title="" class="ibt-btn ibt-btn-outline" target="_blank" rel="noopener">
+                    <span>GitHub'da Kesfet</span>
+                    <i class="icon-arrow-top"></i>
                 </a>
-                <span style="color: var(--text-secondary); display: flex; align-items: center;">+</span>
-                <a href="https://claude.ai" class="team-member">
-                    <span>🤖</span>
-                    <span>Claude</span>
-                </a>
+            </div>
+            <div class="faq-img3">
+                <img src="assets/images/event/faq3-1.png" alt="BigFive Updater">
+                <div class="feature-ai">
+                    <h4 class="title">Multi-Distro Linux</h4>
+                </div>
             </div>
         </div>
     </section>
+    <!-- End faq-sec3 -->
 
-    </main>
+    <!-- blog-sec2 -->
+    <section class="blog-sec2 ibt-section-gap" id="blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="blog-image2">
+                        <img src="assets/images/layers/layer4.png" alt="Blog">
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="blog-info2">
+                        <div class="title-area">
+                            <div class="row end">
+                                <div class="col-lg-8 col-md-7">
+                                    <div class="sec-title mb-0">
+                                        <span class="sub-title">blog</span>
+                                        <h2 class="title animated-heading">Teknik yazilar ve proje guncellemeleri
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-5">
+                                    <div class="sec-btn-box">
+                                        <a href="#blog" title="" class="ibt-btn ibt-btn-outline">
+                                            <span>Tum yazilar</span>
+                                            <i class="icon-arrow-top"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blog-post">
+                            <div class="blog-card2">
+                                <div class="blog-img2">
+                                    <a href="/blog/edition-methodology.html" title=""><img src="assets/images/blog/blog2-1.png" alt="Edition Metodolojisi"></a>
+                                </div>
+                                <div class="blog-content2">
+                                    <div class="blog-meta2">
+                                        <span class="sub-title">3 Subat 2026 / Ahmet TANRIKULU</span>
+                                        <div class="blog-text2">
+                                            <a href="#" title="">BigFive Updater</a>
+                                        </div>
+                                    </div>
+                                    <h4 class="title"><a href="/blog/edition-methodology.html">Edition Metodolojisi: BigFive → Fluent → Zenith</a>
+                                    </h4>
+                                    <p>BigFive Updater'in surum yonetim felsefesi ve Edition sistemi nasil calisir
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="blog-card2 mb-0">
+                                <div class="blog-img2">
+                                    <a href="/blog/bigfive-v6.1.0.html" title=""><img src="assets/images/blog/blog2-2.png" alt="BigFive v6.1.0 Echo"></a>
+                                </div>
+                                <div class="blog-content2">
+                                    <div class="blog-meta2">
+                                        <span class="sub-title">2 Subat 2026 / Ahmet TANRIKULU</span>
+                                        <div class="blog-text2">
+                                            <a href="#" title="">Release</a>
+                                        </div>
+                                    </div>
+                                    <h4 class="title"><a href="/blog/bigfive-v6.1.0.html">BigFive v6.1.0 'Echo' Yayinlandi</a>
+                                    </h4>
+                                    <p>Fluent Edition'in ilk kararlı surumu yayinlandi. --doctor, --history ve daha fazlasi
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End blog-sec2 -->
 
-    <script>
-    const toggle = document.querySelector('.nav-toggle');
-    const menu = document.getElementById('nav-menu');
-    toggle.addEventListener('click', () => {
-        const expanded = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', !expanded);
-        menu.classList.toggle('active');
-    });
-    </script>
+    <!-- partners-sec -->
+    <section class="partners-sec ibt-section-gapBottom">
+        <div class="container">
+            <div class="sec-title">
+                <span class="sub-title">teknolojiler</span>
+                <h2 class="title animated-heading">Kullanilan teknolojiler ve araclar</h2>
+            </div>
+            <div class="brand-sec2 ">
+                <div class="swiper brand2">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="#" title="Bash"><img src="assets/images/brand/brand1.png" alt="Bash"></a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#" title="Docker"><img src="assets/images/brand/brand2.png" alt="Docker"></a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#" title="GitHub Actions"><img src="assets/images/brand/brand3.png" alt="GitHub Actions"></a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#" title="BATS Testing"><img src="assets/images/brand/brand4.png" alt="BATS Testing"></a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#" title="ShellCheck"><img src="assets/images/brand/brand6.png" alt="ShellCheck"></a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#" title="Claude AI"><img src="assets/images/brand/brand5.png" alt="Claude AI"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End partners-sec -->
 
-    <footer>
-        <p>© 2026 CalmKernel. MIT License.</p>
-        <p>
-            <a href="mailto:meet@calmkernel.tr">meet@calmkernel.tr</a>
-            <a href="https://github.com/CalmKernelTR" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/ahmet-tanrikulu/" target="_blank">LinkedIn</a>
-            <a href="https://www.linkedin.com/company/calmkernel/" target="_blank">CalmKernel</a>
-        </p>
+    <!-- footer-style4 -->
+    <footer class="footer-style4 v2">
+        <div class="footer-top4">
+            <div class="container">
+                <div class="footer-content4">
+                    <h2 class="title">CalmKernel ile uretkenliginizi artirin</h2>
+                    <a href="mailto:meet@calmkernel.tr" title="" class="ibt-btn ibt-btn-outline">
+                        <span>Iletisim</span>
+                        <i class="icon-arrow-top"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="widget-area ibt-section-gapTop">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="about-widget4 footer-widget">
+                            <div class="footer-logo">
+                                <img src="assets/images/logo2.svg" alt="CalmKernel">
+                            </div>
+                            <p><a href="/">©CalmKernel</a> 2026. MIT License.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="footer-menu4">
+                            <div class="location-widget4 footer-widget">
+                                <h4 class="widget-title">Konum</h4>
+                                <p>Turkiye</p>
+                                <h5 class="title">Takip edin</h5>
+                                <ul class="social-icon">
+                                    <li><a href="https://github.com/CalmKernelTR" title="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/in/ahmet-tanrikulu/" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/company/calmkernel/" title="CalmKernel" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="contact-widget4 footer-widget">
+                                <h4 class="widget-title">Email</h4>
+                                <a href="mailto:meet@calmkernel.tr" title="" class="gmail">meet@calmkernel.tr</a>
+                            </div>
+                            <div class="footer-links footer-widget">
+                                <h4 class="widget-title">Servisler</h4>
+                                <ul>
+                                    <li><a href="https://github.com/CalmKernelTR/bigfive-updater" title="" target="_blank" rel="noopener">BigFive Updater</a></li>
+                                    <li><a href="/tools.html" title="">Claude-Turbo</a></li>
+                                    <li><a href="/premium.html" title="">DataWash</a></li>
+                                    <li><a href="/tools.html" title="">VPS-Backup</a></li>
+                                    <li><a href="/tools.html" title="">Araclar</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
+    <!-- footer-style4 -->
+
+
+    <!-- Scroll Button -->
+    <button id="scrollBtn" title="Yukari git">
+        <i class="fas fa-angle-up"></i>
+    </button>
+
+
+    <!-- Js Plugin -->
+    <script src="assets/js/bootstrap.min.js" defer></script>
+    <script src="assets/js/vendor/swiper-bundle.min.js" defer></script>
+    <script src="assets/js/vendor/lenis.min.js" defer></script>
+    <script src="assets/js/vendor/gsap.min.js" defer></script>
+    <script src="assets/js/vendor/ScrollTrigger.min.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
 </body>
+
 </html>

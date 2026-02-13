@@ -5,253 +5,453 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BigFive v6.1.0 "Echo" Yayinlandi - CalmKernel</title>
     <meta name="description" content="BigFive Updater v6.1.0 Echo - Diagnostics, History, 5 Distro CI Matrix ve 170 Test">
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐧</text></svg>">
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
     <style>
-        .gradient-bg {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        /* Blog-specific styles */
+        .blog-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
         }
-        .prose-dark {
-            color: #d1d5db;
+        .blog-meta {
+            color: #8b949e;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
         }
-        .prose-dark h2, .prose-dark h3 {
-            color: #f3f4f6;
+        .blog-meta span {
+            margin-right: 1rem;
         }
-        .prose-dark code {
-            background: #374151;
-            padding: 0.125rem 0.375rem;
-            border-radius: 0.25rem;
-            font-size: 0.875rem;
+        .blog-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
         }
-        .prose-dark pre {
-            background: #1f2937;
-            padding: 1rem;
-            border-radius: 0.5rem;
+        .blog-subtitle {
+            font-size: 1.25rem;
+            color: #8b949e;
+            margin-bottom: 2rem;
+        }
+        .blog-content h2 {
+            font-size: 1.75rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .blog-content h3 {
+            font-size: 1.35rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        .blog-content p {
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
+        }
+        .blog-content ul {
+            margin: 1rem 0 1.5rem 1.5rem;
+            line-height: 1.8;
+        }
+        .blog-content li {
+            margin-bottom: 0.5rem;
+        }
+        .blog-content code {
+            background: rgba(69, 208, 189, 0.15);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        .blog-content pre {
+            background: rgba(22, 27, 34, 0.8);
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 1.25rem;
             overflow-x: auto;
+            margin: 1.5rem 0;
         }
-        .prose-dark pre code {
-            background: transparent;
+        .blog-content pre code {
+            background: none;
             padding: 0;
+            color: #e6edf3;
         }
-        .prose-dark a {
-            color: #60a5fa;
+        .info-box {
+            background: rgba(69, 208, 189, 0.1);
+            border-left: 4px solid #45d0bd;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
         }
-        .prose-dark a:hover {
-            text-decoration: underline;
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin: 0.25rem;
+        }
+        .badge-green {
+            background: rgba(63, 185, 80, 0.2);
+            color: #3fb950;
+        }
+        .badge-distro {
+            background: rgba(88, 166, 255, 0.2);
+            color: #58a6ff;
+        }
+        .lang-toggle {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 2rem;
+        }
+        .lang-toggle button {
+            padding: 0.5rem 1.25rem;
+            margin: 0 0.25rem;
+            border: 1px solid #30363d;
+            background: rgba(22, 27, 34, 0.6);
+            color: #8b949e;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .lang-toggle button.active {
+            background: #45d0bd;
+            color: #0d1117;
+            border-color: #45d0bd;
+        }
+        .lang-toggle button:hover {
+            border-color: #45d0bd;
+            color: #e6edf3;
+        }
+        .hidden {
+            display: none;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 3rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(69, 208, 189, 0.1);
+            border: 1px solid #45d0bd;
+            border-radius: 8px;
+            color: #45d0bd;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background: rgba(69, 208, 189, 0.2);
+        }
+        .links-box {
+            background: rgba(22, 27, 34, 0.6);
+            border: 1px solid #30363d;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        .links-box h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        .links-box a {
+            color: #45d0bd;
+            text-decoration: none;
+            margin-right: 1.5rem;
+            transition: color 0.3s;
+        }
+        .links-box a:hover {
+            color: #58a6ff;
         }
     </style>
 </head>
-<body class="gradient-bg min-h-screen text-gray-100">
-    <!-- Header -->
-    <header class="container mx-auto px-6 py-8">
-        <nav class="flex justify-between items-center">
-            <a href="../index.html" class="text-2xl font-bold flex items-center gap-2">
-                <span>🐧</span>
-                <span>CalmKernel</span>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <img src="../assets/images/preloader-dark.png" alt="Loading...">
+        </div>
+    </div>
+    <!-- End Preloader -->
+
+    <button id="themeBtn"><i class="far fa-moon"></i></button>
+
+    <!-- Side Menu -->
+    <div class="side-menu" id="sideMenu">
+        <div class="overlay" id="overlay"></div>
+        <a href="javascript:void(0)" class="close-btn" id="closeBtn"><i class="fa fa-close"></i> close</a>
+        <div class="menu-content">
+            <a href="/" class="logo">
+                <span style="font-size: 2rem;">🐧</span>
             </a>
-            <div class="flex gap-6 text-sm">
-                <a href="../index.html#projects" class="hover:text-blue-400 transition">Projeler</a>
-                <a href="../index.html#blog" class="hover:text-blue-400 transition">Blog</a>
-                <a href="../index.html#about" class="hover:text-blue-400 transition">Hakkinda</a>
-                <a href="https://github.com/CalmKernelTR" class="hover:text-blue-400 transition">GitHub</a>
+            <div class="sidebar-menu">
+                <h4 class="title">contacts</h4>
+                <a href="mailto:meet@calmkernel.tr" class="email">meet@calmkernel.tr</a>
+                <a href="/" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded">
+                    <span>Ana Sayfa</span>
+                </a>
             </div>
-        </nav>
+            <ul class="social-icon">
+                <li><a href="https://github.com/CalmKernelTR" target="_blank" title=""><i class="fab fa-github"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/calmkernel/" target="_blank" title=""><i class="fab fa-linkedin-in"></i></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- New Mobile Menu -->
+    <div data-menu="mobileMenu" class="side-menu2">
+        <div class="menu-btns">
+            <button id="mobileCloseBtn2" class="close-btn"></button>
+        </div>
+        <ul>
+            <li><a href="/">Ana Sayfa</a></li>
+            <li><a href="/#projects">Projeler</a></li>
+            <li><a href="/tools.html">Araçlar</a></li>
+            <li><a href="/#blog">Blog</a></li>
+            <li><a href="/#about">Hakkında</a></li>
+        </ul>
+        <div class="menu-contact">
+            <span>İletişim</span>
+            <a href="mailto:meet@calmkernel.tr" title="" class="gmail">meet@calmkernel.tr</a>
+        </div>
+        <div class="menu-links">
+            <span>Takip et:</span>
+            <ul class="social-icon">
+                <li><a href="https://github.com/CalmKernelTR" title=""><i class="fab fa-github"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/calmkernel/" title=""><i class="fab fa-linkedin-in"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Overlay for Mobile Menu -->
+    <div class="overlay2"></div>
+
+    <!-- sticky header -->
+    <header class="sticky-active">
+        <div class="header-menu-area">
+            <div class="row gx-20 align-items-center justify-content-between">
+                <div class="col-auto">
+                    <div class="header-logo">
+                        <a href="javascript:void(0)" class="menu-toggle"></a>
+                        <a href="/" style="font-size: 1.5rem; font-weight: 700;">
+                            🐧 CalmKernel
+                        </a>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <nav class="main-menu menu-style1">
+                        <ul>
+                            <li><a href="/#projects"><span class="menu-item">Projeler</span><span class="menu-item2">Projeler</span></a></li>
+                            <li><a href="/tools.html"><span class="menu-item">Araçlar</span><span class="menu-item2">Araçlar</span></a></li>
+                            <li><a href="/#blog"><span class="menu-item">Blog</span><span class="menu-item2">Blog</span></a></li>
+                            <li><a href="/#about"><span class="menu-item">Hakkında</span><span class="menu-item2">Hakkında</span></a></li>
+                            <li><a href="https://github.com/CalmKernelTR" target="_blank"><span class="menu-item">GitHub</span><span class="menu-item2">GitHub</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-auto d-none d-xl-block">
+                    <div class="btn-box">
+                        <a href="https://github.com/CalmKernelTR/bigfive-updater" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded">
+                            <span>BigFive Updater</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <button class="hamburger popup-menu" data-menu="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </header>
+    <!-- End sticky header -->
 
     <!-- Blog Post -->
-    <main class="container mx-auto px-6 py-8 max-w-4xl">
-        <!-- Language Toggle -->
-        <div class="flex justify-end mb-6">
-            <div class="bg-gray-800/50 rounded-lg p-1 flex gap-1">
-                <button onclick="showLang('tr')" id="btn-tr" class="px-4 py-2 rounded-md bg-blue-600 text-white text-sm font-medium transition">
-                    Turkce
-                </button>
-                <button onclick="showLang('en')" id="btn-en" class="px-4 py-2 rounded-md text-gray-400 hover:text-white text-sm font-medium transition">
-                    English
-                </button>
-            </div>
-        </div>
-
-        <!-- Turkish Version -->
-        <article id="content-tr" class="prose-dark">
-            <div class="mb-8">
-                <div class="flex items-center gap-2 text-sm text-gray-500 mb-4">
-                    <span>📅 2 Subat 2026</span>
-                    <span>•</span>
-                    <span>BigFive Updater</span>
-                    <span>•</span>
-                    <span class="bg-green-600 text-white px-2 py-0.5 rounded text-xs">v6.1.0</span>
+    <section class="ibt-section-gap">
+        <div class="container">
+            <div class="blog-container">
+                <!-- Language Toggle -->
+                <div class="lang-toggle">
+                    <button onclick="showLang('tr')" id="btn-tr" class="active">Türkçe</button>
+                    <button onclick="showLang('en')" id="btn-en">English</button>
                 </div>
-                <h1 class="text-4xl font-bold mb-4">
-                    BigFive v6.1.0 "Echo" Yayinlandi
-                </h1>
-                <p class="text-xl text-gray-400">
-                    Diagnostics, History, 5 Distro CI Matrix ve 170 Otomatik Test
-                </p>
-            </div>
 
-            <div class="bg-gray-800/30 rounded-xl p-6 mb-8">
-                <h3 class="text-lg font-semibold mb-3">📦 Hizli Kurulum</h3>
-                <pre><code>curl -fsSL https://raw.githubusercontent.com/CalmKernelTR/bigfive-updater/main/install.sh | sudo bash</code></pre>
-            </div>
+                <!-- Turkish Version -->
+                <article id="content-tr" class="blog-content">
+                    <div class="blog-meta">
+                        <span>📅 2 Şubat 2026</span>
+                        <span>•</span>
+                        <span>BigFive Updater</span>
+                        <span>•</span>
+                        <span class="badge badge-green">v6.1.0</span>
+                    </div>
+                    <h1 class="blog-title">BigFive v6.1.0 "Echo" Yayınlandı</h1>
+                    <p class="blog-subtitle">
+                        Diagnostics, History, 5 Distro CI Matrix ve 170 Otomatik Test
+                    </p>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4">🎯 Yeni Ozellikler</h2>
+                    <div class="info-box">
+                        <h3>📦 Hızlı Kurulum</h3>
+                        <pre><code>curl -fsSL https://raw.githubusercontent.com/CalmKernelTR/bigfive-updater/main/install.sh | sudo bash</code></pre>
+                    </div>
 
-            <h3 class="text-xl font-semibold mt-6 mb-3">🩺 --doctor: Sistem Saglik Kontrolu</h3>
-            <p class="mb-4">
-                Yeni <code>--doctor</code> bayragi ile sisteminizin BigFive ile uyumlulugunu kontrol edin.
-                6 kategori uzerinden detayli analiz:
-            </p>
-            <ul class="list-disc list-inside mb-4 space-y-2">
-                <li>Gerekli komutlar (curl, wget, gawk)</li>
-                <li>Paket yoneticisi tespiti</li>
-                <li>Evrensel paket yoneticileri (Flatpak, Snap)</li>
-                <li>Sistem araclari (fwupd, timeshift)</li>
-                <li>Dosya sistemi izinleri</li>
-                <li>Disk alani kontrolu</li>
-            </ul>
-            <pre><code>sudo guncel --doctor</code></pre>
+                    <h2>🎯 Yeni Özellikler</h2>
 
-            <h3 class="text-xl font-semibold mt-6 mb-3">📜 --history: Guncelleme Gecmisi</h3>
-            <p class="mb-4">
-                Son 10 guncelleme isleminin detayli gecmisini gorun:
-            </p>
-            <ul class="list-disc list-inside mb-4 space-y-2">
-                <li>Tarih ve saat</li>
-                <li>Calistirilan backend'ler</li>
-                <li>Basari/basarisizlik durumu</li>
-                <li>Guncellenen paket sayisi</li>
-            </ul>
-            <pre><code>guncel --history</code></pre>
+                    <h3>🩺 --doctor: Sistem Sağlık Kontrolü</h3>
+                    <p>
+                        Yeni <code>--doctor</code> bayrağı ile sisteminizin BigFive ile uyumluluğunu kontrol edin.
+                        6 kategori üzerinden detaylı analiz:
+                    </p>
+                    <ul>
+                        <li>Gerekli komutlar (curl, wget, gawk)</li>
+                        <li>Paket yöneticisi tespiti</li>
+                        <li>Evrensel paket yöneticileri (Flatpak, Snap)</li>
+                        <li>Sistem araçları (fwupd, timeshift)</li>
+                        <li>Dosya sistemi izinleri</li>
+                        <li>Disk alanı kontrolü</li>
+                    </ul>
+                    <pre><code>sudo guncel --doctor</code></pre>
 
-            <h3 class="text-xl font-semibold mt-6 mb-3">🌍 i18n: Turkce ve Ingilizce Destek</h3>
-            <p class="mb-4">
-                BigFive artik tam Turkce ve Ingilizce destegi sunuyor:
-            </p>
-            <pre><code># Turkce
+                    <h3>📜 --history: Güncelleme Geçmişi</h3>
+                    <p>
+                        Son 10 güncelleme işleminin detaylı geçmisini görün:
+                    </p>
+                    <ul>
+                        <li>Tarih ve saat</li>
+                        <li>Çalıştırılan backend'ler</li>
+                        <li>Başarı/başarısızlık durumu</li>
+                        <li>Güncellenen paket sayısı</li>
+                    </ul>
+                    <pre><code>guncel --history</code></pre>
+
+                    <h3>🌍 i18n: Türkçe ve İngilizce Destek</h3>
+                    <p>
+                        BigFive artık tam Türkçe ve İngilizce desteği sunuyor:
+                    </p>
+                    <pre><code># Türkçe
 guncel --lang tr
 
-# Ingilizce
+# İngilizce
 guncel --lang en
 
-# Sistem diline gore otomatik
+# Sistem diline göre otomatik
 guncel</code></pre>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4">🔧 CI/CD ve Test Altyapisi</h2>
+                    <h2>🔧 CI/CD ve Test Altyapısı</h2>
 
-            <h3 class="text-xl font-semibold mt-6 mb-3">🐳 5 Distro CI Matrix</h3>
-            <p class="mb-4">
-                GitHub Actions uzerinde 5 buyuk Linux dagitiminda otomatik test:
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-                <span class="bg-orange-900/50 text-orange-400 px-3 py-1 rounded text-sm">Ubuntu 24.04</span>
-                <span class="bg-blue-900/50 text-blue-400 px-3 py-1 rounded text-sm">Fedora 40</span>
-                <span class="bg-cyan-900/50 text-cyan-400 px-3 py-1 rounded text-sm">Arch Linux</span>
-                <span class="bg-green-900/50 text-green-400 px-3 py-1 rounded text-sm">openSUSE Leap 15.6</span>
-                <span class="bg-purple-900/50 text-purple-400 px-3 py-1 rounded text-sm">Alpine 3.20</span>
-            </div>
+                    <h3>🐳 5 Distro CI Matrix</h3>
+                    <p>
+                        GitHub Actions üzerinde 5 büyük Linux dağıtımında otomatik test:
+                    </p>
+                    <div>
+                        <span class="badge badge-distro">Ubuntu 24.04</span>
+                        <span class="badge badge-distro">Fedora 40</span>
+                        <span class="badge badge-distro">Arch Linux</span>
+                        <span class="badge badge-distro">openSUSE Leap 15.6</span>
+                        <span class="badge badge-distro">Alpine 3.20</span>
+                    </div>
 
-            <h3 class="text-xl font-semibold mt-6 mb-3">🧪 170 Otomatik Test</h3>
-            <p class="mb-4">
-                BATS framework ile kapsamli test suite:
-            </p>
-            <ul class="list-disc list-inside mb-4 space-y-2">
-                <li>guncel.bats: 131 test (ana script)</li>
-                <li>install.bats: 39 test (kurulum scripti)</li>
-            </ul>
+                    <h3>🧪 170 Otomatik Test</h3>
+                    <p>
+                        BATS framework ile kapsamlı test suite:
+                    </p>
+                    <ul>
+                        <li>guncel.bats: 131 test (ana script)</li>
+                        <li>install.bats: 39 test (kurulum scripti)</li>
+                    </ul>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4">📋 Tam Degisiklik Listesi</h2>
+                    <h2>📋 Tam Değişiklik Listesi</h2>
 
-            <h3 class="text-lg font-semibold mt-4 mb-2">Eklenenler</h3>
-            <ul class="list-disc list-inside mb-4 space-y-1 text-sm">
-                <li><code>--doctor</code>: 6 kategorili sistem saglik kontrolu</li>
-                <li><code>--history</code>: Son 10 guncelleme gecmisi</li>
-                <li><code>--lang [tr|en]</code>: Dil secimi</li>
-                <li>GitHub Actions 5-distro CI matrix</li>
-                <li>170 otomatik BATS testi</li>
-                <li>Bash/Zsh/Fish completion guncellemeleri</li>
-            </ul>
+                    <h3>Eklenenler</h3>
+                    <ul>
+                        <li><code>--doctor</code>: 6 kategorili sistem sağlık kontrolü</li>
+                        <li><code>--history</code>: Son 10 güncelleme geçmişi</li>
+                        <li><code>--lang [tr|en]</code>: Dil seçimi</li>
+                        <li>GitHub Actions 5-distro CI matrix</li>
+                        <li>170 otomatik BATS testi</li>
+                        <li>Bash/Zsh/Fish completion güncellemeleri</li>
+                    </ul>
 
-            <h3 class="text-lg font-semibold mt-4 mb-2">Iyilestirmeler</h3>
-            <ul class="list-disc list-inside mb-4 space-y-1 text-sm">
-                <li>i18n: MSG_* degisken yapisi ile tam ceviri destegi</li>
-                <li>Man page: v6.1.0 guncelleme</li>
-                <li>install.sh: Night-V1.4.3 cleanup fonksiyonu</li>
-            </ul>
+                    <h3>İyileştirmeler</h3>
+                    <ul>
+                        <li>i18n: MSG_* değişken yapısı ile tam çeviri desteği</li>
+                        <li>Man page: v6.1.0 güncelleme</li>
+                        <li>install.sh: Night-V1.4.3 cleanup fonksiyonu</li>
+                    </ul>
 
-            <div class="bg-gray-800/50 rounded-xl p-6 mt-8">
-                <h3 class="text-lg font-semibold mb-3">🔗 Baglantilar</h3>
-                <div class="flex flex-wrap gap-4">
-                    <a href="https://github.com/CalmKernelTR/bigfive-updater" class="text-blue-400 hover:underline">
-                        GitHub Repo →
-                    </a>
-                    <a href="https://github.com/CalmKernelTR/bigfive-updater/releases/tag/v6.1.0" class="text-blue-400 hover:underline">
-                        Release v6.1.0 →
-                    </a>
-                    <a href="https://github.com/CalmKernelTR/bigfive-updater/blob/main/CHANGELOG.tr.md" class="text-blue-400 hover:underline">
-                        Changelog →
-                    </a>
-                </div>
-            </div>
-        </article>
+                    <div class="links-box">
+                        <h3>🔗 Bağlantılar</h3>
+                        <a href="https://github.com/CalmKernelTR/bigfive-updater">GitHub Repo →</a>
+                        <a href="https://github.com/CalmKernelTR/bigfive-updater/releases/tag/v6.1.0">Release v6.1.0 →</a>
+                        <a href="https://github.com/CalmKernelTR/bigfive-updater/blob/main/CHANGELOG.tr.md">Changelog →</a>
+                    </div>
+                </article>
 
-        <!-- English Version -->
-        <article id="content-en" class="prose-dark hidden">
-            <div class="mb-8">
-                <div class="flex items-center gap-2 text-sm text-gray-500 mb-4">
-                    <span>📅 February 2, 2026</span>
-                    <span>•</span>
-                    <span>BigFive Updater</span>
-                    <span>•</span>
-                    <span class="bg-green-600 text-white px-2 py-0.5 rounded text-xs">v6.1.0</span>
-                </div>
-                <h1 class="text-4xl font-bold mb-4">
-                    BigFive v6.1.0 "Echo" Released
-                </h1>
-                <p class="text-xl text-gray-400">
-                    Diagnostics, History, 5 Distro CI Matrix and 170 Automated Tests
-                </p>
-            </div>
+                <!-- English Version -->
+                <article id="content-en" class="blog-content hidden">
+                    <div class="blog-meta">
+                        <span>📅 February 2, 2026</span>
+                        <span>•</span>
+                        <span>BigFive Updater</span>
+                        <span>•</span>
+                        <span class="badge badge-green">v6.1.0</span>
+                    </div>
+                    <h1 class="blog-title">BigFive v6.1.0 "Echo" Released</h1>
+                    <p class="blog-subtitle">
+                        Diagnostics, History, 5 Distro CI Matrix and 170 Automated Tests
+                    </p>
 
-            <div class="bg-gray-800/30 rounded-xl p-6 mb-8">
-                <h3 class="text-lg font-semibold mb-3">📦 Quick Install</h3>
-                <pre><code>curl -fsSL https://raw.githubusercontent.com/CalmKernelTR/bigfive-updater/main/install.sh | sudo bash</code></pre>
-            </div>
+                    <div class="info-box">
+                        <h3>📦 Quick Install</h3>
+                        <pre><code>curl -fsSL https://raw.githubusercontent.com/CalmKernelTR/bigfive-updater/main/install.sh | sudo bash</code></pre>
+                    </div>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4">🎯 New Features</h2>
+                    <h2>🎯 New Features</h2>
 
-            <h3 class="text-xl font-semibold mt-6 mb-3">🩺 --doctor: System Health Check</h3>
-            <p class="mb-4">
-                Check your system's compatibility with BigFive using the new <code>--doctor</code> flag.
-                Detailed analysis across 6 categories:
-            </p>
-            <ul class="list-disc list-inside mb-4 space-y-2">
-                <li>Required commands (curl, wget, gawk)</li>
-                <li>Package manager detection</li>
-                <li>Universal package managers (Flatpak, Snap)</li>
-                <li>System tools (fwupd, timeshift)</li>
-                <li>File system permissions</li>
-                <li>Disk space check</li>
-            </ul>
-            <pre><code>sudo guncel --doctor</code></pre>
+                    <h3>🩺 --doctor: System Health Check</h3>
+                    <p>
+                        Check your system's compatibility with BigFive using the new <code>--doctor</code> flag.
+                        Detailed analysis across 6 categories:
+                    </p>
+                    <ul>
+                        <li>Required commands (curl, wget, gawk)</li>
+                        <li>Package manager detection</li>
+                        <li>Universal package managers (Flatpak, Snap)</li>
+                        <li>System tools (fwupd, timeshift)</li>
+                        <li>File system permissions</li>
+                        <li>Disk space check</li>
+                    </ul>
+                    <pre><code>sudo guncel --doctor</code></pre>
 
-            <h3 class="text-xl font-semibold mt-6 mb-3">📜 --history: Update History</h3>
-            <p class="mb-4">
-                View detailed history of the last 10 update operations:
-            </p>
-            <ul class="list-disc list-inside mb-4 space-y-2">
-                <li>Date and time</li>
-                <li>Executed backends</li>
-                <li>Success/failure status</li>
-                <li>Number of updated packages</li>
-            </ul>
-            <pre><code>guncel --history</code></pre>
+                    <h3>📜 --history: Update History</h3>
+                    <p>
+                        View detailed history of the last 10 update operations:
+                    </p>
+                    <ul>
+                        <li>Date and time</li>
+                        <li>Executed backends</li>
+                        <li>Success/failure status</li>
+                        <li>Number of updated packages</li>
+                    </ul>
+                    <pre><code>guncel --history</code></pre>
 
-            <h3 class="text-xl font-semibold mt-6 mb-3">🌍 i18n: Turkish and English Support</h3>
-            <p class="mb-4">
-                BigFive now offers full Turkish and English language support:
-            </p>
-            <pre><code># Turkish
+                    <h3>🌍 i18n: Turkish and English Support</h3>
+                    <p>
+                        BigFive now offers full Turkish and English language support:
+                    </p>
+                    <pre><code># Turkish
 guncel --lang tr
 
 # English
@@ -260,88 +460,124 @@ guncel --lang en
 # Auto-detect from system locale
 guncel</code></pre>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4">🔧 CI/CD and Test Infrastructure</h2>
+                    <h2>🔧 CI/CD and Test Infrastructure</h2>
 
-            <h3 class="text-xl font-semibold mt-6 mb-3">🐳 5 Distro CI Matrix</h3>
-            <p class="mb-4">
-                Automated testing on 5 major Linux distributions via GitHub Actions:
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-                <span class="bg-orange-900/50 text-orange-400 px-3 py-1 rounded text-sm">Ubuntu 24.04</span>
-                <span class="bg-blue-900/50 text-blue-400 px-3 py-1 rounded text-sm">Fedora 40</span>
-                <span class="bg-cyan-900/50 text-cyan-400 px-3 py-1 rounded text-sm">Arch Linux</span>
-                <span class="bg-green-900/50 text-green-400 px-3 py-1 rounded text-sm">openSUSE Leap 15.6</span>
-                <span class="bg-purple-900/50 text-purple-400 px-3 py-1 rounded text-sm">Alpine 3.20</span>
+                    <h3>🐳 5 Distro CI Matrix</h3>
+                    <p>
+                        Automated testing on 5 major Linux distributions via GitHub Actions:
+                    </p>
+                    <div>
+                        <span class="badge badge-distro">Ubuntu 24.04</span>
+                        <span class="badge badge-distro">Fedora 40</span>
+                        <span class="badge badge-distro">Arch Linux</span>
+                        <span class="badge badge-distro">openSUSE Leap 15.6</span>
+                        <span class="badge badge-distro">Alpine 3.20</span>
+                    </div>
+
+                    <h3>🧪 170 Automated Tests</h3>
+                    <p>
+                        Comprehensive test suite with BATS framework:
+                    </p>
+                    <ul>
+                        <li>guncel.bats: 131 tests (main script)</li>
+                        <li>install.bats: 39 tests (installer script)</li>
+                    </ul>
+
+                    <h2>📋 Full Changelog</h2>
+
+                    <h3>Added</h3>
+                    <ul>
+                        <li><code>--doctor</code>: 6-category system health check</li>
+                        <li><code>--history</code>: Last 10 updates history</li>
+                        <li><code>--lang [tr|en]</code>: Language selection</li>
+                        <li>GitHub Actions 5-distro CI matrix</li>
+                        <li>170 automated BATS tests</li>
+                        <li>Bash/Zsh/Fish completion updates</li>
+                    </ul>
+
+                    <h3>Improved</h3>
+                    <ul>
+                        <li>i18n: Full translation support with MSG_* variable structure</li>
+                        <li>Man page: Updated to v6.1.0</li>
+                        <li>install.sh: Night-V1.4.3 cleanup function</li>
+                    </ul>
+
+                    <div class="links-box">
+                        <h3>🔗 Links</h3>
+                        <a href="https://github.com/CalmKernelTR/bigfive-updater">GitHub Repo →</a>
+                        <a href="https://github.com/CalmKernelTR/bigfive-updater/releases/tag/v6.1.0">Release v6.1.0 →</a>
+                        <a href="https://github.com/CalmKernelTR/bigfive-updater/blob/main/CHANGELOG.en.md">Changelog →</a>
+                    </div>
+                </article>
+
+                <!-- Back to Blog -->
+                <a href="/#blog" class="back-link">
+                    ← Tüm Yazılar / All Posts
+                </a>
             </div>
+        </div>
+    </section>
+    <!-- End Blog Post -->
 
-            <h3 class="text-xl font-semibold mt-6 mb-3">🧪 170 Automated Tests</h3>
-            <p class="mb-4">
-                Comprehensive test suite with BATS framework:
-            </p>
-            <ul class="list-disc list-inside mb-4 space-y-2">
-                <li>guncel.bats: 131 tests (main script)</li>
-                <li>install.bats: 39 tests (installer script)</li>
-            </ul>
-
-            <h2 class="text-2xl font-bold mt-8 mb-4">📋 Full Changelog</h2>
-
-            <h3 class="text-lg font-semibold mt-4 mb-2">Added</h3>
-            <ul class="list-disc list-inside mb-4 space-y-1 text-sm">
-                <li><code>--doctor</code>: 6-category system health check</li>
-                <li><code>--history</code>: Last 10 updates history</li>
-                <li><code>--lang [tr|en]</code>: Language selection</li>
-                <li>GitHub Actions 5-distro CI matrix</li>
-                <li>170 automated BATS tests</li>
-                <li>Bash/Zsh/Fish completion updates</li>
-            </ul>
-
-            <h3 class="text-lg font-semibold mt-4 mb-2">Improved</h3>
-            <ul class="list-disc list-inside mb-4 space-y-1 text-sm">
-                <li>i18n: Full translation support with MSG_* variable structure</li>
-                <li>Man page: Updated to v6.1.0</li>
-                <li>install.sh: Night-V1.4.3 cleanup function</li>
-            </ul>
-
-            <div class="bg-gray-800/50 rounded-xl p-6 mt-8">
-                <h3 class="text-lg font-semibold mb-3">🔗 Links</h3>
-                <div class="flex flex-wrap gap-4">
-                    <a href="https://github.com/CalmKernelTR/bigfive-updater" class="text-blue-400 hover:underline">
-                        GitHub Repo →
-                    </a>
-                    <a href="https://github.com/CalmKernelTR/bigfive-updater/releases/tag/v6.1.0" class="text-blue-400 hover:underline">
-                        Release v6.1.0 →
-                    </a>
-                    <a href="https://github.com/CalmKernelTR/bigfive-updater/blob/main/CHANGELOG.en.md" class="text-blue-400 hover:underline">
-                        Changelog →
-                    </a>
+    <!-- main-sec -->
+    <section class="main-sec">
+        <!-- footer-style1 -->
+        <footer class="footer-style1">
+            <div class="widget-area ibt-section-gapTop">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-8 col-lg-6">
+                            <div class="about-widget footer-widget">
+                                <div class="footer-logo" style="font-size: 2rem;">
+                                    🐧 CalmKernel
+                                </div>
+                                <ul class="social-icon">
+                                    <li><a href="https://github.com/CalmKernelTR" target="_blank" title=""><i class="fab fa-github"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/company/calmkernel/" target="_blank" title=""><i class="fab fa-linkedin-in"></i></a></li>
+                                </ul>
+                                <h2 class="title">since 2025</h2>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6">
+                            <div class="footer-menu">
+                                <div class="footer-links footer-widget">
+                                    <h4 class="widget-title">Bağlantılar</h4>
+                                    <ul>
+                                        <li><a href="/#projects" title="">Projeler</a></li>
+                                        <li><a href="/tools.html" title="">Araçlar</a></li>
+                                        <li><a href="/#blog" title="">Blog</a></li>
+                                        <li><a href="/#about" title="">Hakkında</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </article>
-
-        <!-- Back to Blog -->
-        <div class="mt-12 pt-8 border-t border-gray-800">
-            <a href="../index.html#blog" class="text-blue-400 hover:underline">
-                ← Tum Yazilar / All Posts
-            </a>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="container mx-auto px-6 py-12 mt-16 border-t border-gray-800">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="text-gray-500 text-sm">
-                © 2026 CalmKernel. MIT License.
+            <div class="footer-botom">
+                <div class="container">
+                    <div class="footer-box">
+                        <p>© 2026 CalmKernel. MIT License.</p>
+                        <span>İletişim: <a href="mailto:meet@calmkernel.tr">meet@calmkernel.tr</a></span>
+                    </div>
+                </div>
             </div>
-            <div class="flex gap-6 text-sm">
-                <a href="mailto:meet@calmkernel.tr" class="text-gray-400 hover:text-blue-400 transition">
-                    meet@calmkernel.tr
-                </a>
-                <a href="https://github.com/CalmKernelTR" class="text-gray-400 hover:text-blue-400 transition">
-                    GitHub
-                </a>
-            </div>
-        </div>
-    </footer>
+        </footer>
+        <!-- footer-style1 -->
+    </section>
+    <!-- End main-sec -->
+
+    <!-- Scroll Button -->
+    <button id="scrollBtn" title="Go to top">
+        <i class="fas fa-angle-up"></i>
+    </button>
+
+    <!-- Js Plugin -->
+    <script src="../assets/js/bootstrap.min.js" defer></script>
+    <script src="../assets/js/vendor/lenis.min.js" defer></script>
+    <script src="../assets/js/vendor/gsap.min.js" defer></script>
+    <script src="../assets/js/vendor/ScrollTrigger.min.js" defer></script>
+    <script src="../assets/js/main.js" defer></script>
 
     <script>
         function showLang(lang) {
@@ -353,17 +589,13 @@ guncel</code></pre>
             if (lang === 'tr') {
                 trContent.classList.remove('hidden');
                 enContent.classList.add('hidden');
-                btnTr.classList.add('bg-blue-600', 'text-white');
-                btnTr.classList.remove('text-gray-400');
-                btnEn.classList.remove('bg-blue-600', 'text-white');
-                btnEn.classList.add('text-gray-400');
+                btnTr.classList.add('active');
+                btnEn.classList.remove('active');
             } else {
                 trContent.classList.add('hidden');
                 enContent.classList.remove('hidden');
-                btnEn.classList.add('bg-blue-600', 'text-white');
-                btnEn.classList.remove('text-gray-400');
-                btnTr.classList.remove('bg-blue-600', 'text-white');
-                btnTr.classList.add('text-gray-400');
+                btnEn.classList.add('active');
+                btnTr.classList.remove('active');
             }
         }
     </script>

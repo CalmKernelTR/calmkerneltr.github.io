@@ -1,0 +1,97 @@
+/* CalmKernel Custom Overrides */
+
+/* Badge styles for project cards */
+.badge-public {
+    background: rgba(63, 185, 80, 0.2);
+    color: #3fb950;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin: 2px;
+}
+
+.badge-private {
+    background: rgba(240, 136, 62, 0.2);
+    color: #f0883e;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin: 2px;
+}
+
+.badge-lang {
+    background: rgba(88, 166, 255, 0.2);
+    color: #58a6ff;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin: 2px;
+}
+
+.badge-edition {
+    background: rgba(163, 113, 247, 0.2);
+    color: #a371f7;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin: 2px;
+}
+
+.badge-version {
+    background: rgba(139, 148, 158, 0.2);
+    color: #8b949e;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin: 2px;
+}
+
+.badge-premium {
+    background: rgba(255, 215, 0, 0.2);
+    color: #ffd700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin: 2px;
+}
+
+.badge-new {
+    background: rgba(63, 185, 80, 0.2);
+    color: #3fb950;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin: 2px;
+}
+
+/* Project feature tags */
+.project-features-text {
+    color: #666;
+    font-size: 0.85rem;
+    margin-top: 8px;
+}
+
+/* Stats in project cards */
+.project-stat {
+    display: inline-block;
+    background: rgba(69, 208, 189, 0.1);
+    color: #45d0bd;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin: 2px;
+}
