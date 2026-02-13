@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Araçlar & Projeler | CalmKernel</title>
+    <meta name="description" content="CalmKernel açık kaynak Linux araçları ve otomasyon projelerinin tam kataloğu. Sistem yönetimi, AI, güvenlik.">
+    <meta name="author" content="Ahmet TANRIKULU">
+    <link rel="canonical" href="https://calmkernel.tr/tools.html">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐧</text></svg>">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calmkernel.tr/tools.html">
+    <meta property="og:title" content="Araçlar & Projeler | CalmKernel">
+    <meta property="og:description" content="CalmKernel açık kaynak Linux araçları ve otomasyon projelerinin tam kataloğu.">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:site_name" content="CalmKernel">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Araçlar & Projeler | CalmKernel">
+    <meta name="twitter:description" content="CalmKernel açık kaynak Linux araçları ve otomasyon projelerinin tam kataloğu.">
+    <!-- Security -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; connect-src 'self'; font-src 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">İçeriğe atla</a>
+    <nav aria-label="Ana menü">
+        <div class="container">
+            <a href="/" class="logo">🐧 CalmKernel</a>
+            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Menü aç/kapat">
+                <span></span><span></span><span></span>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="/#projects">Projeler</a></li>
+                <li><a href="/tools.html">Araçlar</a></li>
+                <li><a href="/#blog">Blog</a></li>
+                <li><a href="/#about">Hakkında</a></li>
+                <li><a href="https://github.com/CalmKernelTR" target="_blank" rel="noopener">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main-content">
+    <section class="tools-hero">
+        <h1>Araçlar & Projeler</h1>
+        <p>Linux sistem yönetimi, AI otomasyon ve güvenlik araçları. İnsan + AI işbirliği ile geliştirildi.</p>
+        <div class="stats-banner">
+            <div class="stat-item">21<span>Repo</span></div>
+            <div class="stat-item">82<span>Skill</span></div>
+            <div class="stat-item">170+<span>Test</span></div>
+            <div class="stat-item">3<span>VPS</span></div>
+        </div>
+    </section>
+
+    <!-- Sistem Araçları -->
+    <section>
+        <h2>Sistem Araçları</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-icon">🛡️</span>
+                    <span class="project-title">BigFive Updater</span>
+                </div>
+                <div class="project-badges">
+                    <span class="badge badge-public">Public</span>
+                    <span class="badge badge-lang">Bash</span>
+                    <span class="badge badge-edition">Fluent Edition</span>
+                    <span class="badge badge-version">v6.2.0</span>
+                </div>
+                <p class="project-description">
+                    5 büyük Linux dağıtımı için tek komutla güncelleme.
+                    APT, DNF, Pacman, Zypper, APK + Flatpak, Snap, Firmware desteği.
+                </p>
+                <div class="project-stats">
+                    <span class="stat">5 Distro</span>
+                    <span class="stat">170+ Test</span>
+                    <span class="stat">CI/CD</span>
+                    <span class="stat">GPG Signed</span>
+                </div>
+                <div class="project-features">--doctor | --history | --json | i18n (TR/EN)</div>
+                <a href="https://github.com/CalmKernelTR/bigfive-updater" class="project-link" target="_blank" rel="noopener">GitHub'da görüntüle →</a>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-icon">💾</span>
+                    <span class="project-title">VPS-Backup-Suite</span>
+                </div>
+                <div class="project-badges">
+                    <span class="badge badge-private">Private</span>
+                    <span class="badge badge-lang">Shell</span>
+                </div>
+                <p class="project-description">
+                    Birleşik VPS backup altyapısı. dd+zstd disk image, age encrypted dosya backup,
+                    Istanbul vault ile offsite orchestration. R2+B2 dual offsite.
+                </p>
+                <div class="project-stats">
+                    <span class="stat">3 VPS</span>
+                    <span class="stat">R2+B2 Offsite</span>
+                    <span class="stat">Age Encrypted</span>
+                </div>
+                <div class="project-features">disk-image | file-backup | vault-sync | QEMU verify</div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-icon">🔒</span>
+                    <span class="project-title">vps-security</span>
+                </div>
+                <div class="project-badges">
+                    <span class="badge badge-private">Private</span>
+                    <span class="badge badge-lang">Shell</span>
+                </div>
+                <p class="project-description">
+                    VPS sertleştirme ve güvenlik tarama scriptleri.
+                    Lynis, CIS benchmark, rkhunter entegrasyonu ile Türkçe raporlama.
+                </p>
+                <div class="project-stats">
+                    <span class="stat">8 Modül</span>
+                    <span class="stat">CIS Benchmark</span>
+                    <span class="stat">Lynis</span>
+                </div>
+                <div class="project-features">SSH hardening | UFW | Lynis audit | Türkçe rapor</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI & Otomasyon -->
+    <section>
+        <h2>AI & Otomasyon</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-icon">🤖</span>
+                    <span class="project-title">Claude-Turbo</span>
+                </div>
+                <div class="project-badges">
+                    <span class="badge badge-private">Private</span>
+                    <span class="badge badge-lang">Shell</span>
+                    <span class="badge badge-version">v1.5.1</span>
+                </div>
+                <p class="project-description">
+                    Unified Claude Code ecosystem installer. 82 skill, 8 hook, 6 agent
+                    ve 4 MCP sunucusunu tek komutla kurar.
+                </p>
+                <div class="project-stats">
+                    <span class="stat">82 Skill</span>
+                    <span class="stat">8 Hook</span>
+                    <span class="stat">6 Agent</span>
+                    <span class="stat">4 MCP</span>
+                </div>
+                <div class="project-features">--turbo | --all | --list | --diff</div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-icon">🧹</span>
+                    <span class="project-title">DataWash</span>
+                </div>
+                <div class="project-badges">
+                    <span class="badge badge-private">Private</span>
+                    <span class="badge badge-lang">Python</span>
+                    <span class="badge badge-edition">SaaS</span>
+                </div>
+                <p class="project-description">
+                    Veri temizleme ve analiz framework'ü. CSV, Excel, JSON işleme,
+                    KVKK/GDPR anonimleştirme, multi-tenant SaaS mimarisi.
+                </p>
+                <div class="project-stats">
+                    <span class="stat">Pipeline</span>
+                    <span class="stat">Multi-tenant</span>
+                    <span class="stat">Docker</span>
+                </div>
+                <div class="project-features">profiling | anonymize | report | CLI</div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-icon">📚</span>
+                    <span class="project-title">AI Chat Archive</span>
+                </div>
+                <div class="project-badges">
+                    <span class="badge badge-private">Private</span>
+                    <span class="badge badge-lang">Python</span>
+                </div>
+                <p class="project-description">
+                    ChatGPT, Gemini, Grok, Qwen export'larını birleştiren analiz aracı.
+                    Behavioral analytics ve HTML dashboard.
+                </p>
+                <div class="project-stats">
+                    <span class="stat">4 Platform</span>
+                    <span class="stat">SQLite</span>
+                    <span class="stat">Dashboard</span>
+                </div>
+                <div class="project-features">birleşik DB | arama | istatistik | analytics</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Altyapı & Güvenlik -->
+    <section>
+        <h2>Altyapı & Güvenlik</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-icon">📊</span>
+                    <span class="project-title">SIEM-Integrated</span>
+                </div>
+                <div class="project-badges">
+                    <span class="badge badge-private">Private</span>
+                    <span class="badge badge-lang">Shell</span>
+                </div>
+                <p class="project-description">
+                    Wazuh SIEM yönetim araçları. Manager, Indexer, Dashboard
+                    kurulum ve operasyon scriptleri. 3 VPS monitoring.
+                </p>
+                <div class="project-stats">
+                    <span class="stat">Wazuh</span>
+                    <span class="stat">3 VPS</span>
+                    <span class="stat">Alerting</span>
+                </div>
+                <div class="project-features">manager setup | indexer | dashboard | agent deploy</div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-icon">🔑</span>
+                    <span class="project-title">Pinky</span>
+                </div>
+                <div class="project-badges">
+                    <span class="badge badge-private">Private</span>
+                    <span class="badge badge-lang">Shell</span>
+                </div>
+                <p class="project-description">
+                    Credential ve secret yönetim hub'ı. rclone config, age keys,
+                    nightly senkronizasyon ile güvenli anahtar dağıtımı.
+                </p>
+                <div class="project-stats">
+                    <span class="stat">Age Encrypted</span>
+                    <span class="stat">Nightly Sync</span>
+                </div>
+                <div class="project-features">rclone config | age keys | backup sync | WireGuard</div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-icon">🔍</span>
+                    <span class="project-title">Infrastructure-Checkup</span>
+                </div>
+                <div class="project-badges">
+                    <span class="badge badge-private">Private</span>
+                    <span class="badge badge-version">v3</span>
+                </div>
+                <p class="project-description">
+                    Tüm CalmKernelTR repolarının sistematik inceleme ve sağlık takip projesi.
+                    Otomatik web audit, npm audit, doc health taramaları.
+                </p>
+                <div class="project-stats">
+                    <span class="stat">21 Repo</span>
+                    <span class="stat">55+ Fix</span>
+                    <span class="stat">3 Tarama</span>
+                </div>
+                <div class="project-features">web audit | npm audit | doc health | aksiyon planı</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MCP Serverleri -->
+    <section>
+        <h2>MCP Serverleri</h2>
+        <p class="section-subtitle">Claude AI ile harici servislerin entegrasyonu için Model Context Protocol sunucuları.</p>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-icon">🌐</span>
+                    <span class="project-title">NextDNS MCP</span>
+                </div>
+                <div class="project-badges">
+                    <span class="badge badge-private">Private</span>
+                    <span class="badge badge-lang">TypeScript</span>
+                </div>
+                <p class="project-description">
+                    NextDNS API'si için MCP server. DNS filtreleme, log analizi,
+                    profil yönetimi ve cihaz listesi.
+                </p>
+                <div class="project-stats">
+                    <span class="stat">8 Tool</span>
+                    <span class="stat">TypeScript</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-icon">📧</span>
+                    <span class="project-title">Proton SMTP MCP</span>
+                </div>
+                <div class="project-badges">
+                    <span class="badge badge-private">Private</span>
+                    <span class="badge badge-lang">TypeScript</span>
+                </div>
+                <p class="project-description">
+                    Proton Mail SMTP üzerinden email gönderimi için MCP server.
+                    Bağlantı doğrulama ve güvenli email iletimi.
+                </p>
+                <div class="project-stats">
+                    <span class="stat">2 Tool</span>
+                    <span class="stat">SMTP</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-icon">💼</span>
+                    <span class="project-title">LinkedIn MCP</span>
+                </div>
+                <div class="project-badges">
+                    <span class="badge badge-private">Private</span>
+                    <span class="badge badge-lang">TypeScript</span>
+                    <span class="badge badge-version">2 Server</span>
+                </div>
+                <p class="project-description">
+                    LinkedIn kişisel ve şirket hesap yönetimi için MCP serverleri.
+                    Post oluşturma, takipçi analizi, yorum ve etkileşim yönetimi.
+                </p>
+                <div class="project-stats">
+                    <span class="stat">Personal</span>
+                    <span class="stat">Company</span>
+                    <span class="stat">OAuth</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <a href="/" class="btn btn-secondary">← Ana Sayfa</a>
+        <a href="https://github.com/CalmKernelTR" class="btn btn-primary" target="_blank" rel="noopener">GitHub'da Görüntüle</a>
+    </section>
+
+    </main>
+
+    <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('nav-menu');
+    toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', !expanded);
+        menu.classList.toggle('active');
+    });
+    </script>
+
+    <footer>
+        <p>© 2026 CalmKernel. MIT License.</p>
+        <p>
+            <a href="mailto:meet@calmkernel.tr">meet@calmkernel.tr</a>
+            <a href="https://github.com/CalmKernelTR" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/ahmet-tanrikulu/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://www.linkedin.com/company/calmkernel/" target="_blank" rel="noopener">CalmKernel</a>
+        </p>
+    </footer>
+</body>
+</html>
