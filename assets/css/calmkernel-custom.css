@@ -1,5 +1,83 @@
 /* CalmKernel Custom Overrides */
 
+/* ===== Dark Mode Fine-tuning ===== */
+
+/* Smooth theme transition */
+body,
+body *:not(script):not(style) {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Logo visibility in dark mode */
+.active-body img[src*="calmkernel-logo"] {
+    filter: brightness(0) invert(1) brightness(1.1);
+}
+
+/* Dark mode badge adjustments - increase opacity for contrast */
+.active-body .badge-public,
+.active-body .badge-new {
+    background: rgba(63, 185, 80, 0.3);
+}
+
+.active-body .badge-private {
+    background: rgba(240, 136, 62, 0.3);
+}
+
+.active-body .badge-lang {
+    background: rgba(88, 166, 255, 0.3);
+}
+
+.active-body .badge-edition {
+    background: rgba(163, 113, 247, 0.3);
+}
+
+.active-body .badge-version {
+    background: rgba(139, 148, 158, 0.3);
+    color: #adb5bd;
+}
+
+.active-body .badge-premium {
+    background: rgba(255, 215, 0, 0.3);
+}
+
+.active-body .project-features-text {
+    color: #adb5bd !important;
+}
+
+.active-body .project-stat {
+    background: rgba(69, 208, 189, 0.2);
+}
+
+/* Theme toggle button styling */
+#themeBtn {
+    cursor: pointer;
+    background: none;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+#themeBtn:hover {
+    border-color: #45d0bd;
+    color: #45d0bd;
+}
+
+.active-body #themeBtn {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #ffd700;
+}
+
+.active-body #themeBtn:hover {
+    border-color: #ffd700;
+}
+
+/* ===== End Dark Mode ===== */
+
 /* Badge styles for project cards */
 .badge-public {
     background: rgba(63, 185, 80, 0.2);

@@ -1675,10 +1675,31 @@ var ThemeToggle = {
       ".darkModeTrigger, .darkModeTriggerImg, .darkModeTriggerImg2"
     );
 
-    // ✅ Apply stored preferences on page load
-    if (localStorage.getItem("themeMode") === "active") {
+    // ✅ Apply stored preferences on page load, or detect system theme
+    var storedTheme = localStorage.getItem("themeMode");
+    if (storedTheme === "active") {
       body.classList.add("active-body", "dark-mode");
       if (themeBtn) themeBtn.classList.add("active-btn");
+    } else if (storedTheme === null && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      body.classList.add("active-body", "dark-mode");
+      if (themeBtn) themeBtn.classList.add("active-btn");
+      localStorage.setItem("themeMode", "active");
+      localStorage.setItem("darkMode", "enabled");
+    }
+
+    // Listen for system theme changes
+    if (window.matchMedia) {
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
+        if (localStorage.getItem("themeMode") === null) {
+          if (e.matches) {
+            body.classList.add("active-body", "dark-mode");
+            if (themeBtn) themeBtn.classList.add("active-btn");
+          } else {
+            body.classList.remove("active-body", "dark-mode");
+            if (themeBtn) themeBtn.classList.remove("active-btn");
+          }
+        }
+      });
     }
 
     // ✅ Button toggle without refresh

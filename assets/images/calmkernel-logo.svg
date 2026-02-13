@@ -19,6 +19,6 @@
   </g>
   <!-- Text: CalmKernel -->
   <text x="44" y="27" font-family="Sora, sans-serif" font-weight="700" font-size="22" fill="currentColor">
-    <tspan fill="currentColor">Calm</tspan><tspan fill="#45d0bd">Kernel</tspan>
+    <tspan fill="#111111" class="logo-text-dark">Calm</tspan><tspan fill="#45d0bd">Kernel</tspan>
   </text>
 </svg>
