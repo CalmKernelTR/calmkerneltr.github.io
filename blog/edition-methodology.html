@@ -1,204 +1,130 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edition Metodolojisi: BigFive → Fluent → Zenith | CalmKernel</title>
     <meta name="description" content="BigFive Updater Edition sistemi açıklaması. Major version'lara göre Edition ve Codename yapısı.">
+    <meta name="author" content="Ahmet TANRIKULU">
     <link rel="canonical" href="https://calmkernel.tr/blog/edition-methodology.html">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/assets/images/calmkernel-icon.svg">
 
-    <!-- Preconnect -->
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://calmkernel.tr/blog/edition-methodology.html">
+    <meta property="og:title" content="Edition Metodolojisi: BigFive → Fluent → Zenith | CalmKernel">
+    <meta property="og:description" content="BigFive Updater Edition sistemi açıklaması. Major version'lara göre Edition ve Codename yapısı.">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:site_name" content="CalmKernel">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Edition Metodolojisi: BigFive → Fluent → Zenith | CalmKernel">
+    <meta name="twitter:description" content="BigFive Updater Edition sistemi açıklaması. Major version'lara göre Edition ve Codename yapısı.">
+
+    <!-- Preconnect for faster font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <!-- Google Fonts (deferred) -->
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../assets/css/plugins/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Load Font Awesome CSS asynchronously -->
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css" media="print" onload="this.media='all'">
+
+    <!-- fontello font css -->
+    <link rel="stylesheet" href="/assets/css/plugins/fontello-enqueue.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/css/plugins/fontello-icons.css" media="print" onload="this.media='all'">
+
+    <!-- others css -->
+    <link rel="stylesheet" href="/assets/css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/calmkernel-custom.css">
+
+    <!-- Make these async - only used for specific components -->
+    <link rel="stylesheet" href="/assets/css/plugins/swiper-bundle.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/css/plugins/swiper-bundle.min.css">
+    </noscript>
 
     <style>
-        /* Article-specific styles */
-        :root {
-            --bg-primary: #0d1117;
-            --bg-secondary: #161b22;
-            --bg-tertiary: #21262d;
-            --text-primary: #e6edf3;
-            --text-secondary: #8b949e;
-            --accent-green: #3fb950;
-            --accent-blue: #58a6ff;
-            --accent-purple: #a371f7;
-            --accent-orange: #f0883e;
-            --border-color: #30363d;
-        }
-
+        /* Article styles - Light theme compatible */
         article {
             max-width: 800px;
             margin: 0 auto;
             padding: 2rem 1.5rem 4rem;
         }
+        .breadcrumb { color: #666; margin-bottom: 2rem; font-size: 0.9rem; }
+        .breadcrumb a { color: #2563eb; text-decoration: none; }
+        article h1 { font-size: 2.5rem; margin-bottom: 1rem; background: linear-gradient(135deg, #7c3aed, #2563eb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .meta { color: #666; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #e2e2e2; }
+        article h2 { font-size: 1.5rem; margin: 2.5rem 0 1rem; color: #45d0bd; }
+        article h3 { font-size: 1.25rem; margin: 2rem 0 1rem; color: #111; }
+        article p { margin-bottom: 1.25rem; color: #444; line-height: 1.7; }
+        article strong { color: #111; }
+        .highlight-box { background: #f5f5f5; border: 1px solid #e2e2e2; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+        .highlight-box.purple { border-color: #7c3aed; background: rgba(124, 58, 237, 0.05); }
+        .highlight-box.green { border-color: #45d0bd; background: rgba(69, 208, 189, 0.05); }
+        article table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+        article th, article td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #e2e2e2; }
+        article th { color: #666; font-weight: 600; background: #f5f5f5; }
+        article td { color: #111; }
+        article tr.current { background: rgba(69, 208, 189, 0.1); }
+        article tr.current td { color: #45d0bd; font-weight: 600; }
+        article code { background: #f0f0f0; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 0.9rem; color: #e65100; }
+        article pre { background: #1e1e2e; border: 1px solid #313244; border-radius: 8px; padding: 1.25rem; overflow-x: auto; margin: 1.5rem 0; color: #cdd6f4; }
+        article pre code { background: none; padding: 0; color: #cdd6f4; }
+        article ul, article ol { margin: 1rem 0 1.5rem 1.5rem; color: #444; }
+        article li { margin-bottom: 0.5rem; }
+        .back-link { display: inline-block; margin-top: 3rem; padding: 0.75rem 1.5rem; background: #f5f5f5; border: 1px solid #e2e2e2; border-radius: 8px; color: #111; text-decoration: none; }
+        .back-link:hover { border-color: #45d0bd; }
 
-        .breadcrumb {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-size: 0.9rem;
-        }
-
-        .breadcrumb a {
-            color: var(--accent-blue);
-            text-decoration: none;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .meta {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            margin: 2.5rem 0 1rem;
-            color: var(--accent-green);
-        }
-
-        h3 {
-            font-size: 1.25rem;
-            margin: 2rem 0 1rem;
-            color: var(--text-primary);
-        }
-
-        p {
-            margin-bottom: 1.25rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        strong {
-            color: var(--text-primary);
-        }
-
-        .highlight-box {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .highlight-box.purple {
-            border-color: var(--accent-purple);
-            background: rgba(163, 113, 247, 0.05);
-        }
-
-        .highlight-box.green {
-            border-color: var(--accent-green);
-            background: rgba(63, 185, 80, 0.05);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-        }
-
-        th, td {
-            padding: 0.75rem 1rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        th {
-            color: var(--text-secondary);
-            font-weight: 600;
-            background: var(--bg-secondary);
-        }
-
-        td {
-            color: var(--text-primary);
-        }
-
-        tr.current {
-            background: rgba(63, 185, 80, 0.1);
-        }
-
-        tr.current td {
-            color: var(--accent-green);
-            font-weight: 600;
-        }
-
-        code {
-            background: var(--bg-tertiary);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            color: var(--accent-orange);
-        }
-
-        pre {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.25rem;
-            overflow-x: auto;
-            margin: 1.5rem 0;
-        }
-
-        pre code {
-            background: none;
-            padding: 0;
-        }
-
-        ul, ol {
-            margin: 1rem 0 1.5rem 1.5rem;
-            color: var(--text-secondary);
-        }
-
-        li {
-            margin-bottom: 0.5rem;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-top: 3rem;
-            padding: 0.75rem 1.5rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            color: var(--text-primary);
-            text-decoration: none;
-        }
-
-        .back-link:hover {
-            border-color: var(--accent-green);
-        }
+        /* Dark mode overrides for article */
+        .active-body article p, .active-body article li, .active-body article ul, .active-body article ol { color: #ccc !important; }
+        .active-body article h3 { color: #fff !important; }
+        .active-body article strong, .active-body article td { color: #e6edf3 !important; }
+        .active-body .meta { color: #8b949e !important; border-color: #30363d !important; }
+        .active-body .highlight-box { background: #1f1f1f !important; border-color: #333 !important; }
+        .active-body article th { background: #1f1f1f !important; color: #8b949e !important; }
+        .active-body article code { background: #2d2d2d !important; }
+        .active-body .back-link { background: #1f1f1f !important; border-color: #333 !important; color: #fff !important; }
+        .active-body article table td, .active-body article table th { border-color: #333 !important; }
+        .active-body .breadcrumb { color: #8b949e !important; }
     </style>
 </head>
+
 <body>
 
     <!-- Preloader -->
     <div id="preloader">
         <div class="loader">
-            <img src="../assets/images/preloader-dark.png" alt="Loading...">
+            <img src="/assets/images/preloader-dark.png" alt="Loading...">
         </div>
     </div>
     <!-- End Preloader -->
 
     <button id="themeBtn"><i class="far fa-moon"></i></button>
+    <div class="video-modal">
+        <div class="video-modal-content">
+            <span class="close-btn">&times;</span>
+            <iframe allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- search-popup -->
+    <div class="search-popup" data-popup="1">
+        <div class="search-popup-content">
+            <form>
+                <button type="submit"><i class="fa fa-search"></i></button>
+                <input type="text" placeholder="Ara..." required>
+            </form>
+            <button type="button" class="close-popup"></button>
+        </div>
+    </div>
 
     <!-- Side Menu -->
     <div class="side-menu" id="sideMenu">
@@ -209,15 +135,16 @@
                 <img src="/assets/images/calmkernel-logo.svg" alt="CalmKernel" style="height: 32px;">
             </a>
             <div class="sidebar-menu">
-                <h4 class="title">contacts</h4>
+                <h4 class="title">iletişim</h4>
+                <p>İstanbul, Türkiye</p>
                 <a href="mailto:meet@calmkernel.tr" class="email">meet@calmkernel.tr</a>
-                <a href="/" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded">
-                    <span>Ana Sayfa</span>
+                <a href="https://github.com/CalmKernelTR" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded" target="_blank">
+                    <span>GitHub</span>
                 </a>
             </div>
             <ul class="social-icon">
-                <li><a href="https://github.com/CalmKernelTR" target="_blank" title=""><i class="fab fa-github"></i></a></li>
-                <li><a href="https://www.linkedin.com/company/calmkernel/" target="_blank" title=""><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="https://github.com/CalmKernelTR" title="" target="_blank"><i class="fab fa-github"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/calmkernel/" title="" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
             </ul>
         </div>
     </div>
@@ -225,37 +152,41 @@
     <!-- New Mobile Menu -->
     <div data-menu="mobileMenu" class="side-menu2">
         <div class="menu-btns">
+            <a href="#" class="popup-search" data-popup="1"><i class="fa fa-search"></i></a>
             <button id="mobileCloseBtn2" class="close-btn"></button>
         </div>
         <ul>
-            <li><a href="/">Ana Sayfa</a></li>
             <li><a href="/#projects">Projeler</a></li>
             <li><a href="/tools.html">Araçlar</a></li>
             <li><a href="/#blog">Blog</a></li>
             <li><a href="/#about">Hakkında</a></li>
+            <li><a href="https://github.com/CalmKernelTR" target="_blank">GitHub</a></li>
         </ul>
         <div class="menu-contact">
             <span>İletişim</span>
             <a href="mailto:meet@calmkernel.tr" title="" class="gmail">meet@calmkernel.tr</a>
         </div>
         <div class="menu-links">
-            <span>Takip et:</span>
+            <span>Bizi takip edin:</span>
             <ul class="social-icon">
-                <li><a href="https://github.com/CalmKernelTR" title=""><i class="fab fa-github"></i></a></li>
-                <li><a href="https://www.linkedin.com/company/calmkernel/" title=""><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="https://github.com/CalmKernelTR" title="" target="_blank"><i class="fab fa-github"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/calmkernel/" title="" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
             </ul>
+            <a href="https://github.com/CalmKernelTR" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded" target="_blank">
+                <span>GitHub</span>
+            </a>
         </div>
     </div>
     <!-- Overlay for Mobile Menu -->
     <div class="overlay2"></div>
 
     <!-- sticky header -->
-    <header class="sticky-active">
-        <div class="header-menu-area">
+    <header class="sticky-active v13 v3">
+        <div class="header-menu-area3">
             <div class="row gx-20 align-items-center justify-content-between">
                 <div class="col-auto">
                     <div class="header-logo">
-                        <a href="javascript:void(0)" class="menu-toggle"></a>
+                        <a href="javascript:void(0)" class="menu-toggle v2"></a>
                         <a href="/">
                             <img src="/assets/images/calmkernel-logo.svg" alt="CalmKernel" style="height: 32px;">
                         </a>
@@ -264,17 +195,43 @@
                 <div class="col-auto">
                     <nav class="main-menu menu-style1">
                         <ul>
-                            <li><a href="/#projects"><span class="menu-item">Projeler</span><span class="menu-item2">Projeler</span></a></li>
-                            <li><a href="/tools.html"><span class="menu-item">Araçlar</span><span class="menu-item2">Araçlar</span></a></li>
-                            <li><a href="/#blog"><span class="menu-item">Blog</span><span class="menu-item2">Blog</span></a></li>
-                            <li><a href="/#about"><span class="menu-item">Hakkında</span><span class="menu-item2">Hakkında</span></a></li>
-                            <li><a href="https://github.com/CalmKernelTR" target="_blank"><span class="menu-item">GitHub</span><span class="menu-item2">GitHub</span></a></li>
+                            <li>
+                                <a href="/#projects">
+                                    <span class="menu-item">Projeler</span>
+                                    <span class="menu-item2">Projeler</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/tools.html">
+                                    <span class="menu-item">Araçlar</span>
+                                    <span class="menu-item2">Araçlar</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/#blog" class="active">
+                                    <span class="menu-item">Blog</span>
+                                    <span class="menu-item2">Blog</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/#about">
+                                    <span class="menu-item">Hakkında</span>
+                                    <span class="menu-item2">Hakkında</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/CalmKernelTR" target="_blank">
+                                    <span class="menu-item">GitHub</span>
+                                    <span class="menu-item2">GitHub</span>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-auto d-none d-xl-block">
                     <div class="btn-box">
-                        <a href="https://github.com/CalmKernelTR/bigfive-updater" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded">
+                        <a href="#" class="popup-search" data-popup="1"><i class="fa fa-search"></i></a>
+                        <a href="https://github.com/CalmKernelTR/bigfive-updater" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded" target="_blank">
                             <span>BigFive Updater</span>
                         </a>
                     </div>
@@ -288,6 +245,74 @@
         </div>
     </header>
     <!-- End sticky header -->
+
+    <!--======== Header ========-->
+    <header class="vs-header13">
+        <div class="container2 position-relative">
+            <div class="header-menu-area3">
+                <div class="row gx-20 align-items-center justify-content-between">
+                    <div class="col-auto">
+                        <div class="header-logo">
+                            <a href="javascript:void(0)" class="menu-toggle v2"></a>
+                            <a href="/">
+                                <img src="/assets/images/calmkernel-logo.svg" alt="CalmKernel" style="height: 32px;">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <nav class="main-menu menu-style1">
+                            <ul>
+                                <li>
+                                    <a href="/#projects">
+                                        <span class="menu-item">Projeler</span>
+                                        <span class="menu-item2">Projeler</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/tools.html">
+                                        <span class="menu-item">Araçlar</span>
+                                        <span class="menu-item2">Araçlar</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/#blog" class="active">
+                                        <span class="menu-item">Blog</span>
+                                        <span class="menu-item2">Blog</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/#about">
+                                        <span class="menu-item">Hakkında</span>
+                                        <span class="menu-item2">Hakkında</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/CalmKernelTR" target="_blank">
+                                        <span class="menu-item">GitHub</span>
+                                        <span class="menu-item2">GitHub</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-auto d-none d-xl-block">
+                        <div class="btn-box">
+                            <a href="#" class="popup-search" data-popup="1"><i class="fa fa-search"></i></a>
+                            <a href="https://github.com/CalmKernelTR/bigfive-updater" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded" target="_blank">
+                                <span>BigFive Updater</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <button class="hamburger popup-menu" data-menu="mobileMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!--======== / Header ========-->
 
     <!-- Article Content -->
     <section class="ibt-section-gap">
@@ -412,7 +437,7 @@
                 </p>
 
                 <p>
-                    Sorularınız varsa <a href="https://github.com/CalmKernelTR/bigfive-updater/issues" style="color: var(--accent-blue);">GitHub Issues</a>
+                    Sorularınız varsa <a href="https://github.com/CalmKernelTR/bigfive-updater/issues">GitHub Issues</a>
                     üzerinden iletebilirsiniz.
                 </p>
 
@@ -422,64 +447,104 @@
     </section>
     <!-- End Article Content -->
 
-    <!-- main-sec -->
-    <section class="main-sec">
-        <!-- footer-style1 -->
-        <footer class="footer-style1">
-            <div class="widget-area ibt-section-gapTop">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-8 col-lg-6">
-                            <div class="about-widget footer-widget">
-                                <div class="footer-logo">
-                                    <img src="/assets/images/calmkernel-logo.svg" alt="CalmKernel" style="height: 32px;">
-                                </div>
-                                <ul class="social-icon">
-                                    <li><a href="https://github.com/CalmKernelTR" target="_blank" title=""><i class="fab fa-github"></i></a></li>
-                                    <li><a href="https://www.linkedin.com/company/calmkernel/" target="_blank" title=""><i class="fab fa-linkedin-in"></i></a></li>
-                                </ul>
-                                <h2 class="title">since 2025</h2>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-6">
-                            <div class="footer-menu">
-                                <div class="footer-links footer-widget">
-                                    <h4 class="widget-title">Bağlantılar</h4>
-                                    <ul>
-                                        <li><a href="/#projects" title="">Projeler</a></li>
-                                        <li><a href="/tools.html" title="">Araçlar</a></li>
-                                        <li><a href="/#blog" title="">Blog</a></li>
-                                        <li><a href="/#about" title="">Hakkında</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+    <!-- CTA Section -->
+    <section class="contact-sec ibt-section-gap">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <div class="sec-title white">
+                        <h2 class="title animated-heading">Tüm projeler GitHub'da açık kaynak olarak paylaşılmaktadır</h2>
+                        <p style="margin-top: 1rem;">21 repo, 82 skill, 170+ test ile Linux sistem yönetimini kolaylaştırıyoruz.</p>
+                    </div>
+                    <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="/" title="" class="ibt-btn ibt-btn-outline">
+                            <span>← Ana Sayfa</span>
+                        </a>
+                        <a href="https://github.com/CalmKernelTR" title="" class="ibt-btn ibt-btn-secondary" target="_blank">
+                            <span>GitHub'da Görüntüle</span>
+                            <i class="icon-arrow-top"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="footer-botom">
-                <div class="container">
-                    <div class="footer-box">
-                        <p>© 2026 CalmKernel. MIT License.</p>
-                        <span>İletişim: <a href="mailto:meet@calmkernel.tr">meet@calmkernel.tr</a></span>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- footer-style1 -->
+        </div>
     </section>
-    <!-- End main-sec -->
+    <!-- End CTA Section -->
+
+    <!-- footer-style4 -->
+    <footer class="footer-style4 v2">
+        <div class="footer-top4">
+            <div class="container">
+                <div class="footer-content4">
+                    <h2 class="title">Linux için akıllı araçlar ve otomasyon çözümleri</h2>
+                    <a href="https://github.com/CalmKernelTR/bigfive-updater" title="" class="ibt-btn ibt-btn-outline" target="_blank">
+                        <span>BigFive'ı Deneyin</span>
+                        <i class="icon-arrow-top"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="widget-area ibt-section-gapTop">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="about-widget4 footer-widget">
+                            <div class="footer-logo">
+                                <img src="/assets/images/calmkernel-logo.svg" alt="CalmKernel" style="height: 32px;">
+                            </div>
+                            <p><a href="#">©CalmKernel</a> 2026. MIT License.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="footer-menu4">
+                            <div class="location-widget4 footer-widget">
+                                <h4 class="widget-title">Konum</h4>
+                                <p>İstanbul, Türkiye</p>
+                                <h5 class="title">Bizi takip edin</h5>
+                                <ul class="social-icon">
+                                    <li><a href="https://github.com/CalmKernelTR" title="" target="_blank"><i class="fab fa-github"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/company/calmkernel/" title="" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="contact-widget4 footer-widget">
+                                <h4 class="widget-title">Email</h4>
+                                <a href="mailto:meet@calmkernel.tr" title="" class="gmail">meet@calmkernel.tr</a>
+                                <h5 class="widget-title">Founder</h5>
+                                <a href="https://www.linkedin.com/in/ahmet-tanrikulu/" title="" class="nmbr" target="_blank">Ahmet TANRIKULU</a>
+                            </div>
+                            <div class="footer-links footer-widget">
+                                <h4 class="widget-title">Bağlantılar</h4>
+                                <ul>
+                                    <li><a href="/" title="">Ana Sayfa</a></li>
+                                    <li><a href="/#projects" title="">Projeler</a></li>
+                                    <li><a href="/tools.html" title="">Araçlar</a></li>
+                                    <li><a href="/#blog" title="">Blog</a></li>
+                                    <li><a href="/#about" title="">Hakkında</a></li>
+                                    <li><a href="https://github.com/CalmKernelTR" title="" target="_blank">GitHub</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer-style4 -->
+
 
     <!-- Scroll Button -->
     <button id="scrollBtn" title="Yukarı çık">
         <i class="fas fa-angle-up"></i>
     </button>
 
+
     <!-- Js Plugin -->
-    <script src="../assets/js/bootstrap.min.js" defer></script>
-    <script src="../assets/js/vendor/lenis.min.js" defer></script>
-    <script src="../assets/js/vendor/gsap.min.js" defer></script>
-    <script src="../assets/js/vendor/ScrollTrigger.min.js" defer></script>
-    <script src="../assets/js/main.js" defer></script>
+    <script src="/assets/js/bootstrap.min.js" defer></script>
+    <script src="/assets/js/vendor/swiper-bundle.min.js" defer></script>
+    <script src="/assets/js/vendor/lenis.min.js" defer></script>
+    <script src="/assets/js/vendor/gsap.min.js" defer></script>
+    <script src="/assets/js/vendor/ScrollTrigger.min.js" defer></script>
+    <script src="/assets/js/main.js" defer></script>
 </body>
+
 </html>
