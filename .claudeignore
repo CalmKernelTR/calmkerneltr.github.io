@@ -1,0 +1,10 @@
+# Claude Code context exclusions
+
+# Git internals
+.git/
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+
