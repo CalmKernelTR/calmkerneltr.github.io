@@ -26,6 +26,8 @@
 
 <body>
 
+    <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px;background:#45d0bd;color:#fff;text-decoration:none;font-weight:bold;">İçeriğe atla</a>
+
     <!-- Preloader -->
     <div id="preloader">
         <div class="loader">
@@ -37,7 +39,7 @@
     <button id="themeBtn"><i class="far fa-moon"></i></button>
 
     <!-- page-banner10 -->
-    <section class="page-banner10">
+    <section class="page-banner10" id="main-content">
         <div class="shape"></div>
         <div class="shape2"></div>
         <div class="shape4"></div>
@@ -63,7 +65,7 @@
     <!-- End page-banner10 -->
 
     <!-- Scroll Button -->
-    <button id="scrollBtn" title="Yukarı çık">
+    <button id="scrollBtn" title="Yukarı çık" aria-label="Yukarı çık">
         <i class="fas fa-angle-up"></i>
     </button>
 

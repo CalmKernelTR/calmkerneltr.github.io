@@ -67,6 +67,8 @@
 
 <body>
 
+    <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px;background:#45d0bd;color:#fff;text-decoration:none;font-weight:bold;">İçeriğe atla</a>
+
     <!-- Preloader -->
     <div id="preloader">
         <div class="loader">
@@ -102,7 +104,7 @@
     <!-- New Mobile Menu -->
     <div data-menu="mobileMenu" class="side-menu2">
         <div class="menu-btns">
-            <button id="mobileCloseBtn2" class="close-btn"></button>
+            <button id="mobileCloseBtn2" class="close-btn" aria-label="Menüyü kapat"></button>
         </div>
         <ul>
             <li><a href="/">Ana Sayfa</a></li>
@@ -182,7 +184,7 @@
                     </div>
                 </div>
             </div>
-            <button class="hamburger popup-menu" data-menu="mobileMenu">
+            <button class="hamburger popup-menu" data-menu="mobileMenu" aria-label="Menüyü aç">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -209,7 +211,7 @@
     <!-- End page-banner9 -->
 
     <!-- Privacy Policy Content -->
-    <section class="ibt-section-gap">
+    <section class="ibt-section-gap" id="main-content">
         <div class="container">
             <div class="privacy-content">
                 <p class="last-updated">Last Updated: February 4, 2026</p>
@@ -313,7 +315,7 @@
     <!-- End main-sec -->
 
     <!-- Scroll Button -->
-    <button id="scrollBtn" title="Yukarı çık">
+    <button id="scrollBtn" title="Yukarı çık" aria-label="Yukarı çık">
         <i class="fas fa-angle-up"></i>
     </button>
 

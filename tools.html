@@ -17,6 +17,7 @@
     <meta property="og:url" content="https://calmkernel.tr/tools.html">
     <meta property="og:title" content="Araçlar & Projeler | CalmKernel">
     <meta property="og:description" content="CalmKernel açık kaynak Linux araçları ve otomasyon projelerinin tam kataloğu. Sistem yönetimi, AI, güvenlik.">
+    <meta property="og:image" content="https://calmkernel.tr/assets/images/og-preview.png">
     <meta property="og:locale" content="tr_TR">
     <meta property="og:site_name" content="CalmKernel">
 
@@ -24,6 +25,7 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Araçlar & Projeler | CalmKernel">
     <meta name="twitter:description" content="CalmKernel açık kaynak Linux araçları ve otomasyon projelerinin tam kataloğu. Sistem yönetimi, AI, güvenlik.">
+    <meta name="twitter:image" content="https://calmkernel.tr/assets/images/og-preview.png">
 
     <!-- Preconnect for faster font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -151,6 +153,8 @@
 
 <body>
 
+    <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px;background:#45d0bd;color:#fff;text-decoration:none;font-weight:bold;">İçeriğe atla</a>
+
     <!-- Preloader -->
     <div id="preloader">
         <div class="loader">
@@ -204,8 +208,8 @@
     <!-- New Mobile Menu -->
     <div data-menu="mobileMenu" class="side-menu2">
         <div class="menu-btns">
-            <a href="#" class="popup-search" data-popup="1"><i class="fa fa-search"></i></a>
-            <button id="mobileCloseBtn2" class="close-btn"></button>
+            <a href="#" class="popup-search" data-popup="1" aria-label="Ara"><i class="fa fa-search"></i></a>
+            <button id="mobileCloseBtn2" class="close-btn" aria-label="Menüyü kapat"></button>
         </div>
         <ul>
             <li><a href="/#projects">Projeler</a></li>
@@ -282,14 +286,14 @@
                 </div>
                 <div class="col-auto d-none d-xl-block">
                     <div class="btn-box">
-                        <a href="#" class="popup-search" data-popup="1"><i class="fa fa-search"></i></a>
+                        <a href="#" class="popup-search" data-popup="1" aria-label="Ara"><i class="fa fa-search"></i></a>
                         <a href="https://github.com/CalmKernelTR/bigfive-updater" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded" target="_blank">
                             <span>BigFive Updater</span>
                         </a>
                     </div>
                 </div>
             </div>
-            <button class="hamburger popup-menu" data-menu="mobileMenu">
+            <button class="hamburger popup-menu" data-menu="mobileMenu" aria-label="Menüyü aç">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -349,14 +353,14 @@
                     </div>
                     <div class="col-auto d-none d-xl-block">
                         <div class="btn-box">
-                            <a href="#" class="popup-search" data-popup="1"><i class="fa fa-search"></i></a>
+                            <a href="#" class="popup-search" data-popup="1" aria-label="Ara"><i class="fa fa-search"></i></a>
                             <a href="https://github.com/CalmKernelTR/bigfive-updater" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded" target="_blank">
                                 <span>BigFive Updater</span>
                             </a>
                         </div>
                     </div>
                 </div>
-                <button class="hamburger popup-menu" data-menu="mobileMenu">
+                <button class="hamburger popup-menu" data-menu="mobileMenu" aria-label="Menüyü aç">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -367,7 +371,7 @@
     <!--======== / Header ========-->
 
     <!-- page-banner -->
-    <section class="page-banner3">
+    <section class="page-banner3" id="main-content">
         <div class="shape"></div>
         <div class="shape3"></div>
         <div class="staff-text">Tools</div>
@@ -422,7 +426,7 @@
                 <!-- BigFive Updater -->
                 <div class="col-xl-4 col-lg-6 col-md-6">
                     <div class="ser-card">
-                        <img src="assets/images/service/service6-1.jpg" alt="BigFive Updater">
+                        <img loading="lazy" src="assets/images/service/service6-1.jpg" alt="BigFive Updater">
                         <div class="ser-content">
                             <h4 class="title"><a href="https://github.com/CalmKernelTR/bigfive-updater" target="_blank" title="">BigFive Updater</a></h4>
                             <div class="project-badges">
@@ -453,7 +457,7 @@
                 <!-- VPS-Backup-Suite -->
                 <div class="col-xl-4 col-lg-6 col-md-6">
                     <div class="ser-card">
-                        <img src="assets/images/service/service6-2.jpg" alt="VPS-Backup-Suite">
+                        <img loading="lazy" src="assets/images/service/service6-2.jpg" alt="VPS-Backup-Suite">
                         <div class="ser-content">
                             <h4 class="title"><a href="#" title="">VPS-Backup-Suite</a></h4>
                             <div class="project-badges">
@@ -480,7 +484,7 @@
                 <!-- vps-security -->
                 <div class="col-xl-4 col-lg-6 col-md-6">
                     <div class="ser-card">
-                        <img src="assets/images/service/service6-3.jpg" alt="vps-security">
+                        <img loading="lazy" src="assets/images/service/service6-3.jpg" alt="vps-security">
                         <div class="ser-content">
                             <h4 class="title"><a href="#" title="">vps-security</a></h4>
                             <div class="project-badges">
@@ -520,7 +524,7 @@
                 <!-- Claude-Turbo -->
                 <div class="col-xl-4 col-lg-6 col-md-6">
                     <div class="ser-card">
-                        <img src="assets/images/service/service6-1.jpg" alt="Claude-Turbo">
+                        <img loading="lazy" src="assets/images/service/service6-1.jpg" alt="Claude-Turbo">
                         <div class="ser-content">
                             <h4 class="title"><a href="#" title="">Claude-Turbo</a></h4>
                             <div class="project-badges">
@@ -550,7 +554,7 @@
                 <!-- DataWash -->
                 <div class="col-xl-4 col-lg-6 col-md-6">
                     <div class="ser-card">
-                        <img src="assets/images/service/service6-2.jpg" alt="DataWash">
+                        <img loading="lazy" src="assets/images/service/service6-2.jpg" alt="DataWash">
                         <div class="ser-content">
                             <h4 class="title"><a href="#" title="">DataWash</a></h4>
                             <div class="project-badges">
@@ -578,7 +582,7 @@
                 <!-- AI Chat Archive -->
                 <div class="col-xl-4 col-lg-6 col-md-6">
                     <div class="ser-card">
-                        <img src="assets/images/service/service6-3.jpg" alt="AI Chat Archive">
+                        <img loading="lazy" src="assets/images/service/service6-3.jpg" alt="AI Chat Archive">
                         <div class="ser-content">
                             <h4 class="title"><a href="#" title="">AI Chat Archive</a></h4>
                             <div class="project-badges">
@@ -618,7 +622,7 @@
                 <!-- SIEM-Integrated -->
                 <div class="col-xl-6 col-lg-6 col-md-6">
                     <div class="ser-card">
-                        <img src="assets/images/service/service6-1.jpg" alt="SIEM-Integrated">
+                        <img loading="lazy" src="assets/images/service/service6-1.jpg" alt="SIEM-Integrated">
                         <div class="ser-content">
                             <h4 class="title"><a href="#" title="">SIEM-Integrated</a></h4>
                             <div class="project-badges">
@@ -645,7 +649,7 @@
                 <!-- Infrastructure-Checkup -->
                 <div class="col-xl-6 col-lg-6 col-md-6">
                     <div class="ser-card">
-                        <img src="assets/images/service/service6-2.jpg" alt="Infrastructure-Checkup">
+                        <img loading="lazy" src="assets/images/service/service6-2.jpg" alt="Infrastructure-Checkup">
                         <div class="ser-content">
                             <h4 class="title"><a href="#" title="">Infrastructure-Checkup</a></h4>
                             <div class="project-badges">
@@ -686,7 +690,7 @@
                 <!-- NextDNS MCP -->
                 <div class="col-xl-4 col-lg-6 col-md-6">
                     <div class="ser-card">
-                        <img src="assets/images/service/service6-1.jpg" alt="NextDNS MCP">
+                        <img loading="lazy" src="assets/images/service/service6-1.jpg" alt="NextDNS MCP">
                         <div class="ser-content">
                             <h4 class="title"><a href="#" title="">NextDNS MCP</a></h4>
                             <div class="project-badges">
@@ -710,7 +714,7 @@
                 <!-- Proton SMTP MCP -->
                 <div class="col-xl-4 col-lg-6 col-md-6">
                     <div class="ser-card">
-                        <img src="assets/images/service/service6-2.jpg" alt="Proton SMTP MCP">
+                        <img loading="lazy" src="assets/images/service/service6-2.jpg" alt="Proton SMTP MCP">
                         <div class="ser-content">
                             <h4 class="title"><a href="#" title="">Proton SMTP MCP</a></h4>
                             <div class="project-badges">
@@ -734,7 +738,7 @@
                 <!-- LinkedIn MCP -->
                 <div class="col-xl-4 col-lg-6 col-md-6">
                     <div class="ser-card">
-                        <img src="assets/images/service/service6-3.jpg" alt="LinkedIn MCP">
+                        <img loading="lazy" src="assets/images/service/service6-3.jpg" alt="LinkedIn MCP">
                         <div class="ser-content">
                             <h4 class="title"><a href="#" title="">LinkedIn MCP</a></h4>
                             <div class="project-badges">
@@ -848,7 +852,7 @@
 
 
     <!-- Scroll Button -->
-    <button id="scrollBtn" title="Yukarı çık">
+    <button id="scrollBtn" title="Yukarı çık" aria-label="Yukarı çık">
         <i class="fas fa-angle-up"></i>
     </button>
 

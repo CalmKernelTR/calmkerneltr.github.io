@@ -17,6 +17,7 @@
     <meta property="og:url" content="https://calmkernel.tr/blog/edition-methodology.html">
     <meta property="og:title" content="Edition Metodolojisi: BigFive → Fluent → Zenith | CalmKernel">
     <meta property="og:description" content="BigFive Updater Edition sistemi açıklaması. Major version'lara göre Edition ve Codename yapısı.">
+    <meta property="og:image" content="https://calmkernel.tr/assets/images/og-preview.png">
     <meta property="og:locale" content="tr_TR">
     <meta property="og:site_name" content="CalmKernel">
 
@@ -24,6 +25,7 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Edition Metodolojisi: BigFive → Fluent → Zenith | CalmKernel">
     <meta name="twitter:description" content="BigFive Updater Edition sistemi açıklaması. Major version'lara göre Edition ve Codename yapısı.">
+    <meta name="twitter:image" content="https://calmkernel.tr/assets/images/og-preview.png">
 
     <!-- Preconnect for faster font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -99,6 +101,8 @@
 
 <body>
 
+    <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px;background:#45d0bd;color:#fff;text-decoration:none;font-weight:bold;">İçeriğe atla</a>
+
     <!-- Preloader -->
     <div id="preloader">
         <div class="loader">
@@ -152,8 +156,8 @@
     <!-- New Mobile Menu -->
     <div data-menu="mobileMenu" class="side-menu2">
         <div class="menu-btns">
-            <a href="#" class="popup-search" data-popup="1"><i class="fa fa-search"></i></a>
-            <button id="mobileCloseBtn2" class="close-btn"></button>
+            <a href="#" class="popup-search" data-popup="1" aria-label="Ara"><i class="fa fa-search"></i></a>
+            <button id="mobileCloseBtn2" class="close-btn" aria-label="Menüyü kapat"></button>
         </div>
         <ul>
             <li><a href="/#projects">Projeler</a></li>
@@ -230,14 +234,14 @@
                 </div>
                 <div class="col-auto d-none d-xl-block">
                     <div class="btn-box">
-                        <a href="#" class="popup-search" data-popup="1"><i class="fa fa-search"></i></a>
+                        <a href="#" class="popup-search" data-popup="1" aria-label="Ara"><i class="fa fa-search"></i></a>
                         <a href="https://github.com/CalmKernelTR/bigfive-updater" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded" target="_blank">
                             <span>BigFive Updater</span>
                         </a>
                     </div>
                 </div>
             </div>
-            <button class="hamburger popup-menu" data-menu="mobileMenu">
+            <button class="hamburger popup-menu" data-menu="mobileMenu" aria-label="Menüyü aç">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -297,14 +301,14 @@
                     </div>
                     <div class="col-auto d-none d-xl-block">
                         <div class="btn-box">
-                            <a href="#" class="popup-search" data-popup="1"><i class="fa fa-search"></i></a>
+                            <a href="#" class="popup-search" data-popup="1" aria-label="Ara"><i class="fa fa-search"></i></a>
                             <a href="https://github.com/CalmKernelTR/bigfive-updater" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded" target="_blank">
                                 <span>BigFive Updater</span>
                             </a>
                         </div>
                     </div>
                 </div>
-                <button class="hamburger popup-menu" data-menu="mobileMenu">
+                <button class="hamburger popup-menu" data-menu="mobileMenu" aria-label="Menüyü aç">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -315,7 +319,7 @@
     <!--======== / Header ========-->
 
     <!-- Article Content -->
-    <section class="ibt-section-gap">
+    <section class="ibt-section-gap" id="main-content">
         <div class="container">
             <article>
                 <div class="breadcrumb">
@@ -533,7 +537,7 @@
 
 
     <!-- Scroll Button -->
-    <button id="scrollBtn" title="Yukarı çık">
+    <button id="scrollBtn" title="Yukarı çık" aria-label="Yukarı çık">
         <i class="fas fa-angle-up"></i>
     </button>
 
