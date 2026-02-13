@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none">
+  <!-- Penguin Icon (minimal geometric) -->
+  <path d="M18 2C11.4 2 6 7.4 6 14v10c0 5 4 9 9 9h6c5 0 9-4 9-9V14c0-6.6-5.4-12-12-12z" fill="#45d0bd"/>
+  <ellipse cx="18" cy="20" rx="6" ry="9" fill="white"/>
+  <circle cx="14" cy="12" r="2.2" fill="#1a1a2e"/>
+  <circle cx="22" cy="12" r="2.2" fill="#1a1a2e"/>
+  <circle cx="14.8" cy="11.2" r="0.8" fill="white"/>
+  <circle cx="22.8" cy="11.2" r="0.8" fill="white"/>
+  <path d="M15 15.5L18 18.5l3-3" stroke="#f0883e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M13 33l-3.5 3h7z" fill="#f0883e"/>
+  <path d="M23 33l-3.5 3h7z" fill="#f0883e"/>
+</svg>

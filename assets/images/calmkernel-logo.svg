@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" fill="none">
+  <!-- Penguin Icon (minimal geometric) -->
+  <g transform="translate(2, 2)">
+    <!-- Body -->
+    <path d="M18 4C12.5 4 8 8.5 8 14v10c0 4.4 3.6 8 8 8h4c4.4 0 8-3.6 8-8V14c0-5.5-4.5-10-10-10z" fill="#45d0bd"/>
+    <!-- Belly -->
+    <ellipse cx="18" cy="20" rx="5.5" ry="8" fill="white"/>
+    <!-- Eyes -->
+    <circle cx="14.5" cy="12.5" r="2" fill="#1a1a2e"/>
+    <circle cx="21.5" cy="12.5" r="2" fill="#1a1a2e"/>
+    <!-- Eye highlights -->
+    <circle cx="15.2" cy="11.8" r="0.7" fill="white"/>
+    <circle cx="22.2" cy="11.8" r="0.7" fill="white"/>
+    <!-- Beak -->
+    <path d="M15.5 15.5L18 18l2.5-2.5" stroke="#f0883e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <!-- Feet -->
+    <path d="M13 33l-3 3h6z" fill="#f0883e"/>
+    <path d="M23 33l-3 3h6z" fill="#f0883e"/>
+  </g>
+  <!-- Text: CalmKernel -->
+  <text x="44" y="27" font-family="Sora, sans-serif" font-weight="700" font-size="22" fill="currentColor">
+    <tspan fill="currentColor">Calm</tspan><tspan fill="#45d0bd">Kernel</tspan>
+  </text>
+</svg>
