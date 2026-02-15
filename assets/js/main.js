@@ -9,6 +9,15 @@
 "use strict";
 
 // ============================
+// Utilities
+// ============================
+function escapeHtml(str) {
+  var div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
+// ============================
 // Preloader
 // ============================
 var Preloader = {
@@ -396,7 +405,9 @@ var VideoModal = {
 
   openModal: function (btn, modal, video) {
     const videoUrl = btn.getAttribute("data-video");
-    video.src = videoUrl + "?autoplay=1";
+    if (videoUrl && /^https:\/\//i.test(videoUrl)) {
+      video.src = videoUrl + "?autoplay=1";
+    }
     modal.style.display = "flex";
     setTimeout(() => modal.classList.add("show"), 10);
   },
@@ -793,8 +804,11 @@ var GsapAnimations = {
 
     subtitles.forEach(function (sub) {
       const text = sub.textContent.trim();
-      sub.innerHTML = '<span class="sub-text">' + text + "</span>";
-      const innerSpan = sub.querySelector(".sub-text");
+      sub.textContent = "";
+      var innerSpan = document.createElement("span");
+      innerSpan.className = "sub-text";
+      innerSpan.textContent = text;
+      sub.appendChild(innerSpan);
 
       gsap.set(innerSpan, {
         width: 1,
@@ -822,21 +836,26 @@ var GsapAnimations = {
     const headings = document.querySelectorAll(".title.animated-heading");
 
     headings.forEach(function (title) {
-      const words = title.textContent.trim().split(/\s+/);
+      var words = title.textContent.trim().split(/\s+/);
+      title.textContent = "";
 
-      const wrappedWords = words
-        .map(function (word) {
-          const letters = word
-            .split("")
-            .map(function (l) {
-              return '<span class="letter">' + l + "</span>";
-            })
-            .join("");
-          return '<span class="word">' + letters + "</span>";
-        })
-        .join('<span class="space"> </span>');
-
-      title.innerHTML = wrappedWords;
+      words.forEach(function (word, wi) {
+        if (wi > 0) {
+          var space = document.createElement("span");
+          space.className = "space";
+          space.textContent = " ";
+          title.appendChild(space);
+        }
+        var wordSpan = document.createElement("span");
+        wordSpan.className = "word";
+        word.split("").forEach(function (l) {
+          var letterSpan = document.createElement("span");
+          letterSpan.className = "letter";
+          letterSpan.textContent = l;
+          wordSpan.appendChild(letterSpan);
+        });
+        title.appendChild(wordSpan);
+      });
 
       const letters = title.querySelectorAll(".letter");
 
