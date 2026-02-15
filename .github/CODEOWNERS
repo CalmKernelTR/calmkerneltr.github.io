@@ -1,0 +1,13 @@
+# CODEOWNERS - calmkerneltr.github.io
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for everything
+* @ahm3t0t
+
+# Public-facing pages
+/*.html @ahm3t0t
+/assets/ @ahm3t0t
+
+# Security-sensitive
+/private-*/ @ahm3t0t
+/robots.txt @ahm3t0t
