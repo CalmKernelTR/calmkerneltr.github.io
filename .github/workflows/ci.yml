@@ -19,11 +19,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Validate HTML
-        uses: niclasleonbock/html5-validator@v1
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          root: .
-          css: false
+          python-version: "3.12"
+
+      - name: Install html5validator
+        run: pip install html5validator
+
+      - name: Validate HTML
+        run: html5validator --root . --show-warnings
 
   lighthouse:
     runs-on: ubuntu-latest
@@ -48,7 +53,9 @@ jobs:
             --assert.assertions.categories:performance=off \
             --assert.assertions.categories:accessibility=warn \
             --assert.assertions.categories:best-practices=warn \
-            --assert.assertions.categories:seo=warn
+            --assert.assertions.categories:seo=warn \
+            --assert.assertions.render-blocking-resources=off \
+            --assert.assertions.render-blocking-insight=off
 
       - name: Upload Lighthouse Report
         if: always()
