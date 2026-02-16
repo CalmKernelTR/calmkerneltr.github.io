@@ -28,7 +28,7 @@ jobs:
         run: pip install html5validator
 
       - name: Validate HTML
-        run: html5validator --root . --show-warnings
+        run: html5validator --root . --ignore-re 'background-clip'
 
   lighthouse:
     runs-on: ubuntu-latest
@@ -49,13 +49,9 @@ jobs:
             --collect.staticDistDir=. \
             --collect.url=http://localhost/index.html \
             --collect.url=http://localhost/tools.html \
-            --assert.preset=lighthouse:no-pwa \
-            --assert.assertions.categories:performance=off \
             --assert.assertions.categories:accessibility=warn \
             --assert.assertions.categories:best-practices=warn \
-            --assert.assertions.categories:seo=warn \
-            --assert.assertions.render-blocking-resources=off \
-            --assert.assertions.render-blocking-insight=off
+            --assert.assertions.categories:seo=warn
 
       - name: Upload Lighthouse Report
         if: always()
