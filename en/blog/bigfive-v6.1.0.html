@@ -211,7 +211,7 @@
     </style>
 </head>
 
-<body>
+<body class="dark">
 
     <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px;background:#45d0bd;color:#fff;text-decoration:none;font-weight:bold;">Skip to content</a>
 
@@ -473,57 +473,57 @@
                     </p>
 
                     <div class="info-box">
-                        <h3>📦 Hizli Kurulum</h3>
+                        <h3>📦 Hızlı Kurulum</h3>
                         <pre><code>curl -fsSL https://raw.githubusercontent.com/CalmKernelTR/bigfive-updater/main/install.sh | sudo bash</code></pre>
                     </div>
 
-                    <h2>🎯 Yeni Ozellikler</h2>
+                    <h2>🎯 Yeni Özellikler</h2>
 
-                    <h3>🩺 --doctor: Sistem Saglik Kontrolu</h3>
+                    <h3>🩺 --doctor: Sistem Sağlık Kontrolü</h3>
                     <p>
-                        Yeni <code>--doctor</code> bayragi ile sisteminizin BigFive ile uyumlulugunu kontrol edin.
-                        6 kategori uzerinden detayli analiz:
+                        Yeni <code>--doctor</code> bayragi ile sisteminizin BigFive ile uyumluluğunu kontrol edin.
+                        6 kategori üzerinden detaylı analiz:
                     </p>
                     <ul>
                         <li>Gerekli komutlar (curl, wget, gawk)</li>
-                        <li>Paket yoneticisi tespiti</li>
-                        <li>Evrensel paket yoneticileri (Flatpak, Snap)</li>
-                        <li>Sistem araclari (fwupd, timeshift)</li>
+                        <li>Paket yöneticisi tespiti</li>
+                        <li>Evrensel paket yöneticileri (Flatpak, Snap)</li>
+                        <li>Sistem araçları (fwupd, timeshift)</li>
                         <li>Dosya sistemi izinleri</li>
-                        <li>Disk alani kontrolu</li>
+                        <li>Disk alanı kontrolü</li>
                     </ul>
                     <pre><code>sudo guncel --doctor</code></pre>
 
-                    <h3>📜 --history: Guncelleme Gecmisi</h3>
+                    <h3>📜 --history: Güncelleme Geçmişi</h3>
                     <p>
-                        Son 10 guncelleme isleminin detayli gecmisini gorun:
+                        Son 10 güncelleme işleminin detaylı geçmişini görün:
                     </p>
                     <ul>
                         <li>Tarih ve saat</li>
-                        <li>Calistirilan backend'ler</li>
-                        <li>Basari/basarisizlik durumu</li>
-                        <li>Guncellenen paket sayisi</li>
+                        <li>Çalıştırılan backend'ler</li>
+                        <li>Başarı/başarısızlık durumu</li>
+                        <li>Güncellenen paket sayısı</li>
                     </ul>
                     <pre><code>guncel --history</code></pre>
 
-                    <h3>🌍 i18n: Turkce ve Ingilizce Destek</h3>
+                    <h3>🌍 i18n: Türkçe ve İngilizce Destek</h3>
                     <p>
-                        BigFive artik tam Turkce ve Ingilizce destegi sunuyor:
+                        BigFive artık tam Türkçe ve İngilizce desteği sunuyor:
                     </p>
-                    <pre><code># Turkce
+                    <pre><code># Türkçe
 guncel --lang tr
 
-# Ingilizce
+# İngilizce
 guncel --lang en
 
-# Sistem diline gore otomatik
+# Sistem diline göre otomatik
 guncel</code></pre>
 
-                    <h2>🔧 CI/CD ve Test Altyapisi</h2>
+                    <h2>🔧 CI/CD ve Test Altyapısı</h2>
 
                     <h3>🐳 5 Distro CI Matrix</h3>
                     <p>
-                        GitHub Actions uzerinde 5 buyuk Linux dagitiminda otomatik test:
+                        GitHub Actions üzerinde 5 büyük Linux dağıtımında otomatik test:
                     </p>
                     <div>
                         <span class="badge badge-distro">Ubuntu 24.04</span>
@@ -535,34 +535,34 @@ guncel</code></pre>
 
                     <h3>🧪 170 Otomatik Test</h3>
                     <p>
-                        BATS framework ile kapsamli test suite:
+                        BATS framework ile kapsamlı test suite:
                     </p>
                     <ul>
                         <li>guncel.bats: 131 test (ana script)</li>
                         <li>install.bats: 39 test (kurulum scripti)</li>
                     </ul>
 
-                    <h2>📋 Tam Degisiklik Listesi</h2>
+                    <h2>📋 Tam Değişiklik Listesi</h2>
 
                     <h3>Eklenenler</h3>
                     <ul>
-                        <li><code>--doctor</code>: 6 kategorili sistem saglik kontrolu</li>
-                        <li><code>--history</code>: Son 10 guncelleme gecmisi</li>
-                        <li><code>--lang [tr|en]</code>: Dil secimi</li>
+                        <li><code>--doctor</code>: 6 kategorili sistem sağlık kontrolü</li>
+                        <li><code>--history</code>: Son 10 güncelleme geçmişi</li>
+                        <li><code>--lang [tr|en]</code>: Dil seçimi</li>
                         <li>GitHub Actions 5-distro CI matrix</li>
                         <li>170 otomatik BATS testi</li>
-                        <li>Bash/Zsh/Fish completion guncellemeleri</li>
+                        <li>Bash/Zsh/Fish completion güncellemeleri</li>
                     </ul>
 
-                    <h3>Iyilestirmeler</h3>
+                    <h3>İyileştirmeler</h3>
                     <ul>
-                        <li>i18n: MSG_* degisken yapisi ile tam ceviri destegi</li>
-                        <li>Man page: v6.1.0 guncelleme</li>
+                        <li>i18n: MSG_* değişken yapısı ile tam çeviri desteği</li>
+                        <li>Man page: v6.1.0 güncelleme</li>
                         <li>install.sh: Night-V1.4.3 cleanup fonksiyonu</li>
                     </ul>
 
                     <div class="links-box">
-                        <h3>🔗 Baglantilar</h3>
+                        <h3>🔗 Bağlantılar</h3>
                         <a href="https://github.com/CalmKernelTR/bigfive-updater" target="_blank" rel="noopener">GitHub Repo &rarr;</a>
                         <a href="https://github.com/CalmKernelTR/bigfive-updater/releases/tag/v6.1.0" target="_blank" rel="noopener">Release v6.1.0 &rarr;</a>
                         <a href="https://github.com/CalmKernelTR/bigfive-updater/blob/main/CHANGELOG.tr.md" target="_blank" rel="noopener">Changelog &rarr;</a>
