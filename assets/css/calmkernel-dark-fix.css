@@ -1,0 +1,26 @@
+/* CalmKernel Dark Mode Fixes
+   Template'in dark mode'unda sticky header nav linkleri
+   is-sticky class olmadan gorunmuyor. Bu dosya o acigi kapatir.
+*/
+
+/* Fix: Sticky header nav links — scroll oncesi dark mode'da beyaz yap */
+.active-body .sticky-active .menu-style1 > ul > li > a {
+  color: var(--color-content-white);
+}
+
+.active-body .sticky-active .menu-style1 > ul > li > a:hover {
+  background-color: var(--color-surface-dark-2);
+}
+
+.active-body .sticky-active .menu-style1 > ul > li > a::before {
+  filter: brightness(9);
+}
+
+.active-body .sticky-active .menu-style1 > ul > li > .active {
+  background-color: var(--color-surface-dark-2);
+}
+
+/* Fix: Sticky header logo — dark mode'da logo gorunsun */
+.active-body .sticky-active .header-logo a img {
+  filter: brightness(9);
+}
