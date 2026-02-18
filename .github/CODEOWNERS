@@ -9,5 +9,4 @@
 /assets/ @ahm3t0t
 
 # Security-sensitive
-/private-*/ @ahm3t0t
 /robots.txt @ahm3t0t
