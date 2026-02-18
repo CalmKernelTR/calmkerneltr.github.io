@@ -49,6 +49,10 @@ jobs:
             --collect.staticDistDir=. \
             --collect.url=http://localhost/index.html \
             --collect.url=http://localhost/tools.html \
+            --collect.url=http://localhost/premium.html \
+            --collect.url=http://localhost/en/index.html \
+            --collect.url=http://localhost/en/tools.html \
+            --collect.url=http://localhost/en/premium.html \
             --assert.assertions.categories:accessibility=warn \
             --assert.assertions.categories:best-practices=warn \
             --assert.assertions.categories:seo=warn
