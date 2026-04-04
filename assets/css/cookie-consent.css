@@ -6,7 +6,7 @@
   right: 0;
   z-index: 99999;
   background: #1a1a1a;
-  border-top: 1px solid rgba(69, 208, 189, 0.3);
+  border-top: 1px solid rgba(245, 158, 11, 0.3);
   padding: 16px 20px;
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
@@ -29,13 +29,13 @@
   color: #ccc;
 }
 .cc-inner a {
-  color: #45d0bd;
+  color: #f59e0b;
   text-decoration: underline;
 }
 #ccAccept {
   flex-shrink: 0;
-  background: #45d0bd;
-  color: #1a1a1a;
+  background: #f59e0b;
+  color: #09090b;
   border: none;
   padding: 8px 24px;
   border-radius: 4px;
@@ -45,7 +45,7 @@
   transition: background 0.2s;
 }
 #ccAccept:hover {
-  background: #3bb8a6;
+  background: #d97706;
 }
 @media (max-width: 768px) {
   .cc-inner {
