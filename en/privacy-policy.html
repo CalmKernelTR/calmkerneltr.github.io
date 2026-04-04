@@ -31,7 +31,7 @@
 </head>
 <body class="bg-zinc-950 text-zinc-300 font-body antialiased">
 
-  <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:8px;background:#f59e0b;color:#000;text-decoration:none;font-weight:bold;">Skip to content</a>
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[99999] focus:px-4 focus:py-2 focus:bg-amber-500 focus:text-zinc-950 focus:font-bold focus:rounded-lg focus:no-underline">Skip to content</a>
 
   <!-- Navigation -->
   <header class="fixed top-0 w-full bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/50 shadow-2xl shadow-amber-900/10 z-50">
@@ -41,7 +41,7 @@
         <a class="text-zinc-400 hover:text-amber-400 transition-all duration-300" href="/en/#products">Products</a>
         <a class="text-zinc-400 hover:text-amber-400 transition-all duration-300" href="/en/#open-source">Open Source</a>
         <a class="text-zinc-400 hover:text-amber-400 transition-all duration-300" href="/en/#about">About</a>
-        <a class="text-zinc-400 hover:text-amber-400 transition-all duration-300" href="/en/blog/bigfive-v6.1.0.html">Blog</a>
+        <a class="text-zinc-400 hover:text-amber-400 transition-all duration-300" href="#">Blog</a>
       </nav>
       <div class="flex items-center gap-4">
         <a href="/privacy-policy.html" class="hidden md:inline text-sm text-zinc-500 hover:text-white transition-colors" title="Türkçe">TR</a>
@@ -49,7 +49,7 @@
           Contact
         </a>
         <button id="mobileMenuBtn" class="md:hidden text-white text-xl" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-          <i class="fa fa-bars"></i>
+          <i class="fas fa-bars"></i>
         </button>
       </div>
     </div>
@@ -57,7 +57,7 @@
       <a class="block py-3 text-zinc-400 hover:text-amber-400" href="/en/#products">Products</a>
       <a class="block py-3 text-zinc-400 hover:text-amber-400" href="/en/#open-source">Open Source</a>
       <a class="block py-3 text-zinc-400 hover:text-amber-400" href="/en/#about">About</a>
-      <a class="block py-3 text-zinc-400 hover:text-amber-400" href="/en/blog/bigfive-v6.1.0.html">Blog</a>
+      <a class="block py-3 text-zinc-400 hover:text-amber-400" href="#">Blog</a>
       <a class="block py-3 text-zinc-500 hover:text-white" href="/privacy-policy.html">Türkçe</a>
     </div>
   </header>
@@ -139,7 +139,7 @@
       </div>
       <div class="flex flex-wrap justify-center gap-6 md:gap-8">
         <a class="text-sm text-zinc-500 hover:text-amber-400 transition-colors" href="/en/privacy-policy.html">Privacy Policy</a>
-        <a class="text-sm text-zinc-500 hover:text-amber-400 transition-colors" href="/en/tools.html">Tools</a>
+        <a class="text-sm text-zinc-500 hover:text-amber-400 transition-colors" href="/en/#products">Tools</a>
         <a class="text-sm text-zinc-500 hover:text-amber-400 transition-colors" href="https://github.com/CalmKernelTR" target="_blank" rel="noopener">GitHub</a>
         <a class="text-sm text-zinc-500 hover:text-amber-400 transition-colors" href="https://www.linkedin.com/company/calmkernel/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
@@ -152,12 +152,12 @@
 
   <script>
     (function() {
-      var btn = document.getElementById('mobileMenuBtn');
-      var menu = document.getElementById('mobileMenu');
+      const btn = document.getElementById('mobileMenuBtn');
+      const menu = document.getElementById('mobileMenu');
       btn.addEventListener('click', function() {
-        var open = menu.classList.toggle('hidden');
-        btn.setAttribute('aria-expanded', !open);
-        menu.setAttribute('aria-hidden', open);
+        const isHidden = menu.classList.toggle('hidden');
+        btn.setAttribute('aria-expanded', String(!isHidden));
+        menu.setAttribute('aria-hidden', String(isHidden));
       });
       menu.querySelectorAll('a').forEach(function(link) {
         link.addEventListener('click', function() {

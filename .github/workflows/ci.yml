@@ -50,6 +50,7 @@ jobs:
             --collect.url=http://localhost/index.html \
             --collect.url=http://localhost/en/index.html \
             --collect.url=http://localhost/privacy-policy.html \
+            --collect.url=http://localhost/en/privacy-policy.html \
             --collect.url=http://localhost/404.html \
             --assert.assertions.categories:accessibility=warn \
             --assert.assertions.categories:best-practices=warn \
