@@ -1,0 +1,22 @@
+# Auto-detect text files and normalize line endings
+* text=auto
+
+# Force LF for web files
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.md text eol=lf
+*.svg text eol=lf
+
+# Binary files - no diff, no merge
+*.woff binary
+*.woff2 binary
+*.png binary
+*.jpg binary
+*.ico binary
+
+# Generated files - no diff in PRs
+assets/css/main.css linguist-generated=true
+assets/css/font-awesome.min.css linguist-generated=true
