@@ -1,6 +1,10 @@
 (function () {
   'use strict';
-  if (localStorage.getItem('ck_cookie_consent')) return;
+  try {
+    if (localStorage.getItem('ck_cookie_consent')) return;
+  } catch (e) {
+    return;
+  }
 
   var lang = document.documentElement.lang || 'tr';
   var isTR = lang.startsWith('tr');
@@ -34,7 +38,7 @@
   document.body.appendChild(banner);
 
   btn.addEventListener('click', function () {
-    localStorage.setItem('ck_cookie_consent', '1');
+    try { localStorage.setItem('ck_cookie_consent', '1'); } catch (e) {}
     banner.classList.add('cc-hidden');
     setTimeout(function () { banner.remove(); }, 400);
   });
